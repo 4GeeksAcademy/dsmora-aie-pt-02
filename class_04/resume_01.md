@@ -14,16 +14,16 @@ Los sistemas de archivos modernos utilizan una estructura de árbol invertido.
 
 ```mermaid
 graph TD
-    Root[/] --> Home[home/]
-    Root --> Etc[etc/]
-    Home --> User[usuario/]
-    User --> Projects[projects/]
-    Projects --> Portfolio[portfolio/]
-    Portfolio --> Index[index.html]
-    Portfolio --> CSS[css/]
-    Portfolio --> Assets[assets/]
-    CSS --> Style[style.css]
-    Assets --> Logo[logo.png]
+    Root["/ (Raíz)"] --> Home["home/"]
+    Root --> Etc["etc/"]
+    Home --> User["usuario/"]
+    User --> Projects["projects/"]
+    Projects --> Portfolio["portfolio/"]
+    Portfolio --> Index["index.html"]
+    Portfolio --> CSS["css/"]
+    Portfolio --> Assets["assets/"]
+    CSS --> Style["style.css"]
+    Assets --> Logo["logo.png"]
 ```
 
 ### Relaciones Clave:

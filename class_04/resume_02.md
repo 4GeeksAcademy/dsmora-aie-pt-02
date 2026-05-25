@@ -34,8 +34,9 @@ Para dominar la terminal, primero debes saber dónde estás y cómo moverte.
 *   **`head` / `tail`**: Muestra las primeras o últimas líneas (ej. `tail -n 20 error.log`).
 *   **`grep`**: El buscador maestro.
     *   `grep "token" config.json` -> Busca la palabra "token".
-    *   `grep -i` -> Ignora mayúsculas.
-    *   `grep -r` -> Busca dentro de todos los archivos de una carpeta.
+    *   `grep -i "error" server.log` -> Ignora mayúsculas/minúsculas.
+    *   `grep -r "TODO" .` -> Busca recursivamente en todos los archivos de la carpeta actual.
+    *   `grep -ir "db_password" .` -> **Combinado:** Busca "db_password" de forma recursiva ignorando mayúsculas/minúsculas en todo el proyecto.
 
 ## 4. Superpoderes y Atajos de Productividad
 
@@ -56,3 +57,20 @@ Un desarrollador rara vez usa la terminal aislada. El flujo típico es:
 ---
 *Dominar estos comandos te sacará del grupo de "usuarios" y te pondrá en el de "desarrolladores". La memoria muscular es clave: ¡Practica cada comando al menos 10 veces!*
 
+
+## 6. Editores de Texto en la Terminal (Nano y Vim)
+
+Cuando trabajas en la terminal, a menudo necesitas editar archivos rápidamente sin salir de ella.
+
+### Nano: La Simplicidad por Defecto
+Ideal para principiantes. Muestra los comandos en la parte inferior.
+*   **Abrir:** `nano archivo.txt`
+*   **Guardar:** `Ctrl + O` (Enter para confirmar).
+*   **Salir:** `Ctrl + X`.
+
+### Vim: El Editor del Poder
+Funciona por modos (Normal, Insertar, Comando).
+*   **Escribir:** Presiona `i` (Modo Insertar).
+*   **Volver:** Presiona `Esc` (Modo Normal).
+*   **Guardar y Salir:** Escribe `:wq` y `Enter`.
+*   **Salir sin guardar:** Escribe `:q!` y `Enter`.
