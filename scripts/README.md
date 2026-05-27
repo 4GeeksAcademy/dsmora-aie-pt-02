@@ -17,13 +17,21 @@ playwright install chromium
 
 ## Uso
 
-Para ejecutar el scraper, asegúrate de configurar la URL del tutorial deseado dentro del archivo `scraper.py` y luego ejecuta:
+El script actual ya incluye dos tutoriales configurados y los procesa en una sola ejecución:
+
+- Introduction to Programming (Mastering the Art of K)
+- Programming Fundamentals
+
+Para ejecutar el scraper:
 
 ```bash
 python3 scraper.py
 ```
 
-El script generará un archivo `.json` con el contenido extraído de forma incremental para evitar pérdida de datos.
+Los resultados se guardan de forma incremental en `../class_06/` para evitar pérdida de datos:
+
+- `../class_06/introduction_to_programming.json`
+- `../class_06/programming_fundamentals.json`
 
 ## Características
 
