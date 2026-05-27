@@ -28,6 +28,19 @@ graph LR
 *   `git commit -m "Mensaje descriptivo"`: Guarda los cambios permanentemente.
     *   *Pro Tip:* Usa mensajes en presente imperativo: "Add login feature" en lugar de "Added login feature".
 
+### Conectar un repo local a un repo remoto nuevo (`origin`)
+
+Cuando ya tienes commits locales y creas un repositorio vacío en GitHub:
+
+```bash
+git remote add origin https://github.com/USUARIO/REPO.git
+git branch -M main
+git push -u origin main
+```
+
+*   `git remote add origin ...`: Registra el remoto principal.
+*   `git push -u origin main`: Sube la rama y deja configurado el seguimiento para futuros `git push`/`git pull`.
+
 ## 3. Ramas y Desarrollo Paralelo
 
 Las ramas permiten experimentar sin romper el código que ya funciona (rama `main`).
