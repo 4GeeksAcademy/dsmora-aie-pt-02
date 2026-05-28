@@ -1,68 +1,111 @@
-# Resumen Detallado: Fundamentos del Sistema de Archivos
+# Guia Docente: Fundamentos del Sistema de Archivos
 
-Este resumen profundiza en la organización, jerarquía y gestión de archivos, conceptos críticos para cualquier desarrollador web.
+Este documento convierte el resumen del modulo en una guia de clase online.
+El foco es que el estudiante entienda estructura, rutas y organizacion de proyectos web.
 
-## 📂 1. Conceptos Fundamentales: Contenido vs. Ubicación
+## 1. Objetivos de aprendizaje
 
-Un archivo no es solo la información que contiene (bytes), sino también su contexto dentro de una estructura.
-*   **Contenido:** El código HTML, las reglas CSS o los assets.
-*   **Ubicación:** La "dirección" exacta que permite al sistema o al navegador encontrar ese contenido. Sin una ubicación correcta, el contenido es inaccesible.
+Al finalizar la clase, el estudiante deberia poder:
 
-## 🌳 2. Jerarquía y Estructura de "Árbol"
+- Explicar la diferencia entre contenido de archivo y ubicacion de archivo.
+- Interpretar una estructura de directorios en arbol (padre, hijo, hermanos).
+- Usar rutas absolutas y relativas segun el contexto.
+- Evitar errores frecuentes de rutas en HTML, CSS y JS.
+- Organizar carpetas de proyecto con buenas practicas de nombres.
 
-Los sistemas de archivos modernos utilizan una estructura de árbol invertido.
+## 2. Mapa tematico de la sesion
+
+1. Contenido vs ubicacion.
+2. Estructura jerarquica del sistema de archivos.
+3. Rutas absolutas y rutas relativas.
+4. `index.html` como punto de entrada comun.
+5. Convenciones de nomenclatura y estructura sostenible.
+
+## 3. Guion sugerido para clase online (75-90 minutos)
+
+### Bloque A (15 min): Modelo mental correcto
+
+- Presentar que un archivo no solo es bytes, tambien es contexto de ruta.
+- Mostrar error tipico: archivo existe, pero el navegador no lo encuentra.
+
+### Bloque B (20 min): Jerarquia del sistema
+
+- Explicar raiz, carpeta padre, hijo y hermanos.
+- Dibujar en vivo una estructura simple de proyecto web.
 
 ```mermaid
 graph TD
-    Root["/ (Raíz)"] --> Home["home/"]
-    Root --> Etc["etc/"]
-    Home --> User["usuario/"]
-    User --> Projects["projects/"]
-    Projects --> Portfolio["portfolio/"]
-    Portfolio --> Index["index.html"]
-    Portfolio --> CSS["css/"]
-    Portfolio --> Assets["assets/"]
-    CSS --> Style["style.css"]
-    Assets --> Logo["logo.png"]
+        Root["/"] --> Project["mi-proyecto/"]
+        Project --> Index["index.html"]
+        Project --> CSS["css/"]
+        Project --> JS["js/"]
+        Project --> Assets["assets/"]
+        CSS --> Style["styles.css"]
+        JS --> App["app.js"]
+        Assets --> Img["logo.png"]
 ```
 
-### Relaciones Clave:
-*   **Carpeta Raíz (Root):** El nivel superior. En Linux/macOS es `/`, en Windows suele ser `C:\`.
-*   **Padre (Parent):** Directorio que contiene otros elementos. `portfolio` es padre de `index.html`.
-*   **Hijo (Child):** Elemento contenido en otro. `style.css` es hijo de `css`.
-*   **Hermanos (Siblings):** Elementos en el mismo nivel. `index.html`, `css/` y `assets/` son hermanos.
+### Bloque C (25 min): Rutas absolutas y relativas
 
-## 📍 3. Rutas: El Mapa del Desarrollador
+- Ruta absoluta: inicia desde raiz.
+- Ruta relativa: inicia desde el archivo actual.
+- Practica guiada con ejemplos de `./`, `../` y subcarpetas.
 
-### A. Rutas Absolutas
-Definen la ubicación desde la raíz absoluta del sistema.
-*   **Ejemplo:** `/home/user/project/index.html`
-*   **Uso:** Raro en desarrollo web local, ya que las rutas cambian al subir el sitio a un servidor.
+```text
+Desde index.html a css/styles.css -> css/styles.css
+Desde css/styles.css a assets/logo.png -> ../assets/logo.png
+```
 
-### B. Rutas Relativas (El estándar de oro)
-Definen la ubicación partiendo de donde está el archivo actual.
-*   `archivo.html`: El archivo está en la misma carpeta.
-*   `carpeta/archivo.html`: Entra en una subcarpeta.
-*   `../`: Sube un nivel hacia el padre.
+### Bloque D (15 min): Buenas practicas de estructura
 
-| Situación | Ruta Ejemplo |
-| :--- | :--- |
-| Mismo nivel | `archivo.txt` |
-| Dentro de una carpeta | `img/foto.jpg` |
-| Subir un nivel | `../otro_archivo.html` |
-| Subir y entrar en otra | `../css/styles.css` |
+- Mantener niveles de anidacion razonables.
+- Usar minusculas, guiones y nombres semanticos.
+- Evitar espacios, caracteres especiales y tildes en nombres.
 
-## 🚀 4. Punto de Entrada y Buenas Prácticas
+### Bloque E (10 min): Mini evaluacion en vivo
 
-*   **index.html:** Es el nombre reservado. Los servidores web buscan este archivo automáticamente cuando entras en un directorio.
-*   **Nivel de Anidación:** Mantén tu estructura simple. Evita `proyecto/web/src/assets/images/icons/social/fb.png` si puedes simplificarlo.
-*   **Case Sensitivity:** En servidores Linux, `Imagen.png` e `imagen.png` son archivos distintos. Usa siempre minúsculas para evitar errores.
-*   **Caracteres Prohibidos:** Evita espacios y tildes en nombres de archivos (ej. usa `mi-archivo.js` en lugar de `mi archivo.js`).
+- Resolver 3 rutas en pantalla compartida.
+- Corregir 2 errores reales de estructura.
 
-## 🛠️ Ejercicio de Verificación
-Si estás en `css/style.css` y quieres usar una imagen en `assets/bg.jpg`, ¿cuál es la ruta correcta?
-*   **Respuesta:** `../assets/bg.jpg` (Sales de `css` y entras en `assets`).
+## 4. Checklist didactico por tema
 
----
-*Este conocimiento es la base para que tus hojas de estilo, scripts e imágenes funcionen siempre, sin importar dónde despliegues tu código.*
+- El estudiante puede explicar por que una ruta falla.
+- Puede calcular una ruta relativa desde cualquier archivo.
+- Puede proponer una estructura de carpetas clara para un proyecto pequeno.
+
+## 5. Actividades practicas para clase
+
+### Actividad 1 (parejas, 10 min)
+
+Diseñar estructura de carpetas para landing + blog + assets compartidos.
+
+### Actividad 2 (individual, 10 min)
+
+Corregir 5 rutas rotas en un proyecto de ejemplo.
+
+### Actividad 3 (cierre, 5 min)
+
+Justificar en una frase por que `index.html` suele ser el punto de entrada.
+
+## 6. Preguntas de comprobacion rapida
+
+- Cuando conviene ruta absoluta y cuando relativa?
+- Que significa `../` en una ruta?
+- Por que `Logo.png` y `logo.png` pueden romper un despliegue en Linux?
+- Que costo tiene una estructura demasiado anidada?
+
+## 7. Errores frecuentes y como corregirlos
+
+- Error: asumir que una ruta funciona igual en local y servidor.
+    Correccion: validar estructura y case sensitivity en entorno Linux.
+- Error: usar nombres inconsistentes de carpeta (`Img`, `img`, `images`).
+    Correccion: definir convencion unica y aplicarla en todo el proyecto.
+- Error: usar rutas relativas sin ubicar primero el archivo origen.
+    Correccion: siempre partir del archivo actual y navegar paso a paso.
+
+## 8. Cierre para la sesion
+
+- Mensaje clave: estructura clara reduce bugs de integracion.
+- Puente: dominar archivos y rutas simplifica Git, despliegue y colaboracion.
+- Tarea: organizar un mini proyecto estatico con rutas 100 por ciento funcionales.
 

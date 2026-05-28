@@ -1,83 +1,111 @@
-# Resumen Maestro: Git y el Ciclo de Vida del Desarrollo
+# Guia Docente: Git y el Ciclo de Vida del Desarrollo
 
-Git es un sistema de control de versiones distribuido que rastrea los cambios en tu código mediante "instantáneas" (snapshots). Es la base de la colaboración profesional.
+Este documento transforma el resumen del modulo en una guia para clase online.
+El objetivo es que el estudiante domine el flujo real de trabajo con Git,
+desde cambios locales hasta colaboracion con repositorios remotos.
 
-## 1. El Modelo Mental de Git: Los 3 Estados
+## 1. Objetivos de aprendizaje
 
-Para usar Git con éxito, debes entender dónde residen tus cambios en cada momento.
+Al finalizar la clase, el estudiante deberia poder:
+
+- Explicar el modelo de tres estados: working directory, staging area y repository.
+- Usar correctamente `git add`, `git commit`, `git push` y `git pull`.
+- Interpretar `git status` y `git log` para diagnosticar el estado del proyecto.
+- Crear historiales de commits claros, atomicos y trazables.
+- Resolver situaciones basicas de conflicto sin perder trabajo.
+
+## 2. Mapa tematico de la sesion
+
+1. Modelo mental de Git y estados del archivo.
+2. Comandos esenciales de configuracion y flujo diario.
+3. Buenas practicas de commits y mensajes.
+4. Ramas basicas para aislar cambios.
+5. Sincronizacion con remoto y manejo inicial de conflictos.
+
+## 3. Guion sugerido para clase online (90 minutos)
+
+### Bloque A (15 min): Modelo mental
+
+- Explicar Git como sistema de snapshots, no como "guardar versiones sueltas".
+- Mostrar los 3 estados y el movimiento de cambios entre estados.
+
+Diagrama para explicar en vivo:
 
 ```mermaid
 graph LR
-    subgraph Local
-        WD[Working Directory] -- "git add" --> SA[Staging Area]
-        SA -- "git commit" --> Repo[Local Repo]
-    end
-    Repo -- "git push" --> Remote[Remote Repo]
-    Remote -- "git pull/fetch" --> Repo
+    WD[Working Directory] -->|git add| ST[Staging Area]
+    ST -->|git commit| LR[Local Repository]
+    LR -->|git push| RR[Remote Repository]
+    RR -->|git pull| LR
 ```
 
-1.  **Working Directory:** Tu carpeta de trabajo actual. Los archivos están "untracked" (sin seguimiento) o "modified".
-2.  **Staging Area (Index):** El "limbo" o área de preparación. Aquí preparas lo que irá en el siguiente commit.
-3.  **Local Repository (Committed):** Git ha guardado una instantánea permanente en la carpeta `.git`.
+### Bloque B (20 min): Flujo minimo diario
 
-## 2. Comandos Esenciales de Configuración y Trabajo
+- `git status` para leer contexto antes de actuar.
+- `git add` selectivo para construir commits atomicos.
+- `git commit` con mensaje descriptivo y orientado a cambio.
 
-*   `git init`: Crea un nuevo repositorio.
-*   `git status`: **El comando más importante**. Úsalo constantemente para saber en qué estado están tus archivos.
-*   `git add <archivo>` o `git add .`: Mueve cambios al Staging Area.
-*   `git commit -m "Mensaje descriptivo"`: Guarda los cambios permanentemente.
-    *   *Pro Tip:* Usa mensajes en presente imperativo: "Add login feature" en lugar de "Added login feature".
-
-### Conectar un repo local a un repo remoto nuevo (`origin`)
-
-Cuando ya tienes commits locales y creas un repositorio vacío en GitHub:
+Secuencia base:
 
 ```bash
-git remote add origin https://github.com/USUARIO/REPO.git
-git branch -M main
-git push -u origin main
+git status
+git add src/auth/login.js
+git commit -m "feat(auth): validar formato de email"
 ```
 
-*   `git remote add origin ...`: Registra el remoto principal.
-*   `git push -u origin main`: Sube la rama y deja configurado el seguimiento para futuros `git push`/`git pull`.
+### Bloque C (20 min): Historial y trazabilidad
 
-## 3. Ramas y Desarrollo Paralelo
+- Usar `git log --oneline --graph` para entender historia del repo.
+- Relacionar cada commit con una intencion concreta.
+- Diferenciar commit de trabajo vs commit de entrega.
 
-Las ramas permiten experimentar sin romper el código que ya funciona (rama `main`).
+### Bloque D (20 min): Remoto y colaboracion basica
 
-*   `git switch -c feature/nueva-idea`: Crea y cambia a una nueva rama.
-*   `git switch main`: Vuelve a la rama principal.
-*   **HEAD:** Es el puntero que indica en qué rama/commit estás trabajando ahora.
+- `git push` y `git pull` como sincronizacion entre local y remoto.
+- Caso comun: rechazo en push por cambios remotos.
+- Estrategia segura: `git pull --rebase` (si el equipo lo permite) o merge clasico.
 
-## 4. Integración: ¿Merge o Rebase?
+### Bloque E (15 min): Conflictos iniciales
 
-| Característica | **Merge** (`git merge`) | **Rebase** (`git rebase`) |
-| :--- | :--- | :--- |
-| **Resultado** | Crea un nuevo "Commit de Fusión". | Reaplica commits uno a uno sobre la base nueva. |
-| **Historial** | Preserva la historia real de bifurcación (no lineal). | Crea un historial limpio y lineal (reescribe la historia). |
-| **Uso Ideal** | Ramas compartidas con el equipo. | Ramas locales antes de integrarlas al equipo. |
-| **Riesgo** | Genera muchos commits de "Merge". | **Peligroso** en ramas que otros ya están usando. |
+- Identificar marcas de conflicto en archivo.
+- Resolver manualmente y completar el ciclo con commit.
 
-## 5. Gestión de Emergencias y Errores
+## 4. Actividades practicas para la clase
 
-*   **`git stash`**: "¿Necesitas cambiar de rama pero no quieres hacer commit todavía?". Guarda tus cambios en una "pila" temporal y limpia tu directorio.
-    *   `git stash pop` para recuperarlos.
-*   **`git revert <hash>`**: Deshace un commit creando uno nuevo que hace lo contrario. Es la forma más segura de corregir errores en equipo.
-*   **`git reset --hard HEAD~1`**: Borra el último commit y todos sus cambios. **¡Cuidado!** No hay vuelta atrás.
+### Actividad 1 (parejas, 12 min)
 
-## 6. Flujo Gitflow Simplificado (Estándar de la Industria)
+Crear 3 commits atomicos sobre un mini proyecto:
 
-1.  **`main`**: Siempre estable. Nunca se trabaja aquí directamente.
-2.  **`dev`**: Integración de nuevas funciones.
-3.  **`feature/`**: Ramas de corta duración para una sola tarea.
-4.  **`bugfix/`**: Ramas para arreglar errores.
+- `feat`: nueva funcionalidad pequena.
+- `fix`: corregir bug puntual.
+- `docs`: actualizar README.
 
-### Checklist para un Commit de Calidad:
-- [ ] ¿He revisado los cambios con `git status`?
-- [ ] ¿El commit hace una sola cosa (es atómico)?
-- [ ] ¿El mensaje describe qué hace el cambio (no cómo lo hice)?
-- [ ] ¿He evitado incluir archivos basura (`node_modules`, `.env`) usando un `.gitignore`?
+### Actividad 2 (parejas, 10 min)
 
----
-*Git no es difícil, es metódico. Practica el ciclo **Add -> Status -> Commit -> Status** hasta que sea automático.*
+Simular conflicto en el mismo archivo entre dos ramas y resolverlo.
 
+### Actividad 3 (individual, 8 min)
+
+Reescribir mensajes de commit pobres a mensajes profesionales.
+
+## 5. Preguntas de comprobacion rapida
+
+- Que diferencia hay entre `git add .` y `git add archivo_especifico`?
+- Que riesgo tiene crear commits gigantes con multiples cambios no relacionados?
+- Cuando un `push` falla por divergir el remoto, cual es el siguiente paso correcto?
+- Por que `git status` deberia ejecutarse antes de casi cualquier accion?
+
+## 6. Errores frecuentes y como corregirlos
+
+- Error: commitear archivos temporales o secretos.
+  Correccion: usar `.gitignore` y revisar staging antes de commitear.
+- Error: mensajes de commit vagos como "cambios".
+  Correccion: usar formato con intencion (`feat`, `fix`, `refactor`, `docs`).
+- Error: mezclar cambios de multiples temas en un solo commit.
+  Correccion: hacer commits pequenos por unidad funcional.
+
+## 7. Cierre para la sesion
+
+- Mensaje clave: Git no solo guarda codigo, documenta decisiones tecnicas.
+- Resultado esperado: historial legible y colaboracion mas segura.
+- Tarea sugerida: crear una rama personal y entregar 5 commits atomicos en un ejercicio guiado.

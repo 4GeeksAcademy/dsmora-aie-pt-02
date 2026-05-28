@@ -1,72 +1,116 @@
-# Resumen Maestro: GitHub y Colaboración Profesional
+# Guia Docente: GitHub y Colaboracion Profesional
 
-GitHub es la plataforma que transforma Git (herramienta local) en un entorno social y colaborativo de alto rendimiento.
+Este documento organiza el modulo como guia para clase online.
+El foco es pasar de Git local a colaboracion real con flujo de trabajo profesional en GitHub.
 
-## 1. El Ecosistema de GitHub
-GitHub no es solo código; es una suite de herramientas para la gestión de proyectos:
-*   **Repositorios:** El contenedor de tu proyecto.
-*   **Issues:** Seguimiento de tareas, errores y debates.
-*   **Pull Requests (PR):** Propuestas de cambios para revisión.
-*   **GitHub Actions:** Automatización de pruebas y despliegues (CI/CD).
+## 1. Objetivos de aprendizaje
 
-## 2. Flujo de Trabajo Colaborativo (GitHub Flow)
+Al finalizar la clase, el estudiante deberia poder:
 
-El flujo profesional estándar sigue estos pasos:
+- Diferenciar claramente Git (herramienta) y GitHub (plataforma colaborativa).
+- Aplicar GitHub Flow con ramas, pull requests y revisiones.
+- Crear PRs claros con contexto tecnico y criterios de validacion.
+- Participar en code review con feedback accionable y respetuoso.
+- Entender el rol de Issues, Projects y Actions en un equipo.
+
+## 2. Mapa tematico de la sesion
+
+1. Ecosistema GitHub: repos, issues, PRs, actions.
+2. GitHub Flow de extremo a extremo.
+3. Pull Requests: estructura, descripcion y evidencia.
+4. Code review: calidad, riesgos y aprobacion.
+5. Integracion continua y validaciones automaticas.
+
+## 3. Guion sugerido para clase online (90 minutos)
+
+### Bloque A (15 min): Panorama general
+
+- Definir que problema resuelve GitHub sobre Git puro: colaboracion asincrona.
+- Mostrar la anatomia de un repositorio (code, issues, pull requests, actions).
+
+### Bloque B (20 min): GitHub Flow
+
+- Crear rama desde `main`.
+- Desarrollar cambios pequenos y hacer push.
+- Abrir PR contra `main` con descripcion tecnica.
+- Revisar, corregir y mergear.
+
+Diagrama de referencia:
 
 ```mermaid
 graph TD
-    A[Repo Original] -- "Fork" --> B[Tu Copia en GitHub]
-    B -- "Clone" --> C[Tu PC Local]
-    C -- "Nueva Rama" --> D[Desarrollo / Commits]
-    D -- "Push" --> B
-    B -- "Pull Request" --> A
-    A -- "Code Review" --> E{¿Aprobado?}
-    E -- Si --> F[Merge a Main]
-    E -- No --> D
+    A[main] --> B[feature/rama]
+    B --> C[Commits]
+    C --> D[Push a GitHub]
+    D --> E[Pull Request]
+    E --> F[Code Review]
+    F --> G{Aprobado?}
+    G -->|Si| H[Merge]
+    G -->|No| I[Cambios solicitados]
+    I --> C
 ```
 
-## 3. Pull Requests: El Corazón de la Revisión de Código
-Un Pull Request no es solo "pedir que unan mi código", es una oportunidad de aprendizaje.
+### Bloque C (20 min): Pull Request de calidad
 
-### Anatomía de un buen PR:
-1.  **Título Claro:** "Fix: Alineación del logo en móviles".
-2.  **Descripción:** ¿Qué problema resuelve?, ¿Cómo se probó?, capturas de pantalla si es visual.
-3.  **Palabras Mágicas:** Usar `Closes #123` en la descripción cerrará automáticamente el Issue relacionado cuando el PR se acepte.
-4.  **Draft PR:** Si tu trabajo no está terminado pero quieres feedback temprano, ábrelo como "Draft" (Borrador).
+- Titulo orientado al cambio real.
+- Descripcion con: contexto, solucion, impacto y pruebas.
+- Checklist minimo para evitar regresiones.
 
-## 4. Gestión de Tareas con Issues
-Los Issues son la "to-do list" del proyecto.
-*   **Etiquetas (Labels):** `bug`, `enhancement`, `help wanted`.
-*   **Asignación:** Quién es el responsable.
-*   **Milestones:** Agrupar Issues por fechas de lanzamiento (ej. "Versión 1.0").
+Plantilla sugerida para PR:
 
-## 5. Resolución de Conflictos en GitHub
-Los conflictos ocurren cuando dos personas editan la misma línea.
-*   **Conflictos Simples:** Se pueden resolver directamente en la interfaz web de GitHub.
-*   **Conflictos Complejos:** Deben resolverse localmente:
-    1. `git pull origin main` (traer lo nuevo).
-    2. Resolver marcas `<<<<<<< HEAD` en tu editor.
-    3. `git add` -> `git commit` -> `git push`.
-
-## 6. Sincronización Avanzada (Upstream)
-Si hiciste un **Fork**, tu copia se desactualiza rápido. Necesitas el remoto `upstream`:
-```bash
-# Agregar el repo original como 'upstream'
-git remote add upstream https://github.com/ORIGINAL/REPO.git
-
-# Traer los cambios del original y fusionarlos
-git fetch upstream
-git merge upstream/main
+```md
+## Contexto
+## Cambios realizados
+## Como probarlo
+## Riesgos conocidos
+## Checklist
+- [ ] Test local
+- [ ] Sin secretos ni archivos temporales
 ```
 
-## 7. Seguridad y Buenas Prácticas
-*   **`.gitignore`**: Es OBLIGATORIO. Nunca subas `env`, `dist`, `node_modules` o credenciales.
-*   **README.md**: Es la cara de tu proyecto. Debe incluir:
-    *   ¿Qué es el proyecto?
-    *   ¿Cómo se instala / ejecuta?
-    *   ¿Cómo se contribuye?
-*   **Ramas de Protección:** Configura GitHub para que nadie pueda hacer `push` directo a `main` sin un PR aprobado.
+### Bloque D (20 min): Code review efectivo
 
----
-*GitHub es donde ocurre la magia del código abierto y el trabajo en equipo. Tu perfil de GitHub es tu currículum como desarrollador.*
+- Diferenciar comentarios bloqueantes vs sugerencias.
+- Revisar logica, seguridad, mantenibilidad y cobertura de pruebas.
+- Mantener tono profesional y accionable.
 
+### Bloque E (15 min): CI/CD basico con Actions
+
+- Explicar que Actions automatiza checks (lint, test, build).
+- Reforzar regla: no mergear en rojo.
+
+## 4. Actividades practicas para la clase
+
+### Actividad 1 (equipos, 15 min)
+
+Abrir una PR con plantilla completa y evidencia de pruebas.
+
+### Actividad 2 (equipos cruzados, 12 min)
+
+Cada equipo revisa la PR de otro y deja feedback tecnico estructurado.
+
+### Actividad 3 (individual, 8 min)
+
+Clasificar comentarios de review en: bloqueante, mejora, pregunta.
+
+## 5. Preguntas de comprobacion rapida
+
+- Que informacion minima no puede faltar en una PR profesional?
+- Cual es la diferencia entre hacer `push` y abrir una PR?
+- Que significa que un check de CI falle y como impacta el merge?
+- Cuando corresponde solicitar cambios en lugar de aprobar?
+
+## 6. Errores frecuentes y como corregirlos
+
+- Error: abrir PR sin contexto ni pasos de prueba.
+  Correccion: usar plantilla fija de PR en todos los repos.
+- Error: revisar solo estilo y omitir riesgos funcionales.
+  Correccion: checklist de review por categorias (logica, seguridad, test).
+- Error: mezclar multiples features en una sola PR.
+  Correccion: PRs pequenas y enfocadas por objetivo.
+
+## 7. Cierre para la sesion
+
+- Mensaje clave: GitHub profesionaliza la colaboracion, no solo hospeda codigo.
+- Resultado esperado: PRs claras, reviews utiles y merges seguros.
+- Tarea sugerida: crear una issue, resolverla en rama, abrir PR y revisar la de un companero.
