@@ -8,10 +8,15 @@ El foco es que el estudiante entienda estructura, rutas y organizacion de proyec
 Al finalizar la clase, el estudiante deberia poder:
 
 - Explicar la diferencia entre contenido de archivo y ubicacion de archivo.
+    Como explicarlo: muestra un archivo correcto con ruta mal escrita para evidenciar que contenido y ubicacion son problemas distintos.
 - Interpretar una estructura de directorios en arbol (padre, hijo, hermanos).
+    Como explicarlo: dibuja un arbol simple y pide identificar relaciones entre carpetas.
 - Usar rutas absolutas y relativas segun el contexto.
+    Como explicarlo: compara desde donde parte cada ruta y cuando conviene una u otra.
 - Evitar errores frecuentes de rutas en HTML, CSS y JS.
+    Como explicarlo: corrige rutas rotas en un mini proyecto y verifica carga de recursos.
 - Organizar carpetas de proyecto con buenas practicas de nombres.
+    Como explicarlo: aplica convenciones de nombres y evalua impacto en colaboracion y despliegue.
 
 ## 2. Mapa tematico de la sesion
 
@@ -26,12 +31,16 @@ Al finalizar la clase, el estudiante deberia poder:
 ### Bloque A (15 min): Modelo mental correcto
 
 - Presentar que un archivo no solo es bytes, tambien es contexto de ruta.
+    Como explicarlo: resalta que el navegador necesita direccion exacta, no solo existencia del archivo.
 - Mostrar error tipico: archivo existe, pero el navegador no lo encuentra.
+    Como explicarlo: reproduce un 404 local y localiza la causa en la ruta referenciada.
 
 ### Bloque B (20 min): Jerarquia del sistema
 
 - Explicar raiz, carpeta padre, hijo y hermanos.
+    Como explicarlo: usa analogia de arbol genealogico para fijar relaciones de directorios.
 - Dibujar en vivo una estructura simple de proyecto web.
+    Como explicarlo: construye carpetas en pantalla y valida donde vive cada recurso.
 
 ```mermaid
 graph TD
@@ -48,8 +57,11 @@ graph TD
 ### Bloque C (25 min): Rutas absolutas y relativas
 
 - Ruta absoluta: inicia desde raiz.
+    Como explicarlo: parte siempre del origen del sistema y sigue el camino completo.
 - Ruta relativa: inicia desde el archivo actual.
+    Como explicarlo: calcula paso a paso desde el archivo fuente hacia el destino.
 - Practica guiada con ejemplos de `./`, `../` y subcarpetas.
+    Como explicarlo: resuelve varios recorridos cortos hasta que el patron sea automatico.
 
 ```text
 Desde index.html a css/styles.css -> css/styles.css
@@ -59,13 +71,18 @@ Desde css/styles.css a assets/logo.png -> ../assets/logo.png
 ### Bloque D (15 min): Buenas practicas de estructura
 
 - Mantener niveles de anidacion razonables.
+    Como explicarlo: compara una estructura plana y otra profunda para medir costo de mantenimiento.
 - Usar minusculas, guiones y nombres semanticos.
+    Como explicarlo: define una convencion unica y aplicala en todo el ejemplo.
 - Evitar espacios, caracteres especiales y tildes en nombres.
+    Como explicarlo: explica incompatibilidades comunes en servidores y herramientas de build.
 
 ### Bloque E (10 min): Mini evaluacion en vivo
 
 - Resolver 3 rutas en pantalla compartida.
+    Como explicarlo: pide justificar cada salto de carpeta para validar razonamiento, no memoria.
 - Corregir 2 errores reales de estructura.
+    Como explicarlo: primero detectar causa, luego aplicar arreglo minimo y volver a probar.
 
 ## 4. Checklist didactico por tema
 

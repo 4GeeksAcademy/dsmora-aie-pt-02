@@ -9,10 +9,15 @@ hasta operaciones, flujo de control, estado y funciones basicas.
 Al finalizar la clase, el estudiante deberia poder:
 
 - Diseñar algoritmos claros para problemas cotidianos.
+  Como explicarlo: convierte un problema real en pasos finitos y verifica que otro estudiante pueda reproducirlos.
 - Traducir instrucciones a pseudocodigo estructurado.
+  Como explicarlo: usa una plantilla simple (inicio, pasos, fin) para ordenar la solucion.
 - Usar variables, tipos y operadores de forma correcta.
+  Como explicarlo: relaciona tipo de dato con operador valido para evitar combinaciones incorrectas.
 - Aplicar condicionales y bucles segun el comportamiento esperado.
+  Como explicarlo: decide primero si el problema requiere decision unica o repeticion controlada.
 - Entender alcance de variables y nociones iniciales de funciones.
+  Como explicarlo: muestra con ejemplos donde una variable existe y cuando deja de estar disponible.
 
 ## 2. Mapa del modulo (26 lecciones)
 
@@ -48,32 +53,47 @@ Al finalizar la clase, el estudiante deberia poder:
 ### Bloque A (20 min): Algoritmos y pseudocodigo
 
 - Reforzar secuencia logica y orden de pasos.
+  Como explicarlo: intercambia dos pasos y analiza por que el resultado final cambia.
 - Analizar por que cambiar el orden altera el resultado.
+  Como explicarlo: usa un ejemplo corto de calculo donde el orden incorrecto rompe la solucion.
 - Practicar conversion de tareas diarias a pseudocodigo.
+  Como explicarlo: pide verbos concretos y elimina ambiguedades del lenguaje natural.
 
 ### Bloque B (20 min): Variables y tipos de datos
 
 - Diferenciar nombre de variable y valor almacenado.
+  Como explicarlo: reasigna varios valores a la misma variable para distinguir etiqueta y contenido.
 - Introducir tipos basicos: entero, decimal, texto, booleano.
+  Como explicarlo: clasifica datos de un caso real y justifica el tipo elegido.
 - Explicar cambios de estado al reasignar valores.
+  Como explicarlo: traza el valor antes/despues de cada operacion en una tabla.
 
 ### Bloque C (20 min): Operadores y expresiones
 
 - Operadores aritmeticos y asignacion.
+  Como explicarlo: resuelve una formula y luego reescribela con operadores de asignacion abreviada.
 - Comparaciones y operadores logicos.
+  Como explicarlo: construye condiciones con dos reglas y verifica tablas verdadero/falso.
 - Construir expresiones para reglas concretas.
+  Como explicarlo: parte de una regla verbal y transformala a expresion evaluable.
 
 ### Bloque D (20 min): Flujo de control y bucles
 
 - `if/else` y `else if` para decisiones.
+  Como explicarlo: ordena condiciones por prioridad para evitar ramas inalcanzables.
 - `for` y `while` para repeticion.
+  Como explicarlo: compara ambos sobre el mismo problema y discute cual aporta mas claridad.
 - Prevenir bucles infinitos y reducir anidamiento.
+  Como explicarlo: valida salida en cada iteracion y extrae bloques complejos a funciones.
 
 ### Bloque E (20 min): Alcance, funciones e integracion IPO
 
 - Alcance de variables en bloques.
+  Como explicarlo: dibuja limites de bloque para mostrar donde una variable es visible.
 - Introduccion a funciones como unidades reutilizables.
+  Como explicarlo: encapsula una logica repetida y demuestra reutilizacion con parametros.
 - Patron IPO (input-process-output) para estructurar soluciones.
+  Como explicarlo: obliga a identificar entrada, proceso y salida antes de codificar.
 
 ## 4. Actividades practicas para la clase
 

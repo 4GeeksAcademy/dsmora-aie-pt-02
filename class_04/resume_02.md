@@ -8,10 +8,15 @@ El objetivo es pasar de comandos sueltos a una mentalidad de trabajo profesional
 Al finalizar la clase, el estudiante deberia poder:
 
 - Navegar por directorios con seguridad usando `pwd`, `ls` y `cd`.
+    Como explicarlo: establece rutina fija de ubicacion antes de cualquier operacion sensible.
 - Ejecutar operaciones CRUD de archivos y carpetas desde terminal.
+    Como explicarlo: practica crear, mover, copiar y borrar en un entorno de prueba controlado.
 - Consultar y filtrar contenido con `cat`, `less`, `head`, `tail` y `grep`.
+    Como explicarlo: asigna un comando segun objetivo (lectura rapida, paginada, busqueda puntual).
 - Aprovechar historial, autocompletado y comodines para productividad.
+    Como explicarlo: demuestra ahorro de tiempo real con TAB, flechas y patrones `*`.
 - Editar archivos rapidos con `nano` y entender lo minimo de `vim`.
+    Como explicarlo: enseña solo atajos de supervivencia para editar y salir sin bloqueo.
 
 ## 2. Mapa tematico de la sesion
 
@@ -27,18 +32,25 @@ Al finalizar la clase, el estudiante deberia poder:
 ### Bloque A (15 min): Por que CLI sigue siendo clave
 
 - Diferencia entre GUI y CLI en velocidad y repetibilidad.
+    Como explicarlo: compara misma tarea en GUI y CLI midiendo pasos y tiempo.
 - Casos reales donde CLI resuelve tareas complejas en segundos.
+    Como explicarlo: muestra comandos encadenados para procesar multiples archivos rapidamente.
 
 ### Bloque B (20 min): Navegacion segura
 
 - Practica guiada: `pwd`, `ls -la`, `cd`, `cd ..`, `cd ~`.
+    Como explicarlo: recorre rutas reales y confirma siempre ubicacion actual.
 - Regla de oro: confirmar ubicacion antes de borrar o mover.
+    Como explicarlo: institucionaliza doble verificacion para prevenir perdida de datos.
 
 ### Bloque C (20 min): CRUD en vivo
 
 - Crear: `mkdir`, `touch`.
+    Como explicarlo: parte de estructura vacia y construye proyecto desde cero.
 - Copiar/mover: `cp`, `mv`.
+    Como explicarlo: diferencia duplicar vs trasladar para evitar sobrescrituras accidentales.
 - Eliminar: `rm` con foco en seguridad.
+    Como explicarlo: acota rutas y valida con `ls` antes de ejecutar borrado.
 
 ```bash
 mkdir -p demo/src
@@ -50,14 +62,20 @@ mv demo/src/app.backup.js demo/src/app.v1.js
 ### Bloque D (20 min): Lectura y busqueda
 
 - Mostrar diferencias entre `cat` y `less`.
+    Como explicarlo: usa archivo largo para justificar lectura paginada.
 - Usar `tail -n` para logs.
+    Como explicarlo: sigue eventos recientes sin abrir archivos completos.
 - Buscar con `grep -r` e `-i` en un mini proyecto.
+    Como explicarlo: filtra resultados por carpeta para evitar ruido innecesario.
 
 ### Bloque E (15 min): Productividad y edicion
 
 - TAB, historial, wildcard `*`.
+    Como explicarlo: repite el mismo flujo primero manual y luego con atajos.
 - Edicion express con `nano`.
+    Como explicarlo: cubre abrir, editar, guardar y salir en menos de un minuto.
 - Introduccion breve a `vim` para no bloquearse.
+    Como explicarlo: ensena entrar en insercion, guardar y salir sin profundizar mas.
 
 ## 4. Checklist didactico por tema
 

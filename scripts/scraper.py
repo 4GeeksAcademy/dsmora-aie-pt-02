@@ -3,20 +3,12 @@ import json
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent / "class_07"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "class_08"
 
 TUTORIALS = [
     {
-        "name": "javascript_and_typescript_fundamentals",
-        "url": "https://javascript-and-typescript-fundamentals.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=4160792f299f7888f15993a621ad9d8099b14b95&cohort=1614&academy=6",
-    },
-    {
-        "name": "control_flow_in_typescript",
-        "url": "https://control-flow-in-typescript.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=4160792f299f7888f15993a621ad9d8099b14b95&cohort=1614&academy=6",
-    },
-    {
-        "name": "data_types_in_typescript",
-        "url": "https://data-types-in-typescript.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=4160792f299f7888f15993a621ad9d8099b14b95&cohort=1614&academy=6",
+        "name": "functions_in_javascript_and_typescript",
+        "url": "https://functions-in-javascript-and-typescript.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=5afa07602a4d20ea2641739587c1088d891ba710&cohort=1614&academy=6",
     },
 ]
 

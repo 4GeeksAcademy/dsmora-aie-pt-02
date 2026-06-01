@@ -9,10 +9,15 @@ al pensamiento computacional basico con pseudocodigo, variables y control de flu
 Al finalizar la clase, el estudiante deberia poder:
 
 - Explicar que es programar usando la idea de instrucciones precisas.
+  Como explicarlo: compara una instruccion ambigua con otra precisa para evidenciar por que la maquina necesita detalle.
 - Escribir pasos ordenados para resolver una tarea simple.
+  Como explicarlo: pide ordenar una tarea cotidiana y validar si otra persona puede ejecutarla sin dudas.
 - Convertir instrucciones cotidianas a pseudocodigo basico.
+  Como explicarlo: traduce verbos de accion a pasos secuenciales con inicio y fin.
 - Comprender el rol de variables y tipos de informacion.
+  Como explicarlo: usa la metafora de cajas etiquetadas para guardar datos con significado.
 - Aplicar decisiones con condicionales y repeticion con bucles.
+  Como explicarlo: presenta situaciones de eleccion y repeticion para decidir si usar `if` o bucle.
 
 ## 2. Mapa del modulo (19 lecciones)
 
@@ -41,14 +46,20 @@ Al finalizar la clase, el estudiante deberia poder:
 ### Bloque A (15 min): Que es programar
 
 - Presentar programacion como comunicacion precisa con una maquina.
+  Como explicarlo: enfatiza que la computadora no infiere intenciones, solo ejecuta reglas exactas.
 - Comparar instrucciones vagas vs instrucciones detalladas.
+  Como explicarlo: ejecuta un mini reto donde una instruccion vaga falla y una detallada funciona.
 - Conectar con ejemplos del dia a dia (recetas, mapas, pasos).
+  Como explicarlo: reutiliza experiencias conocidas para bajar barrera de entrada conceptual.
 
 ### Bloque B (20 min): Pseudocodigo
 
 - Definir pseudocodigo como puente entre idea y codigo real.
+  Como explicarlo: muestra que permite pensar logica sin bloquearse por sintaxis.
 - Practicar estructura secuencial con pasos claros.
+  Como explicarlo: revisa si cada paso tiene accion concreta y orden verificable.
 - Usar mini ejercicios de robot en grilla para reforzar orden.
+  Como explicarlo: visualiza movimiento paso a paso para detectar errores de secuencia.
 
 Ejemplo base:
 
@@ -63,19 +74,27 @@ END
 ### Bloque C (20 min): Variables y tipos
 
 - Explicar variable como caja con nombre y valor.
+  Como explicarlo: cambia el valor de una misma variable para mostrar estado mutable.
 - Enfatizar nombres descriptivos y consistencia.
+  Como explicarlo: compara nombres genericos frente a nombres con contexto del problema.
 - Diferenciar numero, texto y booleano con ejemplos simples.
+  Como explicarlo: clasifica datos cotidianos y pregunta que operaciones permite cada tipo.
 
 ### Bloque D (20 min): Condicionales y bucles
 
 - Mostrar como tomar decisiones con `if/else`.
+  Como explicarlo: formula una regla de negocio y conviertela a condicion legible.
 - Explicar repeticion con `for` o `while` segun contexto.
+  Como explicarlo: decide el tipo de bucle segun si conoces o no la cantidad de iteraciones.
 - Reforzar condiciones de salida para evitar bucles infinitos.
+  Como explicarlo: valida siempre contador o criterio de corte antes de ejecutar.
 
 ### Bloque E (15 min): Integracion y cierre
 
 - Resolver un problema corto que combine secuencia, variable y decision.
+  Como explicarlo: separa la solucion en entrada, proceso y salida para ordenar la logica.
 - Hacer repaso rapido de conceptos troncales del modulo.
+  Como explicarlo: cierra con preguntas de verificacion para confirmar comprension minima.
 
 ## 4. Actividades practicas para la clase
 

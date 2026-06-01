@@ -9,10 +9,15 @@ seguras, predecibles y faciles de mantener.
 Al finalizar la clase, el estudiante deberia poder:
 
 - Diferenciar tipos primitivos en TypeScript y su uso correcto.
+  Como explicarlo: compara datos reales del aula (edad, nombre, aprobado) y pregunta que tipo evita errores en cada caso.
 - Explicar el impacto de `null` y `undefined` en la seguridad de tipos.
+  Como explicarlo: muestra un fallo comun al acceder a propiedades vacias y luego corrige con validacion temprana.
 - Aplicar operadores aritmeticos, de asignacion, comparacion y logicos.
+  Como explicarlo: transforma reglas de negocio en expresiones (por ejemplo, aprobar si nota >= 60 y asistencia > 80).
 - Evitar coerciones peligrosas y validar tipos con `typeof`.
+  Como explicarlo: contrasta una suma incorrecta por coercion con una conversion explicita antes de operar.
 - Detectar errores comunes al combinar operadores.
+  Como explicarlo: analiza expresiones ambiguas en voz alta y reescribelas con parentesis para hacer la intencion clara.
 
 ## 2. Mapa del modulo (18 lecciones)
 
@@ -40,14 +45,20 @@ Al finalizar la clase, el estudiante deberia poder:
 ### Bloque A (20 min): Tipos primitivos
 
 - `number`, `string`, `boolean`, `symbol`.
+  Como explicarlo: asigna un ejemplo cotidiano a cada tipo y valida si se puede operar sin conversion.
 - Diferencia entre valor y tipo.
+  Como explicarlo: separa "que dato tengo" (valor) de "que reglas aplica" (tipo) en una tabla rapida.
 - Casos de uso reales por tipo.
+  Como explicarlo: modela un formulario simple y decide el tipo correcto campo por campo.
 
 ### Bloque B (20 min): Null, undefined y seguridad
 
 - Significado semantico de ausencia de valor.
+  Como explicarlo: usa dos ejemplos, dato aun no cargado (`undefined`) y dato intencionalmente vacio (`null`).
 - Riesgos al no validar nulos.
+  Como explicarlo: reproduce un error de runtime y enseguida aplica guard clause para evitarlo.
 - Buenas practicas con checks explicitos.
+  Como explicarlo: estandariza validaciones con `=== null` o `=== undefined` antes de usar el dato.
 
 Ejemplo:
 
@@ -64,18 +75,25 @@ function printName(name: string | null) {
 ### Bloque C (20 min): Operadores
 
 - Aritmeticos y asignacion abreviada.
+  Como explicarlo: resuelve una cuenta paso a paso y luego muestra la version abreviada equivalente.
 - Comparacion estricta vs no estricta.
+  Como explicarlo: compara resultados de `==` y `===` con distintos tipos para evidenciar diferencias.
 - Logicos para combinar reglas.
+  Como explicarlo: construye reglas de acceso con `&&`, `||` y `!` usando un caso de login.
 
 ### Bloque D (15 min): Coercion y typeof
 
 - Coercion implicita: cuando ocurre y por que puede ser peligrosa.
+  Como explicarlo: muestra una operacion que parece valida pero cambia de significado por conversion automatica.
 - Conversion explicita: estrategia recomendada.
+  Como explicarlo: aplica `Number()` o `String()` antes de operar y verifica que el resultado sea predecible.
 - `typeof` para decisiones seguras en runtime.
+  Como explicarlo: ramifica flujo segun `typeof` para tratar entradas externas sin romper la ejecucion.
 
 ### Bloque E (15 min): Integracion practica
 
 - Resolver ejercicio que combine tipos, operadores y validaciones.
+  Como explicarlo: divide el ejercicio en tres pasos (tipar, operar, validar) y revisa errores en cada etapa.
 
 ## 4. Actividades practicas para la clase
 

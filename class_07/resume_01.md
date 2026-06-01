@@ -9,11 +9,17 @@ practica y evaluacion en vivo.
 Al finalizar la clase, el estudiante deberia poder:
 
 - Explicar la diferencia entre JavaScript y TypeScript.
+	Como explicarlo: compara un mismo ejemplo sin tipos y con tipos para visualizar cuando TypeScript previene errores.
 - Describir el flujo TypeScript -> transpilacion -> JavaScript.
+	Como explicarlo: muestra el recorrido archivo fuente, compilador y salida ejecutable, indicando que paso valida tipos.
 - Escribir codigo basico con sintaxis correcta en TypeScript.
+	Como explicarlo: construye snippets cortos y revisa en vivo errores de sintaxis frecuentes.
 - Usar `console.log` para depurar de forma intencional.
+	Como explicarlo: estandariza logs con contexto de modulo para que el alumno entienda que observar y por que.
 - Declarar variables con tipos explicitos y aprovechar inferencia de tipos.
+	Como explicarlo: decide explicitamente cuando el dominio requiere claridad adicional y cuando inferencia es suficiente.
 - Reconocer buenas practicas y anti patrones comunes al trabajar con variables.
+	Como explicarlo: contrasta pares "mala version vs buena version" con impacto en mantenibilidad.
 
 ## 2. Mapa del modulo (14 lecciones)
 
@@ -37,14 +43,20 @@ Al finalizar la clase, el estudiante deberia poder:
 ### Bloque A (15 min): Contexto y motivacion
 
 - Conectar con la idea de algoritmo: instrucciones claras y secuenciales.
+	Como explicarlo: retoma un algoritmo cotidiano y traduce cada paso a una instruccion programable.
 - Relacionar con problemas reales: errores en produccion por tipos incorrectos.
+	Como explicarlo: presenta un bug realista por tipo inesperado y analiza su costo.
 - Presentar objetivo: escribir codigo mas seguro sin perder velocidad.
+	Como explicarlo: enfatiza que tipos tempranos reducen retrabajo sin frenar desarrollo.
 
 ### Bloque B (20 min): JavaScript vs TypeScript
 
 - JavaScript: lenguaje de ejecucion en navegador y Node.js.
+	Como explicarlo: ubica donde corre JS en cada entorno y que responsabilidades tiene.
 - TypeScript: superconjunto de JavaScript con sistema de tipos.
+	Como explicarlo: recalca que TS agrega chequeos, pero el codigo final sigue siendo JavaScript.
 - Beneficio central: errores detectados antes de ejecutar.
+	Como explicarlo: muestra un error atrapado por el compilador antes de llegar a runtime.
 
 Ejemplo para mostrar en vivo:
 
@@ -63,9 +75,13 @@ function greetTs(name: string): string {
 ### Bloque C (20 min): Flujo de trabajo TypeScript
 
 - Archivo fuente `.ts`.
+	Como explicarlo: crea un archivo minimo y resalta que aqui se define la intencion de tipos.
 - Compilacion/transpilacion a `.js`.
+	Como explicarlo: ejecuta compilacion y compara linea equivalente entre TS y JS generado.
 - Ejecucion del JavaScript generado.
+	Como explicarlo: corre el archivo resultante para evidenciar que quien ejecuta es JS.
 - Rol del compilador: verificar tipos, no cambiar la logica del negocio.
+	Como explicarlo: muestra que un cambio de tipos no altera reglas funcionales ya definidas.
 
 Comando de referencia:
 
@@ -77,7 +93,9 @@ node app.js
 ### Bloque D (20 min): Sintaxis y depuracion con console.log
 
 - Reglas basicas: declaraciones claras, nombres expresivos, bloques legibles.
+	Como explicarlo: aplica una checklist rapida de legibilidad a un snippet antes de ejecutarlo.
 - Depuracion: usar `console.log` con contexto, no solo valores sueltos.
+	Como explicarlo: imprime etiqueta + variable para seguir el flujo y eliminar ruido de logs.
 
 Patron recomendado:
 
@@ -89,9 +107,13 @@ console.log("[checkout] total calculado:", total);
 ### Bloque E (15 min): Variables, tipos, inferencia y calidad
 
 - Tipado explicito cuando aporta claridad de dominio.
+	Como explicarlo: tipa explicitamente datos criticos (monto, estado, rol) para evitar ambiguedad.
 - Inferencia cuando el valor inicial es obvio.
+	Como explicarlo: deja que TS infiera en constantes claras y evita redundancia visual.
 - Buenas practicas: nombres semanticos, consistencia y alcance controlado.
+	Como explicarlo: revisa ejemplos de nombres y alcance para mejorar lectura en equipo.
 - Anti patrones: nombres ambiguos, `any` innecesario, reasignaciones confusas.
+	Como explicarlo: detecta anti patrones en un fragmento y refactoriza con criterio de mantenimiento.
 
 ## 4. Checklist didactico por tema
 
