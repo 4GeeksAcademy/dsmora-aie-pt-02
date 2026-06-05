@@ -3,12 +3,16 @@ import json
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent / "class_09"
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "class_10"
 
 TUTORIALS = [
     {
-        "name": "mastering_arrays_in_typescript",
-        "url": "https://mastering-arrays-in-typescript.learn-pack.com#language=us&lang=us&theme=dark&iframe=true&token=5afa07602a4d20ea2641739587c1088d891ba710&cohort=1614&academy=6",
+        "name": "understanding_objects_models_properties_and_da",
+        "url": "https://understanding-objects-models-properties-and-da.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=5afa07602a4d20ea2641739587c1088d891ba710&cohort=1614&academy=6",
+    },
+    {
+        "name": "object_modeling_diagrams",
+        "url": "https://object-modeling-diagrams.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=5afa07602a4d20ea2641739587c1088d891ba710&cohort=1614&academy=6",
     },
 ]
 
