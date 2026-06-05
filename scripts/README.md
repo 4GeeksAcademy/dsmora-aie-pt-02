@@ -17,21 +17,34 @@ playwright install chromium
 
 ## Uso
 
-El script actual ya incluye dos tutoriales configurados y los procesa en una sola ejecución:
+El script no usa valores por defecto. Siempre debes indicar objetivos con este formato:
 
-- Introduction to Programming (Mastering the Art of K)
-- Programming Fundamentals
+`class_x:url1,url2`
 
-Para ejecutar el scraper:
+Ejemplo para una clase con dos enlaces:
 
 ```bash
-python3 scraper.py
+python3 scraper.py --target "class_13:https://url1.com,https://url2.com"
 ```
 
-Los resultados se guardan de forma incremental en `../class_06/` para evitar pérdida de datos:
+Ejemplo con multiples clases:
 
-- `../class_06/introduction_to_programming.json`
-- `../class_06/programming_fundamentals.json`
+```bash
+python3 scraper.py \
+  --target "class_13:https://url1.com,https://url2.com" \
+  --target "class_14:https://url3.com"
+```
+
+Reglas:
+
+- `class_x` debe cumplir `class_N` (por ejemplo: `class_13`).
+- Puedes pasar varias URLs separadas por coma para la misma clase.
+- Puedes repetir `--target` para varias clases.
+
+## Salidas
+
+Los JSON se escriben en la carpeta de clase indicada en cada `--target`.
+El nombre de archivo se deriva automaticamente del subdominio de la URL.
 
 ## Características
 
@@ -39,3 +52,4 @@ Los resultados se guardan de forma incremental en `../class_06/` para evitar pé
 - **Navegación Automática:** Abre el menú lateral, identifica las lecciones y hace clic en cada una.
 - **Saltos de Bloqueo:** Detecta y hace clic en botones como "Continue anyway" para acceder al contenido protegido.
 - **Extracción de Texto:** Limpia el DOM para extraer únicamente el texto relevante de las lecciones.
+- **Entrada Explícita:** Obliga a definir clase y URLs en cada ejecución con `--target`.

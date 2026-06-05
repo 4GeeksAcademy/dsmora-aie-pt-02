@@ -1,25 +1,17 @@
 import asyncio
+import argparse
 import json
+import re
 from pathlib import Path
+from urllib.parse import urlsplit
 from playwright.async_api import async_playwright
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent / "class_10"
-
-TUTORIALS = [
-    {
-        "name": "understanding_objects_models_properties_and_da",
-        "url": "https://understanding-objects-models-properties-and-da.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=5afa07602a4d20ea2641739587c1088d891ba710&cohort=1614&academy=6",
-    },
-    {
-        "name": "object_modeling_diagrams",
-        "url": "https://object-modeling-diagrams.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=5afa07602a4d20ea2641739587c1088d891ba710&cohort=1614&academy=6",
-    },
-]
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-async def scrape_tutorial(context, tutorial_name: str, url: str):
+async def scrape_tutorial(context, output_dir: Path, tutorial_name: str, url: str):
     page = await context.new_page()
-    output_file = OUTPUT_DIR / f"{tutorial_name}.json"
+    output_file = output_dir / f"{tutorial_name}.json"
 
     print(f"\n=== Tutorial: {tutorial_name} ===")
     print(f"Abriendo {url}...")
@@ -114,17 +106,83 @@ async def scrape_tutorial(context, tutorial_name: str, url: str):
     await page.close()
 
 
-async def run():
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+def slug_from_url(url: str) -> str:
+    host = urlsplit(url).hostname or ""
+    subdomain = host.split(".")[0] if host else "tutorial"
+    slug = subdomain.replace("-", "_").strip("_")
+    return slug or "tutorial"
+
+
+def parse_target_spec(target_spec: str):
+    if ":" not in target_spec:
+        raise ValueError(f"Formato invalido en --target: '{target_spec}'. Usa class_x:url1,url2")
+
+    class_name, raw_urls = target_spec.split(":", 1)
+    class_name = class_name.strip()
+    raw_urls = raw_urls.strip()
+
+    if not class_name or not raw_urls:
+        raise ValueError(f"Formato invalido en --target: '{target_spec}'. Usa class_x:url1,url2")
+
+    if not re.match(r"^class_\d+$", class_name):
+        raise ValueError(f"Nombre de clase invalido: '{class_name}'. Debe ser class_N")
+
+    urls = [u.strip() for u in raw_urls.split(",") if u.strip()]
+    if not urls:
+        raise ValueError(f"No se encontraron URLs en --target: '{target_spec}'")
+
+    return class_name, urls
+
+
+def build_class_tutorials(target_specs):
+    class_tutorials = []
+
+    for target_spec in target_specs:
+        class_name, urls = parse_target_spec(target_spec)
+        used_names = {}
+        tutorials = []
+
+        for url in urls:
+            base_name = slug_from_url(url)
+            counter = used_names.get(base_name, 0) + 1
+            used_names[base_name] = counter
+            name = base_name if counter == 1 else f"{base_name}_{counter}"
+            tutorials.append({"name": name, "url": url})
+
+        class_tutorials.append(
+            {
+                "output_dir": BASE_DIR / class_name,
+                "tutorials": tutorials,
+            }
+        )
+
+    return class_tutorials
+
+
+async def run(class_tutorials):
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
         )
-        for tutorial in TUTORIALS:
-            await scrape_tutorial(context, tutorial["name"], tutorial["url"])
+        for class_config in class_tutorials:
+            output_dir = class_config["output_dir"]
+            output_dir.mkdir(parents=True, exist_ok=True)
+            for tutorial in class_config["tutorials"]:
+                await scrape_tutorial(context, output_dir, tutorial["name"], tutorial["url"])
 
         await browser.close()
 
 if __name__ == "__main__":
-    asyncio.run(run())
+    parser = argparse.ArgumentParser(description="Scraper de tutoriales LearnPack")
+    parser.add_argument(
+        "--target",
+        dest="targets",
+        action="append",
+        required=True,
+        help="Objetivo con formato class_x:url1,url2 (se puede repetir).",
+    )
+    args = parser.parse_args()
+
+    selected = build_class_tutorials(args.targets)
+    asyncio.run(run(selected))

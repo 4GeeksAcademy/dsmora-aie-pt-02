@@ -75,6 +75,111 @@ const boosted = scores.map((s) => Math.min(s + 5, 100));
 console.log(passed, boosted);
 ```
 
+Catalogo rapido de metodos del modulo (ejemplos de una linea)
+
+```ts
+const nums = [10, 20, 30, 40];
+const names = ["ana", "luis", "marta"];
+
+nums.push(50); // agrega al final
+nums.pop(); // elimina el ultimo
+nums.shift(); // elimina el primero
+nums.unshift(5); // agrega al inicio
+nums.includes(20); // true si existe
+nums.indexOf(30); // posicion o -1
+nums.slice(1, 3); // copia parcial
+nums.splice(1, 1, 25); // elimina/reemplaza en sitio
+nums.concat([60, 70]); // une arreglos
+names.join(", "); // une en string
+nums.forEach((n) => console.log(n)); // recorrido con efecto
+nums.map((n) => n * 2); // transforma y retorna
+nums.filter((n) => n >= 20); // filtra por condicion
+nums.find((n) => n > 25); // primer match
+nums.sort((a, b) => a - b); // ordena con comparador
+nums.reduce((acc, n) => acc + n, 0); // acumula resultado
+nums.some((n) => n > 35); // al menos uno cumple
+nums.every((n) => n >= 0); // todos cumplen
+nums.at(-1); // acceso por indice relativo
+new Array(3).fill(0); // rellena arreglo
+```
+
+Metodos mas importantes y usados (ejemplos mas completos)
+
+```ts
+type Product = { id: number; name: string; price: number; active: boolean; stock: number };
+
+const products: Product[] = [
+  { id: 1, name: "Mouse", price: 25, active: true, stock: 10 },
+  { id: 2, name: "Keyboard", price: 50, active: true, stock: 0 },
+  { id: 3, name: "Headset", price: 80, active: false, stock: 6 },
+  { id: 4, name: "Monitor", price: 190, active: true, stock: 4 },
+];
+
+// filter: quedarse con productos vendibles
+const sellable = products.filter((p) => p.active && p.stock > 0);
+
+// map: transformar a DTO para UI
+const cards = sellable.map((p) => ({
+  label: `${p.name} ($${p.price.toFixed(2)})`,
+  lowStock: p.stock <= 5,
+}));
+
+// find: buscar el primer producto premium
+const premium = products.find((p) => p.price > 100);
+
+// sort: ranking por precio descendente sin mutar original
+const byPriceDesc = [...products].sort((a, b) => b.price - a.price);
+
+// reduce: total de inventario valorizado
+const inventoryValue = products.reduce((acc, p) => acc + p.price * p.stock, 0);
+
+// forEach: NO muta el array por si mismo; se usa para efectos secundarios
+products.forEach((p) => {
+  if (!p.active) console.log(`Producto inactivo detectado: ${p.name}`);
+});
+
+console.log({ cards, premium, top3: byPriceDesc.slice(0, 3), inventoryValue });
+```
+
+Nota clave para explicar en clase: metodos que mutan vs no mutan
+
+- Mutan el array original: `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse`, `fill`.
+- No mutan el array original: `forEach`, `map`, `filter`, `find`, `reduce`, `some`, `every`, `includes`, `indexOf`, `slice`, `concat`, `join`, `at`.
+- Aclaracion importante: `forEach` no muta por defecto, pero dentro del callback puedes mutar elementos manualmente si los modificas.
+
+Tabla rapida de referencia (metodos principales)
+
+| Metodo | Muta el original | Devuelve nuevo array | Uso tipico |
+|---|---|---|---|
+| `forEach` | No | No | Recorrer con efectos secundarios |
+| `map` | No | Si | Transformar elementos |
+| `filter` | No | Si | Filtrar por condicion |
+| `find` | No | No | Obtener primer elemento que cumple |
+| `sort` | Si | No | Ordenar elementos |
+| `reduce` | No | No | Acumular a un valor final |
+| `some` | No | No | Verificar si alguno cumple |
+| `every` | No | No | Verificar si todos cumplen |
+| `includes` | No | No | Comprobar pertenencia |
+| `push` | Si | No | Agregar al final |
+| `pop` | Si | No | Quitar ultimo elemento |
+| `slice` | No | Si | Copiar subarreglo |
+| `splice` | Si | Si (elementos removidos) | Insertar/eliminar en posicion |
+| `concat` | No | Si | Unir arreglos sin mutar |
+
+Ejemplo corto para distinguir comportamiento:
+
+```ts
+const base = [3, 1, 2];
+
+const sortedCopy = [...base].sort((a, b) => a - b); // no muta base por usar copia
+base.sort((a, b) => a - b); // si muta base
+
+base.forEach((n, i, arr) => {
+  // esto SI muta porque modificamos el arreglo manualmente en el callback
+  arr[i] = n * 10;
+});
+```
+
 ### Bloque C (15 min): Patrones practicos de recorrido
 
 - Buscar maximo, minimo, suma y conteos por condicion.
