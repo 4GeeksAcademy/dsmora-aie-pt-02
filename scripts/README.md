@@ -21,10 +21,17 @@ El script no usa valores por defecto. Siempre debes indicar objetivos con este f
 
 `class_x:url1,url2`
 
+Tambien puedes controlar la concurrencia por enlace con:
+
+`--max-concurrency N`
+
 Ejemplo para una clase con dos enlaces:
 
 ```bash
 python3 scraper.py --target "class_13:https://url1.com,https://url2.com"
+
+# mismo comando con concurrencia explicita
+python3 scraper.py --target "class_13:https://url1.com,https://url2.com" --max-concurrency 4
 ```
 
 Ejemplo con multiples clases:
@@ -40,6 +47,8 @@ Reglas:
 - `class_x` debe cumplir `class_N` (por ejemplo: `class_13`).
 - Puedes pasar varias URLs separadas por coma para la misma clase.
 - Puedes repetir `--target` para varias clases.
+- `--max-concurrency` define cuantas URLs se procesan al mismo tiempo (default: `4`).
+- Si una URL falla, el proceso se aborta (modo fail-fast).
 
 ## Salidas
 
@@ -53,3 +62,5 @@ El nombre de archivo se deriva automaticamente del subdominio de la URL.
 - **Saltos de Bloqueo:** Detecta y hace clic en botones como "Continue anyway" para acceder al contenido protegido.
 - **Extracción de Texto:** Limpia el DOM para extraer únicamente el texto relevante de las lecciones.
 - **Entrada Explícita:** Obliga a definir clase y URLs en cada ejecución con `--target`.
+- **Paralelismo por Enlace:** Procesa varios tutoriales en paralelo con limite configurable.
+- **Fail-Fast:** Si un tutorial falla, cancela los pendientes y detiene la ejecucion.
