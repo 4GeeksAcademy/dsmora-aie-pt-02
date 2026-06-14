@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academy Navigator</title>
+  <link rel="stylesheet" href="/static/academy.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h1 class="brand">Class Navigator</h1>
+      <p class="hint">Navega por clase y abre resumenes con formato enriquecido.</p>
+      <div id="menu"></div>
+    </aside>
+    <main>
+      <div class="panel">
+        <div class="meta">
+          <span class="pill" id="meta-class">Clase: -</span>
+          <span class="pill" id="meta-type">Tipo: -</span>
+          <span class="pill" id="meta-file">Archivo: -</span>
+        </div>
+        <div id="content" class="content empty">Selecciona un archivo del menu lateral.</div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/academy.js"></script>
+</body>
+</html>

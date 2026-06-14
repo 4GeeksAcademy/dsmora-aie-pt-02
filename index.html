@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSMORA AIE - Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #15202b;
+      --ink-soft: #3f4c5a;
+      --paper: #f4f0e8;
+      --paper-strong: #ece4d6;
+      --line: #c9b79c;
+      --brand: #0f766e;
+      --brand-deep: #115e59;
+      --accent: #c2410c;
+      --card: #fffaf1;
+      --shadow: rgba(21, 32, 43, 0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(850px 500px at -10% -10%, #fef3c7 0%, transparent 60%),
+        radial-gradient(700px 420px at 110% 110%, #bae6fd 0%, transparent 60%),
+        linear-gradient(160deg, var(--paper) 0%, var(--paper-strong) 100%);
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .frame {
+      width: min(1080px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(150deg, #fffdf8 0%, #fdf6ea 100%);
+      box-shadow: 0 18px 40px var(--shadow);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .frame::before,
+    .frame::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      opacity: 0.3;
+      border-radius: 999px;
+      filter: blur(2px);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .frame::before {
+      width: 280px;
+      height: 280px;
+      top: -80px;
+      right: -40px;
+      background: #a7f3d0;
+    }
+
+    .frame::after {
+      width: 220px;
+      height: 220px;
+      bottom: -60px;
+      left: -40px;
+      background: #fed7aa;
+      animation-delay: 1.5s;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      padding: 44px;
+      align-items: center;
+    }
+
+    .kicker {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--brand-deep);
+      background: #ccfbf1;
+      border: 1px solid #99f6e4;
+      border-radius: 999px;
+      padding: 6px 11px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+
+    .copy {
+      margin: 18px 0 0;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 54ch;
+    }
+
+    .actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 700;
+      transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+      will-change: transform;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(160deg, var(--brand), var(--brand-deep));
+      box-shadow: 0 10px 20px rgba(15, 118, 110, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 24px rgba(15, 118, 110, 0.36);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: #fffbf3;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      transform: translateY(8px);
+      animation: rise 600ms ease forwards;
+    }
+
+    .panel h2 {
+      margin: 0 0 10px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.35rem;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .chips {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: 12px;
+      border: 1px solid #d8cab4;
+      background: #fff;
+      border-radius: 999px;
+      padding: 5px 10px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 14px 20px;
+      font-size: 13px;
+      color: #5b6773;
+      background: #f9f3e8;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
+      .panel {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <section class="hero">
+      <div>
+        <span class="kicker">AIE PT-02</span>
+        <h1>Tu mapa de clases, resumenes y contenidos completos</h1>
+        <p class="copy">
+          Este espacio es la puerta de entrada del curso. Desde aqui puedes abrir el menu academico,
+          navegar por cada clase y saltar entre material resumido o contenido completo sin perder contexto.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/academy">Entrar a Academy</a>
+          <a class="btn btn-secondary" href="/README.md">Ver README</a>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>Que vas a encontrar</h2>
+        <p>
+          Un navegador lateral por clases con lectura directa de archivos del repositorio,
+          pensado para sesiones en vivo y repaso asincrono.
+        </p>
+        <div class="chips">
+          <span class="chip">Resumenes</span>
+          <span class="chip">Contenidos JSON</span>
+          <span class="chip">Navegacion por URL</span>
+          <span class="chip">Responsive</span>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      Consejo: usa Academy como vista principal del curso y esta pagina como landing de arranque.
+    </footer>
+  </div>
+</body>
+</html>
