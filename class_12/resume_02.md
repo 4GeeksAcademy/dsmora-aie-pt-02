@@ -75,44 +75,7 @@ Al finalizar la clase, el estudiante deberia poder:
 - Desafio screenshot -> especificacion.
   Como explicarlo: convertir una referencia visual en prompt ejecutable y evaluable.
 
-## 4. Ejemplos para mostrar en vivo
-
-### Ejemplo 1: Traduccion visual a especificacion
-
-```text
-Pantalla objetivo:
-- Header con logo a la izquierda y CTA a la derecha
-- Hero con titulo, subtitulo y boton primario
-- Grid de 3 cards de beneficios
-
-Especificacion para IA:
-"Construye una landing en React + CSS Modules.
-Layout: header fijo, hero centrado y seccion de 3 cards en grid.
-Usa HTML semantico (header, main, section, article).
-Incluye estado hover en botones y breakpoint mobile a 768px."
-```
-
-### Ejemplo 2: Prompt UI completo con restricciones
-
-```text
-Rol: Senior frontend engineer
-Stack: Next.js App Router + TypeScript
-Restricciones: sin librerias UI externas
-Criterios de aceptacion:
-1) Accesible con teclado
-2) Contraste AA
-3) Responsive en 360px y 1280px
-```
-
-### Ejemplo 3: Anti patron y correccion
-
-```text
-Anti patron: "Haz que se vea moderno"
-Correccion: "Incrementa spacing vertical a 24px, usa tipografia 16/24,
-y define jerarquia de titulos h1/h2/h3 con pesos 700/600/500"
-```
-
-## 5. Errores frecuentes y correccion
+## 4. Errores frecuentes y correccion
 
 - Error: describir solo estetica, sin estructura.
   Correccion: comenzar por layout y jerarquia antes de color/tipografia.
@@ -123,7 +86,7 @@ y define jerarquia de titulos h1/h2/h3 con pesos 700/600/500"
 - Error: no considerar semantica/accesibilidad.
   Correccion: incorporar etiquetas semanticas y roles en la especificacion.
 
-## 6. Cierre para sesion
+## 5. Cierre para sesion
 
 - Mensaje clave: traducir visual a especificacion reduce retrabajo y acelera desarrollo.
 - Resultado esperado: estudiante capaz de generar prompts UI claros, medibles y reutilizables.

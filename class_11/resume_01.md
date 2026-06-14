@@ -100,3 +100,180 @@ Al finalizar la clase, el estudiante deberia poder:
 - Mensaje clave: tipado + modelado correcto mejora seguridad y velocidad de desarrollo.
 - Resultado esperado: estudiante capaz de construir objetos robustos en TypeScript.
 - Siguiente paso: profundizar inmutabilidad y diseno de estado.
+
+## 6. Ejemplos guiados para clase
+
+### Ejemplo A: Interface + objeto literal (Objetivo 1, Bloque A)
+
+```ts
+interface Task {
+  id: number;
+  title: string;
+  done: boolean;
+  dueDate?: string;
+}
+
+const homework: Task = {
+  id: 1,
+  title: "Repasar objetos",
+  done: false,
+};
+
+// Error tipico para mostrar en vivo:
+// const invalidTask: Task = { id: "1", title: "x", done: false };
+```
+
+Como usarlo en clase:
+- Primero pedir al grupo que detecte por que el tipo de `id` debe ser `number`.
+- Luego agregar `dueDate` para mostrar propiedad opcional.
+
+### Ejemplo B: Acceso seguro a propiedades (Objetivo 2, Bloque B)
+
+```ts
+interface UserProfile {
+  username: string;
+  settings?: {
+    language?: string;
+  };
+}
+
+const user: UserProfile = { username: "ana" };
+
+const language = user.settings?.language ?? "es";
+console.log(language); // "es"
+```
+
+Como usarlo en clase:
+- Comparar acceso inseguro (`user.settings.language`) vs acceso seguro (`?.`).
+- Mostrar por que `??` evita valores `undefined` en UI.
+
+### Ejemplo C: Metodos y this (Objetivo 3, Bloque C)
+
+```ts
+type CartItem = { name: string; price: number };
+
+type CartWithMethods = {
+  items: CartItem[];
+  add(item: CartItem): void;
+  total(): number;
+};
+
+// Caso 1: metodo abreviado (recomendado)
+const cart1: CartWithMethods = {
+  items: [],
+  add(item: CartItem): void {
+    this.items.push(item);
+  },
+  total(): number {
+    return this.items.reduce((sum, item) => sum + item.price, 0);
+  },
+};
+
+// Caso 2: key explicita + function (equivalente)
+const cart2: CartWithMethods = {
+  items: [],
+  add: function (item: CartItem): void {
+    this.items.push(item);
+  },
+  total: function (): number {
+    return this.items.reduce((sum, item) => sum + item.price, 0);
+  },
+};
+
+cart1.add({ name: "Teclado", price: 45 });
+cart1.add({ name: "Mouse", price: 20 });
+console.log(cart1.total()); // 65
+
+cart2.add({ name: "Teclado", price: 45 });
+cart2.add({ name: "Mouse", price: 20 });
+console.log(cart2.total()); // 65
+
+// Caso 3: arrow function en objeto (no recomendado si usas this)
+const cart3 = {
+  items: [] as CartItem[],
+  add: (item: CartItem): void => {
+    // this no apunta a cart3; en un modulo suele ser undefined
+    // this.items.push(item); // provocaria error en runtime
+    console.log("No usar arrow con this en metodos de objeto", item.name);
+  },
+};
+
+cart3.add({ name: "Monitor", price: 120 });
+```
+
+Como usarlo en clase:
+- Comparar en vivo caso 1 y caso 2: ambos permiten usar `this` del objeto.
+- Explicar que en arrow `this` es lexico: se hereda del scope externo, no del objeto.
+- Pedir una mejora: metodo `removeByName(name)` en `cart1`.
+
+### Ejemplo D: Objeto anidado + arreglo (Objetivo 4, Bloque D)
+
+```ts
+interface Order {
+  id: string;
+  customer: {
+    name: string;
+    address: {
+      city: string;
+      zip: string;
+    };
+  };
+  items: { sku: string; qty: number; price: number }[];
+}
+
+const order: Order = {
+  id: "ORD-100",
+  customer: {
+    name: "Carlos",
+    address: { city: "Madrid", zip: "28001" },
+  },
+  items: [
+    { sku: "A1", qty: 2, price: 10 },
+    { sku: "B5", qty: 1, price: 25 },
+  ],
+};
+
+const total = order.items.reduce((sum, item) => sum + item.qty * item.price, 0);
+console.log(total); // 45
+```
+
+Como usarlo en clase:
+- Pedir al estudiante extraer una funcion `calculateTotal(order)`.
+- Conectar con composicion: `customer`, `address`, `items` como submodelos.
+
+### Ejemplo E: Referencia y mutacion (Objetivo 5, Bloque E)
+
+```ts
+const original = { theme: "light", notifications: true };
+const alias = original;
+
+alias.theme = "dark";
+console.log(original.theme); // "dark" (efecto colateral)
+
+const copy = { ...original };
+copy.theme = "light";
+console.log(original.theme); // "dark" (sin cambio lateral)
+```
+
+Como usarlo en clase:
+- Mostrar en pantalla dos variables apuntando al mismo objeto.
+- Cerrar con regla practica: "si compartes referencia, compartes cambios".
+
+## 7. Formato sugerido de clase en vivo
+
+1. Apertura (5 min)
+- Activar contexto con una pregunta: "Que bug de objetos te ha pasado?".
+
+2. Microdemo por bloque (40 min)
+- Ejecutar ejemplos A y B con predicciones del grupo antes del resultado.
+
+3. Practica guiada (25 min)
+- Pares resuelven mejoras sobre ejemplos C y D.
+- Checkpoint rapido: cada pareja explica una decision de tipado.
+
+4. Reto final (20 min)
+- Usar ejemplo E para corregir un bug por referencia compartida.
+
+5. Cierre evaluable (10 min)
+- Ticket de salida: 3 preguntas cortas (tipado, acceso seguro, mutacion).
+- Mini-rubrica: correcto, parcialmente correcto, necesita refuerzo.

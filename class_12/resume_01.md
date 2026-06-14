@@ -62,39 +62,7 @@ Al finalizar la clase, el estudiante deberia poder:
 - Verificacion de conocimiento.
   Como explicarlo: usar checklist final para evaluar eficacia del prompt antes de ejecutarlo.
 
-## 4. Ejemplos para mostrar en vivo
-
-### Ejemplo 1: Prompt vago vs prompt estructurado
-
-```text
-Prompt vago:
-"Hazme un resumen de esto"
-
-Prompt estructurado:
-"Actua como tutor tecnico. Resume el texto en 5 bullets.
-Incluye: idea central, 2 riesgos, 2 acciones recomendadas.
-Formato de salida: markdown con titulos cortos. Maximo 120 palabras."
-```
-
-### Ejemplo 2: Contexto minimo viable
-
-```text
-Rol: Mentor de producto
-Objetivo: Priorizar backlog de sprint
-Entradas: lista de 12 tickets con impacto/esfuerzo
-Restricciones: no cambiar alcance del sprint
-Salida esperada: tabla con prioridad, razon y riesgo
-```
-
-### Ejemplo 3: Reduccion de ruido de tokens
-
-```text
-Version larga: "Necesito que por favor, si puedes, me ayudes a..."
-Version optimizada: "Prioriza estos 6 tickets por impacto y esfuerzo.
-Devuelve top 3 con razon de negocio en 1 linea por ticket."
-```
-
-## 5. Errores frecuentes y correccion
+## 4. Errores frecuentes y correccion
 
 - Error: pedir "hazlo mejor" sin contexto de objetivo.
   Correccion: explicitar audiencia, exito esperado y restricciones de entrega.
@@ -105,7 +73,7 @@ Devuelve top 3 con razon de negocio en 1 linea por ticket."
 - Error: no definir criterio de validacion.
   Correccion: cerrar prompt con condiciones comprobables de calidad.
 
-## 6. Cierre para sesion
+## 5. Cierre para sesion
 
 - Mensaje clave: un buen prompt es una especificacion breve y verificable.
 - Resultado esperado: estudiante capaz de disenar instrucciones claras, eficientes y repetibles.

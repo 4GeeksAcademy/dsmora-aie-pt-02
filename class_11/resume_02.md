@@ -92,3 +92,115 @@ Al finalizar la clase, el estudiante deberia poder:
 - Mensaje clave: dominar referencia y copia evita bugs silenciosos costosos.
 - Resultado esperado: estudiante capaz de elegir estrategia segura de actualizacion.
 - Siguiente paso: aplicar estos principios en gestion de estado de apps.
+
+## 6. Ejemplos guiados para clase
+
+### Ejemplo A: Primitivos por valor (Objetivo 2, Bloque B)
+
+```ts
+let scoreA = 10;
+let scoreB = scoreA;
+
+scoreB = 99;
+
+console.log(scoreA); // 10
+console.log(scoreB); // 99
+```
+
+Como usarlo en clase:
+- Pedir prediccion antes de ejecutar: "Cambian ambas variables o solo una?".
+- Conectar con idea de copia independiente en memoria.
+
+### Ejemplo B: Objetos por referencia (Objetivo 2, Bloque B)
+
+```ts
+const configA = { language: "es", timezone: "UTC" };
+const configB = configA;
+
+configB.timezone = "CET";
+
+console.log(configA.timezone); // "CET"
+console.log(configB.timezone); // "CET"
+```
+
+Como usarlo en clase:
+- Marcar que `configA` y `configB` comparten referencia.
+- Explicar por que aparece el bug aunque se edite "solo" una variable.
+
+### Ejemplo C: Copia superficial con spread (Objetivo 4, Bloque C)
+
+```ts
+const profile = {
+  name: "Luisa",
+  preferences: {
+    theme: "light",
+  },
+};
+
+const shallowCopy = { ...profile };
+shallowCopy.preferences.theme = "dark";
+
+console.log(profile.preferences.theme); // "dark"
+```
+
+Como usarlo en clase:
+- Mostrar que spread copia solo el primer nivel.
+- Preguntar: "Que nivel quedo compartido?".
+
+### Ejemplo D: Copia por niveles en estructura anidada (Objetivo 4, Bloque C)
+
+```ts
+const safeCopy = {
+  ...profile,
+  preferences: {
+    ...profile.preferences,
+  },
+};
+
+safeCopy.preferences.theme = "solarized";
+
+console.log(profile.preferences.theme); // "dark"
+console.log(safeCopy.preferences.theme); // "solarized"
+```
+
+Como usarlo en clase:
+- Comparar visualmente con el ejemplo anterior.
+- Entregar regla practica: copiar cada nivel que vas a modificar.
+
+### Ejemplo E: Actualizacion inmutable de arreglos (Objetivo 5, Bloque D)
+
+```ts
+const todos = [
+  { id: 1, text: "Estudiar", done: false },
+  { id: 2, text: "Practicar", done: false },
+];
+
+const updatedTodos = todos.map((todo) =>
+  todo.id === 2 ? { ...todo, done: true } : todo
+);
+
+console.log(todos[1].done); // false
+console.log(updatedTodos[1].done); // true
+```
+
+Como usarlo en clase:
+- Destacar que no se muta el arreglo original.
+- Relacionar con estados predecibles en frontend.
+
+## 7. Formato sugerido de clase en vivo
+
+1. Inicio diagnostico (5 min)
+- Pregunta disparadora: "Cuando copiar con spread te fallo?".
+
+2. Demostracion guiada (25 min)
+- Ejecutar ejemplos A y B con prediccion previa del grupo.
+
+3. Laboratorio corto (25 min)
+- Resolver ejemplos C y D en parejas, con foco en anidamiento.
+
+4. Aplicacion real (20 min)
+- Implementar ejemplo E como patron para actualizar estado.
+
+5. Cierre y evaluacion (10 min)
+- Checklist final: valor vs referencia, copia superficial, copia por niveles.
+- Salida rapida: explicar en una frase por que mutar directo complica depuracion.

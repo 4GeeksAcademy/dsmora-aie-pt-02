@@ -77,40 +77,7 @@ Al finalizar la clase, el estudiante deberia poder:
 - Criterio de finalizacion.
   Como explicarlo: cerrar cuando cumple estructura, contenido, consistencia visual y feedback tecnico aplicado.
 
-## 4. Ejemplos para mostrar en vivo
-
-### Ejemplo 1: Algoritmo del pintor en 3 prompts
-
-```text
-Prompt 1 (estructura):
-"Crea estructura HTML semantica para dashboard con sidebar, topbar y area de cards.
-Sin estilos."
-
-Prompt 2 (contenido):
-"Agrega titulos reales, metricas y textos de apoyo en cada card."
-
-Prompt 3 (estilo):
-"Aplica sistema de espaciado 8px, paleta neutra, cards con borde y sombra suave."
-```
-
-### Ejemplo 2: Feedback tecnico en lugar de feedback vago
-
-```text
-Vago: "Se ve raro"
-Tecnico: "Alinea tarjetas con grid de 3 columnas, gap 16px,
-y aumenta contraste de texto secundario de #9CA3AF a #6B7280"
-```
-
-### Ejemplo 3: Iteracion controlada
-
-```text
-Iteracion 1: validar layout
-Iteracion 2: validar contenido real
-Iteracion 3: validar consistencia visual
-Checklist por iteracion: objetivo, cambio aplicado, evidencia, siguiente paso
-```
-
-## 5. Errores frecuentes y correccion
+## 4. Errores frecuentes y correccion
 
 - Error: intentar resolver todo en un solo prompt.
   Correccion: dividir en fases y validar salida por etapa.
@@ -121,7 +88,7 @@ Checklist por iteracion: objetivo, cambio aplicado, evidencia, siguiente paso
 - Error: cambiar demasiadas variables en cada iteracion.
   Correccion: modificar un aspecto por ciclo para aislar mejoras.
 
-## 6. Cierre para sesion
+## 5. Cierre para sesion
 
 - Mensaje clave: la iteracion disciplinada produce frontend mas estable y mantenible.
 - Resultado esperado: estudiante capaz de construir interfaces por capas con apoyo de IA.
