@@ -65,14 +65,88 @@ Lo trabajado:
 - Checklist final: contexto, especificacion, iteracion.
 - Acuerdos de mejora para la siguiente clase.
 
-## 3) Evidencias de avance observables
+## 3) Ejemplos para clase en vivo (guion rapido por bloque)
+
+### Ejemplo en vivo A - Prompt debil vs prompt estructurado (Bloque A)
+
+Objetivo docente:
+- Evidenciar como mejora la salida cuando hay contexto, restricciones y formato.
+
+Caso para proyectar:
+- Tarea: crear una tarjeta de producto para ecommerce.
+
+Prompt 1 (vago):
+```text
+Haz una tarjeta de producto moderna.
+```
+
+Prompt 2 (estructurado):
+```text
+Actua como frontend developer.
+Objetivo: crear una tarjeta de producto para desktop y mobile.
+Stack: HTML + CSS vanilla.
+Entradas: nombre, precio, imagen, boton comprar.
+Restricciones: sin librerias externas, maximo 1 archivo HTML y 1 CSS.
+Salida: codigo completo + breve explicacion de decisiones de layout.
+```
+
+Que observar en vivo:
+- Diferencia de precision en estructura, clases y respuesta utilizable.
+- Reduccion de ambiguedad en el entregable.
+
+### Ejemplo en vivo B - De screenshot a especificacion (Bloque B)
+
+Objetivo docente:
+- Practicar traduccion visual antes de pedir codigo.
+
+Caso para proyectar:
+- Referencia: landing con header, hero, 3 cards y footer.
+
+Especificacion base para construir con el grupo:
+```text
+Layout:
+- Header con logo izquierda y menu derecha.
+- Main con hero (titulo, subtitulo, CTA).
+- Section con grid de 3 cards (titulo, texto, boton).
+- Footer simple con enlaces.
+
+Semantica:
+- usar header, nav, main, section, article, footer.
+
+Responsive:
+- desktop: cards en 3 columnas.
+- mobile: cards en 1 columna.
+```
+
+Que observar en vivo:
+- Como una especificacion ordenada evita retrabajo posterior.
+- Como cambian las decisiones del modelo cuando se define responsive.
+
+### Ejemplo en vivo C - Iteracion en 3 fases (Bloque C)
+
+Objetivo docente:
+- Mostrar que calidad final mejora cuando se separa estructura, contenido y estilo.
+
+Secuencia sugerida:
+```text
+Fase 1 (estructura): crear solo layout y semantica, sin colores.
+Fase 2 (contenido): agregar textos reales y botones funcionales.
+Fase 3 (estilo): aplicar tipografia, espaciados y estados hover.
+```
+
+Checklist de validacion en vivo:
+- Fase 1: se entiende jerarquia visual sin decoracion.
+- Fase 2: contenido completo y coherente con objetivo.
+- Fase 3: consistencia visual y responsive estable.
+
+## 4) Evidencias de avance observables
 
 - Prompts mas breves y con mejor estructura de instrucciones.
 - Especificaciones UI mas concretas y menos ambiguas.
 - Implementaciones con menos retrabajo por trabajar en capas.
 - Mejor capacidad de justificar decisiones de diseno y desarrollo.
 
-## 4) Actividad integradora sugerida (20 min dentro de los bloques)
+## 5) Actividad integradora sugerida (20 min dentro de los bloques)
 
 Caso:
 - Entregar una captura o wireframe de landing simple (hero + cards + CTA).
@@ -88,7 +162,7 @@ Criterios de evaluacion:
 - Calidad del proceso iterativo.
 - Coherencia del resultado final con lo pedido.
 
-## 5) Riesgos detectados y refuerzo recomendado
+## 6) Riesgos detectados y refuerzo recomendado
 
 - Riesgo: prompts largos con instrucciones conflictivas.
   Refuerzo: aplicar checklist de senal/ruido antes de ejecutar.
@@ -97,7 +171,7 @@ Criterios de evaluacion:
 - Riesgo: especificaciones visuales subjetivas.
   Refuerzo: usar lenguaje medible y semantico.
 
-## 6) Distribucion final de tiempo
+## 7) Distribucion final de tiempo
 
 - Bloque A: 25 min
 - Bloque B: 35 min
