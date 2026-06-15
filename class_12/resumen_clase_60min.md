@@ -128,9 +128,49 @@ Paso 3. Detalle funcional:
 - espaciado
 - comportamiento responsive
 
-### 4.4 Especificacion completa de ejemplo (min 20-30)
+### 4.4 Comparacion corta: vago vs spec breve (min 20-25)
 
-Copia y usa este ejemplo tal cual:
+Muestra primero el prompt vago:
+
+```text
+Haz una landing moderna para un curso de IA. Que se vea bien en movil y desktop.
+```
+
+Luego muestra una version breve pero estructurada:
+
+```md
+# Spec breve - Landing Curso IA
+
+## Layout
+- Header, hero con CTA, 3 cards, footer.
+
+## Semantica
+- usar: header, nav, main, section, article, footer, button.
+
+## Responsive
+- Mobile: cards en 1 columna.
+- Desktop: cards en 3 columnas.
+
+## Criterio clave
+- CTA visible sin scroll en desktop.
+```
+
+### 4.5 Mini ejercicio de correccion (min 25-35)
+
+Ejercicio:
+
+```text
+Haz una landing limpia y moderna para curso IA con buen estilo.
+```
+
+Pide convertirlo a formato tecnico con 5 campos:
+- layout,
+- componentes,
+- semantica,
+- responsive,
+- criterios de aceptacion.
+
+Salida esperada de referencia (muestrala al final del ejercicio):
 
 ```md
 # Especificacion UI - Landing Curso IA
@@ -161,21 +201,6 @@ Copia y usa este ejemplo tal cual:
 - Contraste suficiente entre texto y fondo.
 - Layout estable sin saltos raros en mobile.
 ```
-
-### 4.5 Mini ejercicio de correccion (min 30-35)
-
-Muestra esta especificacion mala:
-
-```text
-Haz una landing limpia y moderna para curso IA con buen estilo.
-```
-
-Pide convertirla a formato tecnico usando 5 campos obligatorios:
-- layout,
-- componentes,
-- semantica,
-- responsive,
-- criterios de aceptacion.
 
 ---
 
@@ -383,10 +408,59 @@ Traducido a artefactos de clase, el orden correcto no es por nombres fijos sino 
 El resultado esperado de esta sesion es que el estudiante pueda ejecutar un flujo spec-first como el ejemplo de Panel de Administracion de Biblioteca:
 
 1. Escribir primero SPECS.md antes de tocar HTML.
+  Ejemplo minimo:
+
+```md
+# SPECS - Panel Biblioteca Comunitaria Bookshelf
+
+## Descripcion del producto
+Panel de administracion para bibliotecaria en desktop. Permite revisar catalogo,
+prestamos activos y socios desde una sidebar persistente.
+
+## Stack y restricciones
+- HTML semantico
+- Tailwind CSS via CDN
+- JavaScript vanilla
+- Sin frameworks ni build tools
+```
 2. Definir stack y restricciones exactas: HTML + Tailwind por CDN + JS vanilla.
 3. Especificar por seccion (Catalogo, Prestamos, Socios): componente, contenido y comportamiento.
 4. Definir componentes reutilizables: sidebar, fila de tabla, dropdown, modal, badge, toggle dark mode.
+   Ejemplo minimo:
+
+```md
+## Componentes reutilizables
+
+- Sidebar:
+  Navegacion persistente con enlaces a Catalogo, Prestamos y Socios.
+  Resalta la seccion activa.
+
+- Dropdown de accion:
+  Boton "⋮" por fila. Al hacer clic abre menu con acciones de contexto.
+  Se cierra al hacer clic fuera.
+
+- Modal de detalle:
+  Contenedor centrado con backdrop. Muestra informacion completa del registro.
+  Se cierra con boton "Cerrar" y clic en backdrop.
+
+- Badge de estado:
+  Etiqueta visual para Disponible / En Prestamo / Vencido.
+
+- Toggle dark mode:
+  Interruptor global que alterna tema claro/oscuro en todo el panel.
+```
 5. Fijar criterios de aceptacion verificables para modales, dropdowns, sidebar activa y modo oscuro.
+   Ejemplo minimo:
+
+```md
+## Criterios de aceptacion
+
+1. Al hacer clic en "Ver detalle" en Libros o Socios, se abre un modal con datos completos.
+2. Todo modal se cierra con boton de cierre y tambien al hacer clic en el backdrop.
+3. Todo dropdown "⋮" se cierra al hacer clic fuera del menu.
+4. La seccion activa permanece resaltada en la sidebar.
+5. El toggle dark mode cambia el tema visual de todo el panel.
+```
 6. Implementar luego index.html como prototipo unico siguiendo la especificacion.
 
 Guion breve para decir en clase:
