@@ -7,13 +7,26 @@
   <link rel="stylesheet" href="/static/academy.css" />
 </head>
 <body>
+  <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
   <div class="layout">
-    <aside>
+    <aside id="sidebar" class="sidebar">
       <h1 class="brand">Class Navigator</h1>
       <p class="hint">Navega por clase y abre resumenes con formato enriquecido.</p>
       <div id="menu"></div>
     </aside>
     <main>
+      <div class="mobile-topbar">
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          ☰ Menu
+        </button>
+      </div>
       <div class="panel">
         <div class="meta">
           <span class="pill" id="meta-class">Clase: -</span>

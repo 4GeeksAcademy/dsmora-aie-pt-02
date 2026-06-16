@@ -1,0 +1,136 @@
+Iniciando scraping paralelo de 3 tutorial(es) con max_concurrency=3
+
+=== Tutorial: class_14/spa_architecture_bundling ===
+[class_14/spa_architecture_bundling] Abriendo https://spa-architecture-bundling.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=42e5c67a34bfe530954f05f2869aa0a966778fa0&cohort=1622&academy=6...
+
+=== Tutorial: class_14/introduction_to_react_and_next_js ===
+[class_14/introduction_to_react_and_next_js] Abriendo https://introduction-to-react-and-next-js.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=42e5c67a34bfe530954f05f2869aa0a966778fa0&cohort=1622&academy=6...
+
+=== Tutorial: class_14/organizing_your_frontend ===
+[class_14/organizing_your_frontend] Abriendo https://organizing-your-frontend.learn-pack.com#language=es&lang=es&theme=dark&iframe=true&token=42e5c67a34bfe530954f05f2869aa0a966778fa0&cohort=1622&academy=6...
+[class_14/spa_architecture_bundling] Abriendo menu lateral...
+[class_14/introduction_to_react_and_next_js] Abriendo menu lateral...
+[class_14/organizing_your_frontend] Abriendo menu lateral...
+[class_14/spa_architecture_bundling] Se encontraron 19 lecciones.
+[class_14/spa_architecture_bundling] Procesando leccion 1/19: 0 Bienvenido a la arquitectura spa
+[class_14/introduction_to_react_and_next_js] Se encontraron 22 lecciones.
+[class_14/organizing_your_frontend] Se encontraron 16 lecciones.
+[class_14/introduction_to_react_and_next_js] Procesando leccion 1/22: 0 Bienvenido de paginas html a aplicaciones basadas en componentes
+[class_14/organizing_your_frontend] Procesando leccion 1/16: 0 Por que la estructura de carpetas importa
+[class_14/spa_architecture_bundling] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/spa_architecture_bundling] Click 'Continue'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 2/19: 1 Que significa construir una aplicacion
+[class_14/organizing_your_frontend] Procesando leccion 2/16: 1 Que es un modulo
+[class_14/introduction_to_react_and_next_js] Procesando leccion 2/22: 1 Que es un componente web en react
+[class_14/spa_architecture_bundling] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/spa_architecture_bundling] Click 'Continue'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/spa_architecture_bundling] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/spa_architecture_bundling] Click 'Continue'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 3/19: 1.1 El proceso de empaquetado
+[class_14/organizing_your_frontend] Procesando leccion 3/16: 1.1 El costo de no modularizar
+[class_14/introduction_to_react_and_next_js] Procesando leccion 3/22: 1.1 Como react actualiza la web con virtual dom
+[class_14/spa_architecture_bundling] Procesando leccion 4/19: 1.2 Inspeccionando una aplicacion construida
+[class_14/organizing_your_frontend] Procesando leccion 4/16: 1.2 Identificando oportunidades de modularizacion
+[class_14/introduction_to_react_and_next_js] Procesando leccion 4/22: 1.2 Creando tu primer componente react
+[class_14/spa_architecture_bundling] Procesando leccion 5/19: 2 Tiempo de construccion explicado
+[class_14/organizing_your_frontend] Procesando leccion 5/16: 2 Separacion vistas vs componentes
+[class_14/introduction_to_react_and_next_js] Procesando leccion 5/22: 2 Que es next.js y por que usarlo
+[class_14/spa_architecture_bundling] Procesando leccion 6/19: 2.1 Tiempo de ejecucion en el navegador
+[class_14/organizing_your_frontend] Procesando leccion 6/16: 2.1 Extrayendo un componente
+[class_14/introduction_to_react_and_next_js] Procesando leccion 6/22: 2.1 Responsabilidades de react vs next.js
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 7/19: 2.2 Modelo mental de dos fases
+[class_14/introduction_to_react_and_next_js] Procesando leccion 7/22: 2.2 Configurando un proyecto next.js
+[class_14/organizing_your_frontend] Procesando leccion 7/16: 2.2 Estrategias de agrupacion
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/spa_architecture_bundling] Procesando leccion 8/19: 3 Sitios web tradicionales multipagina
+[class_14/introduction_to_react_and_next_js] Procesando leccion 8/22: 3 Como se organiza un proyecto next.js
+[class_14/organizing_your_frontend] Procesando leccion 8/16: 2.3 Ejercicio de reorganizacion modal
+[class_14/spa_architecture_bundling] Procesando leccion 9/19: 3.1 Problemas que resuelven las spa
+[class_14/introduction_to_react_and_next_js] Procesando leccion 9/22: 3.1 Paginas vs componentes vs disenos
+[class_14/organizing_your_frontend] Procesando leccion 9/16: 3 Arquitectura de carpetas nextjs
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 10/19: 3.2 Comparando mpa vs spa
+[class_14/organizing_your_frontend] Procesando leccion 10/16: 3.1 Marco de colocacion de archivos
+[class_14/introduction_to_react_and_next_js] Procesando leccion 10/22: 3.2 Navegando por un codigo real de next.js
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/organizing_your_frontend] Procesando leccion 11/16: 3.2 Antipatrones de codigo desorganizado
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 11/19: 4 Un archivo html en spa
+[class_14/introduction_to_react_and_next_js] Procesando leccion 11/22: 4 Convenciones del enrutador de aplicaciones y carpetas principales
+[class_14/organizing_your_frontend] Procesando leccion 12/16: 4 Convenciones de nombrado
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/organizing_your_frontend] Procesando leccion 13/16: 4.1 Ejercicio de exportaciones barrel
+[class_14/spa_architecture_bundling] Procesando leccion 12/19: 4.1 Ilusion de navegacion
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Procesando leccion 12/22: 4.1 Archivos de enrutamiento rutas anidadas y grupos
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 13/19: 4.2 Anti patrones en spa
+[class_14/organizing_your_frontend] Procesando leccion 14/16: 4.2 Antipatrones de caos en nombrado
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Procesando leccion 13/22: 4.2 Convenciones de archivos de metadata
+[class_14/organizing_your_frontend] Click 'Continue anyway'
+[class_14/organizing_your_frontend] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/organizing_your_frontend] Procesando leccion 15/16: 5 Cuestionario de modularizacion frontend
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Procesando leccion 14/22: 4.3 Construyendo una estructura multipagina con el enrutador de aplicaciones
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/spa_architecture_bundling] Procesando leccion 14/19: 5 Enrutamiento basado en hash
+[class_14/organizing_your_frontend] Procesando leccion 16/16: 6 Conclusion del curso y proximos pasos
+[class_14/introduction_to_react_and_next_js] Procesando leccion 15/22: 5 Estrategias de renderizado csr vs ssr
+[class_14/spa_architecture_bundling] Procesando leccion 15/19: 5.1 Api de historial del navegador
+
+Finalizado tutorial class_14/organizing_your_frontend. Contenido guardado en /workspaces/dsmora-aie-pt-02-class-1/class_14/organizing_your_frontend.json
+[class_14/introduction_to_react_and_next_js] Procesando leccion 16/22: 5.1 Elegir la estrategia de renderizado correcta
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/spa_architecture_bundling] Procesando leccion 16/19: 5.2 Observando el comportamiento del enrutamiento
+[class_14/introduction_to_react_and_next_js] Procesando leccion 17/22: 6 Primera mirada a props estado y efectos
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/spa_architecture_bundling] Procesando leccion 17/19: 6 Mapeando la arquitectura de una aplicacion real
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Procesando leccion 18/22: 6.1 Construyendo un componente con props
+[class_14/spa_architecture_bundling] Procesando leccion 18/19: 6.1 Evaluacion de spa y empaquetado
+[class_14/introduction_to_react_and_next_js] Procesando leccion 19/22: 6.2 Anti patrones errores comunes de principiantes
+[class_14/spa_architecture_bundling] Procesando leccion 19/19: 7 Que sigue
+[class_14/introduction_to_react_and_next_js] Procesando leccion 20/22: 7 Practica armar una pagina simple next.js
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Procesando leccion 21/22: 7.1 Evaluacion de conocimientos
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+
+Finalizado tutorial class_14/spa_architecture_bundling. Contenido guardado en /workspaces/dsmora-aie-pt-02-class-1/class_14/spa_architecture_bundling.json
+[class_14/introduction_to_react_and_next_js] Procesando leccion 22/22: 8 Conclusion del curso y proximos pasos
+[class_14/introduction_to_react_and_next_js] Click 'Continue anyway'
+[class_14/introduction_to_react_and_next_js] Click 'Continue'
+
+Finalizado tutorial class_14/introduction_to_react_and_next_js. Contenido guardado en /workspaces/dsmora-aie-pt-02-class-1/class_14/introduction_to_react_and_next_js.json
