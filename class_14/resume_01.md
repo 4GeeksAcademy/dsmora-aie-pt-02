@@ -1,116 +1,120 @@
-# Guia Docente: Class 14 - React, Next.js y Organizacion Frontend
+# Guia Docente: Class 14 - Fundamentos React/Next y Depuracion Frontend
 
 Este resumen integra los JSON de class_14 para una clase online de 60 minutos maximo.
-El foco es que el estudiante entienda componentes, App Router y organizacion del codigo,
-sin perder de vista arquitectura SPA y decisiones de renderizado.
+El foco es consolidar props, hooks y renderizado, y sumar un metodo de depuracion
+basado en evidencia para alumnos en etapa de aprendizaje.
 
 ## 1. Objetivos de aprendizaje
 
 Al finalizar la clase, el estudiante deberia poder:
 
-- Explicar la diferencia entre React (libreria UI) y Next.js (framework).
-  Como explicarlo: React construye componentes; Next.js organiza rutas, renderizado y estructura.
-- Crear y reutilizar componentes basicos con JSX y props.
-  Como explicarlo: construir un componente de tarjeta y usarlo varias veces con datos distintos.
-- Entender App Router y estructura de carpetas en Next.js.
-  Como explicarlo: mapear app/page.tsx, app/about/page.tsx y components/ en un ejemplo simple.
-- Organizar un frontend por modulos y responsabilidades.
-  Como explicarlo: separar vistas, componentes reutilizables, hooks y utilidades.
-- Describir que es una SPA y como influye el bundling en la experiencia.
-  Como explicarlo: comparar recarga total (MPA) vs navegacion fluida (SPA).
+- Explicar como fluye la informacion con props y children.
+  Como explicarlo: pasar datos de un componente padre a uno hijo con ejemplos reales.
+- Entender que resuelven los hooks y cuando usar useState/useEffect.
+  Como explicarlo: mostrar un contador y una carga de datos simple.
+- Diferenciar CSR y SSR a nivel inicial.
+  Como explicarlo: escoger estrategia segun interactividad y SEO.
+- Aplicar modularizacion basica en un proyecto React/Next.
+  Como explicarlo: separar componente, hook y utilidad en archivos distintos.
+- Depurar errores usando evidencia en DevTools.
+  Como explicarlo: elegir panel correcto segun tipo de error (Elementos, Consola, Red, React DevTools).
 
 ## 2. Conceptos clave explicados en palabras simples
 
-- Componente: pieza reutilizable de interfaz, como un bloque lego.
-- Props: datos de entrada para personalizar un componente sin reescribirlo.
-- App Router: sistema de rutas por carpetas en Next.js.
-- Modularizacion: dividir codigo en partes pequenas con responsabilidad clara.
-- Build y bundling: proceso que transforma tu codigo fuente en archivos listos para navegador.
-- SPA: app que cambia vistas sin recargar toda la pagina.
+- Props: parametros de entrada para personalizar componentes.
+- Children: contenido JSX que se inserta dentro de un componente contenedor.
+- Hook: funcion especial que agrega estado o efectos a componentes funcionales.
+- Renderizado CSR/SSR: donde se genera la UI, cliente o servidor.
+- Evidencia sobre suposicion: primero observar datos del error, luego corregir.
 
 ## 3. Guion sugerido para clase online (60 minutos)
 
-### Bloque A (12 min): De HTML a componentes
+### Bloque A (12 min): Props y children
 
-- Que problema resuelven los componentes reutilizables.
-- Ejemplo guiado de componente simple con JSX.
+- Flujo de datos de padre a hijo.
+- Ejemplo de componente contenedor usando children.
 
-### Bloque B (12 min): React vs Next.js y App Router
+### Bloque B (12 min): Hooks esenciales
 
-- Responsabilidades de cada tecnologia.
-- Estructura minima de proyecto Next.js y rutas por archivos.
+- useState para estado local.
+- useEffect para efectos controlados en casos simples.
 
-### Bloque C (12 min): Organizacion del frontend
+### Bloque C (10 min): Renderizado y modularizacion
 
-- Separar vistas y componentes.
-- Agrupar por feature o por tipo sin mezclar responsabilidades.
+- Diferencia basica entre CSR y SSR.
+- Estructura minima de archivos para evitar monolitos.
 
-### Bloque D (6 min): Arquitectura SPA y bundling
+### Bloque D (8 min): Depuracion por evidencia
 
-- Que pasa en build time y que pasa en runtime.
-- Por que una SPA se siente mas fluida en navegacion.
+- Identificar categoria del error.
+- Elegir panel correcto de DevTools antes de cambiar codigo.
 
 ### Bloque E (18 min): Mini ejercicio final (maximo 20 min)
 
-- Objetivo: crear una mini app con 2 rutas y 1 componente reutilizable.
+- Objetivo: construir un componente de lista interactiva y depurarlo.
 - Requisitos:
-  - Ruta Home y ruta About.
-  - Componente Card reutilizable con props title y description.
-  - Una seccion organizada en carpeta components/.
-  - Navegacion sin recarga completa usando Link.
+  - Componente TaskList con props initialTasks.
+  - Input + boton para agregar una tarea.
+  - Estado local con useState.
+  - Simular un bug pequeno (por ejemplo, no agregar tareas vacias) y resolverlo con Consola.
 - Criterio de exito:
-  - El estudiante navega entre 2 paginas.
-  - Reutiliza el componente al menos 2 veces.
-  - Explica en 1 minuto por que su estructura es modular.
+  - La lista renderiza tareas iniciales.
+  - Se agregan nuevas tareas validas.
+  - El estudiante explica que evidencia uso para encontrar el bug.
 
 ## 4. Ejemplos para mostrar en vivo
 
-### Ejemplo 1: Componente reutilizable
+### Ejemplo 1: Props + children
 
 ```tsx
-type CardProps = { title: string; description: string };
+type PanelProps = {
+  title: string;
+  children: React.ReactNode;
+};
 
-export function Card({ title, description }: CardProps) {
+export function Panel({ title, children }: PanelProps) {
   return (
-    <article>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </article>
+    <section>
+      <h2>{title}</h2>
+      {children}
+    </section>
   );
 }
 ```
 
-### Ejemplo 2: App Router minimo
+### Ejemplo 2: Hook de estado
 
-```text
-app/
-  page.tsx
-  about/
-    page.tsx
-components/
-  Card.tsx
+```tsx
+import { useState } from "react";
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>Clicks: {count}</button>;
+}
 ```
 
-### Ejemplo 3: Decidir SPA vs MPA en lenguaje simple
+### Ejemplo 3: Elegir panel de depuracion
 
 ```text
-Si necesitas transiciones rapidas entre vistas y UX tipo app, SPA ayuda.
-Si necesitas paginas muy orientadas a SEO y contenido estatico, combinar SSR/SSG puede ser mejor.
+No funciona un click -> Consola.
+Layout roto -> Elementos.
+Datos no cargan -> Red.
+Props/estado inesperado en React -> React DevTools.
 ```
 
 ## 5. Errores frecuentes y correccion
 
-- Error: crear componentes gigantes.
-  Correccion: dividir por responsabilidad y reuso.
-- Error: mezclar codigo de ruta con utilidades.
-  Correccion: mantener app/ para rutas y otras carpetas para logica compartida.
-- Error: organizar carpetas sin criterio.
-  Correccion: definir una convencion simple y aplicarla de forma consistente.
-- Error: confundir SPA con "no necesita arquitectura".
-  Correccion: mantener estructura, contratos y limites entre modulos.
+- Error: prop drilling excesivo para datos simples.
+  Correccion: reorganizar arbol de componentes y evaluar contexto mas adelante.
+- Error: usar useEffect para todo.
+  Correccion: usarlo solo cuando hay efecto secundario real.
+- Error: editar codigo sin investigar el error.
+  Correccion: recolectar evidencia en DevTools y formular hipotesis primero.
+- Error: mezclar UI, estado y logica en un archivo gigante.
+  Correccion: extraer modulos pequenos y con nombre claro.
 
 ## 6. Cierre para sesion
 
-- Mensaje clave: una buena app no solo funciona, tambien esta bien organizada para crecer.
-- Resultado esperado: estudiante capaz de crear una base React/Next.js clara y mantenible en pequeno.
-- Siguiente paso: conectar esta base con hooks, renderizado y depuracion de class_15.
+- Mensaje clave: construir bien y depurar bien son dos caras del mismo trabajo frontend.
+- Resultado esperado: estudiante capaz de crear interactividad basica y resolver errores comunes con metodo.
+- Siguiente paso: practicar con ejercicios pequenos de refactor + debugging guiado.
