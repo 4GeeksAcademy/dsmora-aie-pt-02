@@ -303,6 +303,33 @@ Demostración en navegador (comentar mientras lo haces):
 3. Ir a instalación para OpenClaw.
 4. Copiar credenciales/clave de integración según indique Composio.
 
+Flujo detallado: autenticación OAuth de Google Docs
+
+1. En Composio, entrar a `Apps` y buscar `Google Docs`.
+2. Presionar `Connect` y seleccionar la cuenta de Google de laboratorio.
+3. Revisar la pantalla de consentimiento de Google y validar permisos antes de aprobar.
+4. Aceptar solo los scopes necesarios para la práctica (mínimo privilegio).
+5. Volver a Composio y verificar estado `Connected` en la conexión.
+6. Entrar a `Installations` y vincular esa conexión al entorno/agent de OpenClaw.
+7. Confirmar que la instalación aparece activa antes de ejecutar prompts con `mcporter`.
+
+Scopes mínimos recomendados para esta demo:
+
+- `https://www.googleapis.com/auth/documents`
+- `https://www.googleapis.com/auth/drive.file`
+
+Validación inmediata (sin esto no se da por cerrada la conexión):
+
+1. Ejecutar una acción simple: crear un documento de prueba.
+2. Exigir al agente el ID o enlace del recurso creado.
+3. Abrir el documento y confirmar que fue creado por la integración OAuth recién conectada.
+
+Errores frecuentes y cómo resolverlos en vivo:
+
+- `access_denied`: se rechazó consentimiento o faltan permisos; repetir flujo y revisar scopes.
+- `invalid_grant`: token expirado/revocado; desconectar y reconectar OAuth.
+- App conectada pero acción falla: revisar que la instalación para OpenClaw esté activa, no solo la conexión en dashboard.
+
 Qué decir (literal):
 
 "No conectes primero todo. Conecta una sola app de bajo riesgo, valida, y luego escala."
