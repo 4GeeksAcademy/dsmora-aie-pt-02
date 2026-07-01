@@ -170,7 +170,62 @@ function updateURL() {
   params.set("class", state.className);
   params.set("type", state.type);
   params.set("file", state.file);
-  history.replaceState({}, "", `/academy?${params.toString()}`);
+  history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`);
+}
+
+async function loadCatalog() {
+  // Static mode for GitHub Pages.
+  try {
+    const staticRes = await fetch("./catalog.json");
+    if (staticRes.ok) {
+      const staticPayload = await staticRes.json();
+      if (Array.isArray(staticPayload.classes)) {
+        return staticPayload.classes;
+      }
+    }
+  } catch (_err) {
+    // Ignore and fallback to API mode.
+  }
+
+  // Local Flask mode fallback.
+  const apiRes = await fetch("/api/classes");
+  if (!apiRes.ok) {
+    return [];
+  }
+  const apiPayload = await apiRes.json();
+  return apiPayload.classes || [];
+}
+
+async function loadContentPayload() {
+  // Static mode for GitHub Pages.
+  try {
+    const fileRes = await fetch(`./${state.className}/${state.file}`);
+    if (fileRes.ok) {
+      const content = await fileRes.text();
+      const extension = state.file.includes(".") ? state.file.split(".").pop().toLowerCase() : "";
+      return { content, extension };
+    }
+  } catch (_err) {
+    // Ignore and fallback to API mode.
+  }
+
+  // Local Flask mode fallback.
+  const params = new URLSearchParams({
+    class: state.className,
+    type: state.type,
+    file: state.file
+  });
+
+  const res = await fetch(`/api/content?${params.toString()}`);
+  if (!res.ok) {
+    return null;
+  }
+
+  const payload = await res.json();
+  return {
+    content: payload.content,
+    extension: payload.extension
+  };
 }
 
 async function loadContent() {
@@ -180,20 +235,13 @@ async function loadContent() {
   contentEl.classList.remove("empty", "markdown", "raw");
   contentEl.textContent = "Cargando...";
 
-  const params = new URLSearchParams({
-    class: state.className,
-    type: state.type,
-    file: state.file
-  });
-
-  const res = await fetch(`/api/content?${params.toString()}`);
-  if (!res.ok) {
+  const payload = await loadContentPayload();
+  if (!payload) {
     contentEl.classList.add("empty", "raw");
     contentEl.textContent = "No se pudo cargar el contenido solicitado.";
     return;
   }
 
-  const payload = await res.json();
   if (payload.extension === "md") {
     contentEl.classList.add("markdown");
     contentEl.innerHTML = markdownToHtml(payload.content);
@@ -273,9 +321,9 @@ function pickInitialSelection() {
   const qType = params.get("type");
   const qFile = params.get("file");
 
-  if (qClass && qType === "resumen" && qFile) {
+  if (qClass && (qType === "resumen" || qType === "completa") && qFile) {
     state.className = qClass;
-    state.type = "resumen";
+    state.type = qType;
     state.file = qFile;
     return;
   }
@@ -308,9 +356,7 @@ async function bootstrap() {
     if (!isMobile()) setMenuOpen(false);
   });
 
-  const res = await fetch("/api/classes");
-  const payload = await res.json();
-  state.catalog = payload.classes || [];
+  state.catalog = await loadCatalog();
   renderMenu();
   pickInitialSelection();
   setMeta();

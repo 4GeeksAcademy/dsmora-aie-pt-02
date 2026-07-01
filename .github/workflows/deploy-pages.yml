@@ -1,0 +1,84 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build catalog.json
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          
+          def class_sort_key(name):
+              m = re.match(r"^class_(\d+)$", name)
+              return int(m.group(1)) if m else 10**9
+          
+          root = "."
+          classes = []
+          for name in sorted(os.listdir(root), key=class_sort_key):
+              if not re.match(r"^class_\d+$", name):
+                  continue
+              full = os.path.join(root, name)
+              if not os.path.isdir(full):
+                  continue
+          
+              summaries = []
+              complete = []
+              for entry in sorted(os.listdir(full)):
+                  entry_path = os.path.join(full, entry)
+                  if not os.path.isfile(entry_path):
+                      continue
+          
+                  lower = entry.lower()
+                  if lower.endswith(".md") and (lower.startswith("resume_") or lower.startswith("resumen_")):
+                      summaries.append(entry)
+                  elif lower.endswith(".json"):
+                      complete.append(entry)
+          
+              classes.append({
+                  "class": name,
+                  "summaries": summaries,
+                  "complete": complete,
+              })
+          
+          with open("catalog.json", "w", encoding="utf-8") as f:
+              json.dump({"classes": classes}, f, ensure_ascii=False, indent=2)
+          PY
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
