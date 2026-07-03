@@ -67,10 +67,27 @@ jobs:
               json.dump({"classes": classes}, f, ensure_ascii=False, indent=2)
           PY
 
+      - name: Prepare site bundle
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+
+          # Copy only what is needed by GitHub Pages.
+          rsync -a ./ _site/ \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            --exclude 'tmp/' \
+            --exclude '__pycache__/'
+
+          # Ensure GitHub Pages serves directories/files starting with underscore if needed.
+          touch _site/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     environment:
