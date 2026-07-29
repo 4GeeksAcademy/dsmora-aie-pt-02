@@ -208,6 +208,61 @@ Qué decir (literal):
 
 "El CSV es una forma muy común de guardar datos tabulares. Con `csv.DictReader` podemos trabajar con cada fila como un diccionario, lo que resulta mucho más legible que manipular listas de strings."
 
+## Bloque E (opcional, 8 min) - Enviar archivos a una API y procesarlos
+
+Objetivo rápido:
+
+- Mostrar cómo un cliente envía un archivo con `multipart/form-data`.
+- Guardar temporalmente el archivo en backend y devolver metadatos útiles.
+
+Ejecuta:
+
+```bash
+mkdir -p api_upload_demo && cd api_upload_demo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install fastapi "uvicorn[standard]" python-multipart
+
+cat > main.py << 'PY'
+from pathlib import Path
+from fastapi import FastAPI, UploadFile, File
+
+app = FastAPI(title="Upload API Demo")
+UPLOAD_DIR = Path("uploads")
+UPLOAD_DIR.mkdir(exist_ok=True)
+
+@app.post("/upload")
+async def upload_file(file: UploadFile = File(...)):
+        target = UPLOAD_DIR / file.filename
+        content = await file.read()
+        target.write_bytes(content)
+
+        return {
+                "filename": file.filename,
+                "content_type": file.content_type,
+                "size_bytes": len(content),
+                "saved_to": str(target),
+        }
+PY
+
+uvicorn main:app --reload --port 8002
+```
+
+En otra terminal, prueba el envío:
+
+```bash
+cd class_30/demo_files
+echo "archivo de prueba" > sample.txt
+curl -s -X POST http://127.0.0.1:8002/upload \
+    -F "file=@sample.txt"
+```
+
+Qué decir (literal):
+
+"Aquí el cliente manda el archivo como `multipart/form-data`, no como JSON. En FastAPI, `UploadFile` nos da nombre, tipo de contenido y el stream de bytes."
+
+"Este patrón se usa para adjuntos, importación de CSV y carga de imágenes. Después de guardar el archivo, lo normal es validar tipo/tamaño y procesarlo en un job asíncrono si pesa mucho."
+
 ## 5) Cierre (5 min)
 
 Qué decir (literal):
