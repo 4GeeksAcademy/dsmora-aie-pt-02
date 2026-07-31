@@ -36,6 +36,14 @@ from tinydb import TinyDB
 db = TinyDB("db.json")
 ```
 
+## Qué decir en clase
+
+Explicar que el objetivo no es solo “guardar algo”, sino hacer que los datos sobrevivan a reinicios y puedan recuperarse después.
+
+## Qué preguntar después
+
+¿Qué diferencia hay entre un dato que vive en memoria y un dato que se guarda de forma persistente?
+
 ## Cierre sugerido
 
 Preguntar si los estudiantes entienden la diferencia entre tener datos en memoria y tener datos reales guardados para una aplicación que va a usarse de forma continua.

@@ -43,6 +43,14 @@ async def say_hello():
 client = TestClient(app)
 ```
 
+## Qué decir en clase
+
+Explicar que las pruebas ayudan a definir el comportamiento esperado antes de escribir toda la lógica.
+
+## Qué preguntar después
+
+¿Qué prueba mínima escribirías primero para una funcionalidad nueva?
+
 ## Cierre sugerido
 
 Pedir a los estudiantes que propongan una prueba mínima para una funcionalidad sencilla antes de escribir el código.

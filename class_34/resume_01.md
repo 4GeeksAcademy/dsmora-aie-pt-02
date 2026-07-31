@@ -42,6 +42,14 @@ fetch('/api/protected', {
 });
 ```
 
+## Qué decir en clase
+
+Explicar que la sesión no es solo “estar logueado”, sino un estado que debe mantenerse y limpiarse correctamente.
+
+## Qué preguntar después
+
+¿Qué debería pasar si la app detecta que el token ya no es válido al arrancar?
+
 ## Cierre sugerido
 
 Pedir a los alumnos que expliquen qué pasaría si la sesión no se hidrata correctamente al iniciar la aplicación.

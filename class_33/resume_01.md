@@ -37,6 +37,14 @@ import jwt
 def create_access_token(data: dict, secret_key: str, expires_delta: timedelta):
 ```
 
+## Qué decir en clase
+
+Explicar que la autenticación responde a “quién eres” y la autorización a “qué puedes hacer”.
+
+## Qué preguntar después
+
+¿Por qué un usuario puede pasar la autenticación pero aun así no tener acceso a todo?
+
 ## Cierre sugerido
 
 Pedir a los alumnos que expliquen con sus palabras por qué un sistema puede autenticarse pero no estar autorizado a acceder a todo.

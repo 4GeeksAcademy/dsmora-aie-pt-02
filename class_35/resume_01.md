@@ -43,6 +43,14 @@ try {
 }
 ```
 
+## Qué decir en clase
+
+Explicar que no basta con “capturar el error”; también hay que decidir qué mensaje mostrar y qué hacer con la interfaz.
+
+## Qué preguntar después
+
+¿Qué harías si una petición falla y el usuario necesita saber qué ocurrió sin perder la app?
+
 ## Cierre sugerido
 
 Pedir a los estudiantes que identifiquen un punto de fallo en una aplicación real y propongan una forma de manejarlo de forma más robusta.
