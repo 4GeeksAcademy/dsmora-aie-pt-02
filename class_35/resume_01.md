@@ -1,22 +1,31 @@
 # Resumen de la clase 35
 
-Este resumen está basado en el contenido de los JSON del scraper para la clase 35.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 35 y está pensado para usarlo como guía de clase.
 
-## Qué se enseña en esta clase
+## Objetivo de la clase
 
-La clase enseña a construir aplicaciones más resistentes ante los fallos inevitables de la vida real. Se centra en cómo detectar los puntos de fallo más comunes, manejar errores con claridad y evitar que una pequeña excepción rompa toda la experiencia del usuario.
+Enseñar a manejar errores de forma consciente para que una aplicación siga siendo usable, clara y resistente incluso cuando algo falla.
 
-## Conceptos clave
+## Cómo desarrollar la clase
 
-- Los puntos habituales donde fallan las aplicaciones: red, datos incompletos y entradas inesperadas.
-- La anatomía de los fallos y cómo se propagan por un sistema.
-- El uso de try/catch/finally para controlar errores de forma explícita.
-- El manejo de errores en operaciones asíncronas y en llamadas a APIs.
-- La importancia de usar valores por defecto y de respaldo cuando los datos no llegan completos.
-- El acceso seguro a datos mediante encadenamiento opcional y renderizado defensivo.
-- La traducción de errores técnicos a mensajes amigables para la interfaz.
-- La construcción de componentes de error y mejores prácticas de retroalimentación para el usuario.
+1. Empezar por mostrar los puntos comunes donde fallan las aplicaciones: red, datos incompletos y entradas inesperadas.
+2. Explicar la anatomía de un fallo y cómo un error puede propagarse si no se maneja.
+3. Introducir try/catch/finally como herramienta para controlar errores de forma explícita.
+4. Mostrar cómo tratar errores en operaciones asíncronas y en llamadas a APIs.
+5. Explicar el uso de valores por defecto, encadenamiento opcional y renderizado seguro para evitar que la interfaz se rompa.
+6. Cerrar con la importancia de traducir errores técnicos a mensajes claros para el usuario y de preparar componentes de error.
 
-## Enfoque del resumen
+## Ejemplo práctico para explicar
 
-La clase no se limita a “capturar errores”, sino a diseñar una experiencia más robusta: anticipar fallos, degradar con elegancia y mantener la app usable incluso cuando algo sale mal.
+Un caso claro es una pantalla que intenta cargar datos desde una API y debe mostrar un estado de carga, luego un mensaje de error si la petición falla, sin dejar la interfaz en blanco.
+
+## Puntos clave para enfatizar
+
+- Los errores no solo deben capturarse, también deben manejarse con una respuesta clara.
+- Un sistema resiliente no evita todos los fallos, pero sí los gestiona bien.
+- El renderizado defensivo evita que la UI se rompa con datos incompletos.
+- El usuario necesita feedback claro cuando algo sale mal.
+
+## Cierre sugerido
+
+Pedir a los estudiantes que identifiquen un punto de fallo en una aplicación real y propongan una forma de manejarlo de forma más robusta.

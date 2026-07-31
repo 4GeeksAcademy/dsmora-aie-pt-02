@@ -1,22 +1,31 @@
 # Resumen de la clase 33
 
-Este resumen está basado en el contenido de los JSON del scraper para la clase 33.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 33 y está pensado para usarlo como guía de clase.
 
-## Qué se enseña en esta clase
+## Objetivo de la clase
 
-La clase presenta la base de la autenticación en aplicaciones web y APIs. Se enfoca en distinguir entre autenticación y autorización, explicar por qué las contraseñas deben manejarse de forma segura y mostrar cómo funciona la autenticación basada en tokens mediante JWT.
+Explicar los fundamentos de la autenticación, la seguridad de las contraseñas y el uso de JWT como base para proteger rutas y recursos en una API.
 
-## Conceptos clave
+## Cómo desarrollar la clase
 
-- Qué significa autenticación y cómo se diferencia de autorización.
-- Por qué la encriptación y el manejo seguro de contraseñas son fundamentales.
-- Los métodos de autenticación más comunes y sus mecanismos básicos.
-- La estructura de un JWT y cómo se usa para identificar a un usuario.
-- Las mejores prácticas de seguridad para JWT, incluyendo almacenamiento seguro del token y manejo de expiración.
-- El papel de OAuth y el login social en la autenticación moderna.
-- La importancia de la autenticación multifactor como capa extra de protección.
-- La implementación de rutas protegidas y los anti-patrones que conviene evitar.
+1. Empezar por la diferencia entre autenticación y autorización, con un ejemplo simple de acceso a un recurso.
+2. Explicar por qué las contraseñas deben manejarse de forma segura y por qué no deben guardarse en texto plano.
+3. Introducir los métodos de autenticación y el concepto de autenticación basada en token.
+4. Explicar la estructura de un JWT y cómo se usa para identificar a un usuario.
+5. Mostrar cómo se relaciona esto con OAuth, el login social y la autenticación multifactor.
+6. Cerrar con el concepto de rutas protegidas y los errores que conviene evitar.
 
-## Enfoque del resumen
+## Ejemplo práctico para explicar
 
-La clase combina teoría y práctica para mostrar que la seguridad no depende de un solo mecanismo, sino de una cadena de decisiones bien aplicadas: contraseñas seguras, manejo correcto de tokens y protección de rutas.
+Un ejemplo útil es un flujo de login en el que el usuario entrega credenciales, el sistema valida la identidad y luego entrega un token que permite acceder a recursos protegidos.
+
+## Puntos clave para enfatizar
+
+- La autenticación responde a “quién eres”, mientras que la autorización responde a “qué puedes hacer”.
+- Las contraseñas seguras y la encriptación son la base de la seguridad.
+- Un JWT permite llevar identidad y permisos de forma portable.
+- La seguridad real requiere más que un token: también hay que proteger rutas y manejar expiración y almacenamiento adecuado.
+
+## Cierre sugerido
+
+Pedir a los alumnos que expliquen con sus palabras por qué un sistema puede autenticarse pero no estar autorizado a acceder a todo.

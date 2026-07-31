@@ -1,21 +1,31 @@
 # Resumen de la clase 32
 
-Este resumen está basado en el contenido de los JSON del scraper para la clase 32.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 32 y está pensado para poder usarlo como guía de clase.
 
-## Qué se enseña en esta clase
+## Objetivo de la clase
 
-La clase introduce la idea de pasar de datos temporales en memoria a un modelo de persistencia más realista. El punto central es entender que una API necesita guardar información de forma durable para que los datos sobrevivan a reinicios y puedan consultarse, actualizarse o eliminarse más adelante.
+Explicar por qué una API necesita persistencia real y cómo introducir un sistema simple de almacenamiento con TinyDB, validación con Pydantic y datos iniciales con seeders.
 
-## Conceptos clave
+## Cómo desarrollar la clase
 
-- Por qué almacenar datos es necesario en una aplicación real.
-- Cómo usar TinyDB como almacenamiento local en formato JSON.
-- Operaciones básicas de CRUD: insertar, leer, buscar, actualizar y eliminar registros.
-- La importancia de validar datos antes de guardarlos, con Pydantic como capa de esquema.
-- Los errores comunes al guardar información sin control, como datos inconsistentes o estructuras poco claras.
-- La integración de TinyDB con un endpoint FastAPI.
-- Qué es un seeder y cómo se usa para cargar datos iniciales de manera reproducible.
+1. Abrir con el problema de los datos en memoria: mostrar que si el proceso se reinicia, la información desaparece.
+2. Introducir TinyDB como solución básica de persistencia en archivo JSON.
+3. Explicar el flujo CRUD: insertar, leer, buscar, actualizar y eliminar registros.
+4. Añadir Pydantic para validar la estructura de los datos antes de guardarlos.
+5. Mostrar cómo integrar esto en un endpoint FastAPI.
+6. Cerrar con el concepto de seeder y su utilidad para cargar datos iniciales de forma reproducible.
 
-## Enfoque del resumen
+## Ejemplo práctico para explicar
 
-La clase combina persistencia, validación y preparación de datos iniciales. En otras palabras, muestra cómo construir una base mínima de almacenamiento que sea útil para una API simple, sin perder control sobre la forma de los datos.
+Un ejemplo claro es una pequeña API de contactos: primero se guarda la información en memoria, luego se pasa a TinyDB y se valida con un esquema antes de almacenarla.
+
+## Puntos clave para enfatizar
+
+- La persistencia permite que los datos sobrevivan a reinicios.
+- TinyDB ofrece una forma sencilla de guardar información sin montar una base de datos completa.
+- La validación con Pydantic evita datos inconsistentes.
+- Los seeders ayudan a preparar un entorno de desarrollo con datos iniciales.
+
+## Cierre sugerido
+
+Preguntar si los estudiantes entienden la diferencia entre tener datos en memoria y tener datos reales guardados para una aplicación que va a usarse de forma continua.

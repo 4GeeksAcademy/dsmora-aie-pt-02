@@ -1,22 +1,31 @@
 # Resumen de la clase 36
 
-Este resumen está basado en el contenido de los JSON del scraper para la clase 36.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 36 y está pensado para usarlo como guía de clase.
 
-## Qué se enseña en esta clase
+## Objetivo de la clase
 
-La clase introduce la mentalidad de testing como parte esencial del desarrollo de software. Se explica por qué los errores cuestan más cuando aparecen tarde, y por qué las pruebas ayudan a detectar problemas antes, mejorar la calidad y facilitar el mantenimiento del código.
+Introducir la mentalidad de testing y mostrar cómo las pruebas ayudan a prevenir errores, validar comportamiento y mejorar la calidad del software.
 
-## Conceptos clave
+## Cómo desarrollar la clase
 
-- La importancia de las pruebas y el costo real de los errores en producción.
-- La diferencia entre pruebas unitarias, de integración, funcionales y de rendimiento.
-- La identificación de casos normales, casos límite y casos de error.
-- El ciclo TDD: rojo, verde y refactorización.
-- Cómo construir conjuntos de pruebas para validar reglas de negocio y operaciones CRUD.
-- La configuración básica de frameworks de pruebas en TypeScript y Python.
-- El uso de TestClient en FastAPI para probar endpoints y flujos de API.
-- La planificación de pruebas y las mejores prácticas para evitar anti-patrones.
+1. Explicar por qué los errores cuestan más cuando aparecen tarde y por qué las pruebas son una inversión.
+2. Diferenciar entre pruebas unitarias, de integración, funcionales y de rendimiento.
+3. Mostrar cómo identificar casos normales, casos límite y casos de error.
+4. Introducir el ciclo TDD: rojo, verde y refactorización.
+5. Explicar cómo aplicar pruebas en TypeScript y en FastAPI, incluyendo el uso de frameworks y TestClient.
+6. Cerrar con la importancia de planificar pruebas y evitar anti-patrones.
 
-## Enfoque del resumen
+## Ejemplo práctico para explicar
 
-La clase une la teoría del testing con la práctica: muestra cómo pensar en casos de prueba, aplicar TDD y trabajar con pruebas unitarias tanto en TypeScript como en FastAPI.
+Un ejemplo útil es empezar con una función de validación o un endpoint simple, escribir una prueba que falle, implementar la solución y luego refactorizarla.
+
+## Puntos clave para enfatizar
+
+- Las pruebas no solo detectan errores, también ayudan a diseñar mejor el código.
+- El TDD obliga a pensar primero en el comportamiento esperado.
+- No todas las pruebas sirven para lo mismo: cada tipo cubre un nivel distinto del sistema.
+- En FastAPI es importante probar endpoints y operaciones CRUD, mientras que en TypeScript conviene pensar en pruebas unitarias con marcos como Jest, Vitest o Mocha/Chai.
+
+## Cierre sugerido
+
+Pedir a los estudiantes que propongan una prueba mínima para una funcionalidad sencilla antes de escribir el código.
