@@ -45,7 +45,7 @@ Comandos de verificacion previa:
 python3 --version
 mkdir -p class_33/demo_jwt && cd class_33/demo_jwt
 python3 -m venv .venv && source .venv/bin/activate
-pip install fastapi "uvicorn[standard]" "python-jose[cryptography]" "passlib[bcrypt]" python-multipart
+pip install fastapi "uvicorn[standard]" "PyJWT" "passlib[bcrypt]" python-multipart
 ```
 
 ## 4) Guion docente detallado (con texto literal)
@@ -170,7 +170,7 @@ Ejecuta:
 cd class_33/demo_jwt
 cat > jwt_parts_demo.py <<'PY'
 from datetime import datetime, timedelta, timezone
-from jose import jwt
+import jwt
 
 SECRET_KEY = 'dev-secret-change-me'
 ALGORITHM = 'HS256'
@@ -212,7 +212,8 @@ cat > main.py <<'PY'
 from datetime import datetime, timedelta, timezone
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from jose import JWTError, jwt
+import jwt
+from jwt.exceptions import InvalidTokenError
 from passlib.context import CryptContext
 
 SECRET_KEY = 'dev-secret-change-me'
@@ -260,7 +261,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
         username: str | None = payload.get('sub')
         if username is None:
             raise credentials_exception
-    except JWTError:
+    except InvalidTokenError:
         raise credentials_exception
 
     user = fake_user_db.get(username)
@@ -356,7 +357,7 @@ cd class_33/demo_jwt
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
-pip install fastapi "uvicorn[standard]" "python-jose[cryptography]" "passlib[bcrypt]" python-multipart
+pip install fastapi "uvicorn[standard]" "PyJWT" "passlib[bcrypt]" python-multipart
 ```
 
 Si hay dudas sobre OAuth/login social durante clase:
