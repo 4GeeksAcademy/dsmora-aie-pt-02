@@ -1,7 +1,9 @@
 # Guía Docente Completa: Class <N> - <TITULO>
 
+> Regla de oro: este resumen debe basarse únicamente en los JSON generados por el scraper. No inventar librerías, frameworks, comandos, ejemplos ni contenido. Si un punto no aparece en los JSON, omítelo o conviértelo en una explicación conceptual muy general. Los ejemplos de código solo deben incluirse cuando puedan justificarse con el contenido real del JSON.
+
 Clase online para 60-75 minutos.
-Documento para profesor: incluye guion literal, comandos exactos y ejemplos completos. El profesor puede saltarse bloques sin perder continuidad.
+Documento para profesor: incluye objetivo, desarrollo de la clase, ejemplo de código (si procede), qué decir en clase, qué preguntar después y cierre sugerido.
 
 ## 1) Objetivo de la clase
 
@@ -12,173 +14,41 @@ Al finalizar, el estudiante podrá:
 - <OBJETIVO_3>
 - <OBJETIVO_4>
 
-## 2) Agenda sugerida (60-75 min)
+## 2) Cómo desarrollar la clase
 
-Ruta base de 65 minutos:
+1. <PASO_1>
+2. <PASO_2>
+3. <PASO_3>
+4. <PASO_4>
+5. <PASO_5>
 
-- Apertura y contexto: 5 min
-- Bloque A: 12 min
-- Bloque B: 15 min
-- Bloque C: 12 min
-- Bloque D: 16 min
-- Cierre + checklist + Q&A: 5 min
+## 3) Ejemplo de código
 
-Si tienes 75 min:
+Solo incluir este bloque si el JSON contiene un ejemplo real de código o una referencia explícita a una librería o patrón relevante.
 
-- Añade 10 min de práctica guiada.
-
-Si tienes 60 min:
-
-- Recorta el bloque menos crítico y deja ese tema como demo del profesor.
-
-## 3) Preparación docente (antes de clase)
-
-Checklist técnico:
-
-- <REQUISITO_1>
-- <REQUISITO_2>
-- <REQUISITO_3>
-
-Comandos de verificación previa:
-
-```bash
-<COMANDO_1>
-<COMANDO_2>
-<COMANDO_3>
+```<LENGUAJE>
+<EJEMPLO_BASEADO_EN_JSON>
 ```
 
-## 4) Guion docente detallado (con texto literal)
+## 4) Qué decir en clase
 
-## Apertura (5 min)
+- <PUNTO_A_ENFATIZAR_1>
+- <PUNTO_A_ENFATIZAR_2>
+- <PUNTO_A_ENFATIZAR_3>
 
-Qué decir (literal):
-
-"<FRASE_APERTURA_1>"
-
-"<FRASE_APERTURA_2>"
-
-## Bloque A - <TEMA_A> (12 min)
-
-### A1. Concepto rápido (3 min)
-
-Qué decir (literal):
-
-"<GUION_A1>"
-
-### A2. Demo guiada (4 min)
-
-Ejecuta:
-
-```bash
-<COMANDO_A2_1>
-<COMANDO_A2_2>
-```
-
-Qué decir (literal):
-
-"<GUION_A2>"
-
-### A3. Mini práctica (5 min)
-
-Prompt exacto sugerido:
-
-```text
-<PROMPT_A3>
-```
-
-## Bloque B - <TEMA_B> (15 min)
-
-### B1. Concepto y riesgos (5 min)
-
-Qué decir (literal):
-
-"<GUION_B1>"
-
-### B2. Ejemplo práctico (5 min)
-
-Ejecuta:
-
-```bash
-<COMANDO_B2>
-```
-
-Qué decir (literal):
-
-"<GUION_B2>"
-
-### B3. Validación (5 min)
-
-Checklist:
-
-- <CHECK_B3_1>
-- <CHECK_B3_2>
-- <CHECK_B3_3>
-
-## Bloque C - <TEMA_C> (12 min)
-
-Ejecuta:
-
-```bash
-<COMANDO_C>
-```
-
-Prompt exacto sugerido:
-
-```text
-<PROMPT_C>
-```
-
-## Bloque D - <TEMA_D> (16 min)
-
-Ejecuta:
-
-```bash
-<COMANDO_D>
-```
-
-Prompt exacto sugerido:
-
-```text
-<PROMPT_D>
-```
-
-Qué decir (literal):
-
-"<GUION_D>"
-
-## 5) Cierre (5 min)
-
-Qué decir (literal):
-
-"<FRASE_CIERRE_1>"
-
-"<FRASE_CIERRE_2>"
-
-Checklist final en vivo:
-
-```bash
-<COMANDO_FINAL_1>
-<COMANDO_FINAL_2>
-```
-
-## 6) Preguntas de chequeo rápidas
+## 5) Qué preguntar después
 
 - <PREGUNTA_1>
 - <PREGUNTA_2>
 - <PREGUNTA_3>
-- <PREGUNTA_4>
 
-## 7) Plan de contingencia
+## 6) Cierre sugerido
 
-Si falla la demo principal:
+- <CIERRE_1>
+- <CIERRE_2>
 
-```bash
-<COMANDO_CONTINGENCIA_1>
-<COMANDO_CONTINGENCIA_2>
-```
+## 7) Puntos clave para reforzar
 
-Si falla integración externa:
-
-- <PASO_1>
-- <PASO_2>
-- <PASO_3>
+- <PUNTO_CLAVE_1>
+- <PUNTO_CLAVE_2>
+- <PUNTO_CLAVE_3>

@@ -22,13 +22,15 @@ python3 scripts/scraper.py --target "{{class_name}}:{{urls_csv}}"
 ```
 
 2. Verifica que en `{{class_name}}/` existan JSON nuevos.
-3. Lee el contenido de los JSON y redacta `{{class_name}}/resume_01.md`.
-4. El resumen debe ser para profesor, durar entre 60-75 minutos y contener:
-- agenda por tiempos,
-- guion literal de qué decir,
-- comandos exactos a ejecutar,
-- prompts exactos para demos,
-- variantes para versión 60 min y 75 min,
-- checklist de preparación,
-- plan de contingencia.
-5. Entrega una salida breve indicando archivos creados/actualizados.
+3. Lee el contenido de los JSON y extrae hechos, temas, librerías, ejemplos y comandos reales. No inventes contenido.
+4. Si un ejemplo o librería no aparece en los JSON, no lo añadas. Si no hay ejemplo concreto, omítelo o deja una explicación conceptual muy breve.
+5. Redacta `{{class_name}}/resume_01.md` como resumen para profesor, de 60-75 minutos, y asegúrate de incluir:
+- objetivo de la clase,
+- desarrollo de la clase,
+- ejemplo de código basado en el JSON cuando exista,
+- qué decir en clase,
+- qué preguntar después,
+- cierre sugerido,
+- y, si aplica, comandos exactos y prompts de demo.
+6. Antes de terminar, comprueba que cada afirmación del resumen esté respaldada por los JSON. Si no lo está, elimínala.
+7. Entrega una salida breve indicando archivos creados/actualizados.

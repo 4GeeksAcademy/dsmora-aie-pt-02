@@ -18,6 +18,17 @@ Automatizar este flujo completo en una sola ejecución:
 - Prompts exactos para demos.
 - Bloques opcionales para recortar (60) o extender (75).
 
+## Reglas de calidad obligatorias
+
+Antes de redactar cualquier resumen o ejemplo:
+
+- La única fuente de verdad es el contenido de los JSON generados por el scraper.
+- No inventar librerías, frameworks, comandos, ejemplos, prompts ni explicaciones que no aparezcan en los JSON.
+- Si el JSON contiene un ejemplo de código, reutilizarlo o parafrasearlo conservadoramente.
+- Si el JSON no contiene un ejemplo concreto, no inventarlo: se debe omitir el ejemplo o dejarlo como una idea conceptual muy general.
+- Cada afirmación del resumen debe estar respaldada por el contenido del JSON. Si no lo está, debe eliminarse.
+- El resumen debe ser útil para enseñar en clase y debe incluir: objetivo, desarrollo de la clase, ejemplo de código validado por el JSON, qué decir en clase, qué preguntar después y cierre sugerido.
+
 ## Entradas esperadas
 
 - `class_name`: formato `class_N`.
