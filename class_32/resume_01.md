@@ -1,33 +1,21 @@
 # Resumen de la clase 32
 
-Este resumen está basado exclusivamente en los temas que aparecen en el material del scraper para la clase 32.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 32.
 
-## Objetivo del tema
+## Qué se enseña en esta clase
 
-Introducir el almacenamiento persistente de información, la validación de datos y el uso de seeders como parte del flujo de trabajo de una API simple.
+La clase introduce la idea de pasar de datos temporales en memoria a un modelo de persistencia más realista. El punto central es entender que una API necesita guardar información de forma durable para que los datos sobrevivan a reinicios y puedan consultarse, actualizarse o eliminarse más adelante.
 
-## Temas que aparecen en el material
+## Conceptos clave
 
-- Por qué almacenar datos
-- Comenzando con TinyDB
-- Insertar y guardar registros
-- Buscar y filtrar datos
-- Actualizar y eliminar registros
-- Pydantic como capa de esquema
-- Antipatrones de almacenamiento
-- TinyDB en un endpoint FastAPI
-- Qué es un seeder
-- Ejecutando seeders con pipenv
-- Recapitulación de patrones de persistencia
-- Verificación de conocimientos
-- Qué viene después
+- Por qué almacenar datos es necesario en una aplicación real.
+- Cómo usar TinyDB como almacenamiento local en formato JSON.
+- Operaciones básicas de CRUD: insertar, leer, buscar, actualizar y eliminar registros.
+- La importancia de validar datos antes de guardarlos, con Pydantic como capa de esquema.
+- Los errores comunes al guardar información sin control, como datos inconsistentes o estructuras poco claras.
+- La integración de TinyDB con un endpoint FastAPI.
+- Qué es un seeder y cómo se usa para cargar datos iniciales de manera reproducible.
 
 ## Enfoque del resumen
 
-El contenido de esta clase se centra en:
-
-- pasar de datos en memoria a datos persistentes,
-- usar TinyDB como almacenamiento local,
-- aplicar validación con Pydantic,
-- integrar almacenamiento en un endpoint FastAPI y
-- entender el concepto de seeder para preparar datos iniciales.
+La clase combina persistencia, validación y preparación de datos iniciales. En otras palabras, muestra cómo construir una base mínima de almacenamiento que sea útil para una API simple, sin perder control sobre la forma de los datos.

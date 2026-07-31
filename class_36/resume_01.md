@@ -1,60 +1,22 @@
 # Resumen de la clase 36
 
-Este resumen está basado exclusivamente en los temas que aparecen en los materiales del scraper para la clase 36.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 36.
 
-## Objetivo del tema
+## Qué se enseña en esta clase
 
-Introducir la mentalidad de testing y mostrar cómo aplicar pruebas unitarias tanto en FastAPI como en TypeScript.
+La clase introduce la mentalidad de testing como parte esencial del desarrollo de software. Se explica por qué los errores cuestan más cuando aparecen tarde, y por qué las pruebas ayudan a detectar problemas antes, mejorar la calidad y facilitar el mantenimiento del código.
 
-## Temas que aparecen en el material
+## Conceptos clave
 
-### Material de introducción a pruebas
-
-- Bienvenido a pruebas de software
-- El costo de los errores y el valor de las pruebas
-- Escribiendo tu primera prueba unitaria
-- Pruebas unitarias vs integración vs funcionales vs rendimiento
-- Identificando casos de prueba y casos límite
-- Construyendo un conjunto completo de pruebas
-- El ciclo TDD rojo-verde-refactorización
-- TDD en práctica: construyendo características primero con pruebas
-- Mejores prácticas de pruebas y anti-patrones
-- Evaluación de conocimientos de pruebas
-- Tu viaje de pruebas hacia adelante
-
-### Material de pruebas unitarias en TypeScript
-
-- Bienvenido a pruebas unitarias en TypeScript
-- Resumen de marcos de pruebas en TypeScript
-- Configuración básica y ajuste de marcos
-- Escribiendo tus primeras pruebas en cada marco
-- Fundamentos de pruebas unitarias
-- Consideraciones específicas de pruebas en TypeScript
-- Construyendo pruebas unitarias exhaustivas
-- Planificación y estrategia de pruebas
-- Implementando desarrollo dirigido por pruebas
-- Mejores prácticas y antipatrones en pruebas
-- Evaluación de maestría en pruebas TypeScript
-- Tu viaje de pruebas continua
-
-### Material de pruebas unitarias con FastAPI
-
-- Bienvenido a pruebas FastAPI
-- Resumen de frameworks de pruebas en Python
-- Configurando tu entorno de pruebas
-- Pruebas unitarias de endpoints FastAPI
-- Pruebas de operaciones CRUD
-- Construyendo un conjunto de pruebas CRUD
-- Planificación de pruebas y estrategias TDD
-- Cuestionario de maestría en pruebas FastAPI
-- Tu viaje de pruebas hacia adelante
+- La importancia de las pruebas y el costo real de los errores en producción.
+- La diferencia entre pruebas unitarias, de integración, funcionales y de rendimiento.
+- La identificación de casos normales, casos límite y casos de error.
+- El ciclo TDD: rojo, verde y refactorización.
+- Cómo construir conjuntos de pruebas para validar reglas de negocio y operaciones CRUD.
+- La configuración básica de frameworks de pruebas en TypeScript y Python.
+- El uso de TestClient en FastAPI para probar endpoints y flujos de API.
+- La planificación de pruebas y las mejores prácticas para evitar anti-patrones.
 
 ## Enfoque del resumen
 
-El contenido de esta clase se centra en:
-
-- explicar por qué las pruebas importan,
-- distinguir tipos de pruebas y casos límite,
-- aplicar TDD como ciclo de trabajo,
-- practicar pruebas unitarias en FastAPI y
-- revisar pruebas unitarias en TypeScript con enfoque en marcos y estrategia.
+La clase une la teoría del testing con la práctica: muestra cómo pensar en casos de prueba, aplicar TDD y trabajar con pruebas unitarias tanto en TypeScript como en FastAPI.

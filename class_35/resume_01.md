@@ -1,36 +1,22 @@
 # Resumen de la clase 35
 
-Este resumen está basado exclusivamente en los temas que aparecen en el material del scraper para la clase 35.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 35.
 
-## Objetivo del tema
+## Qué se enseña en esta clase
 
-Introducir el manejo de errores y la construcción de aplicaciones más resilientes frente a fallos de red, datos incompletos o entradas inesperadas.
+La clase enseña a construir aplicaciones más resistentes ante los fallos inevitables de la vida real. Se centra en cómo detectar los puntos de fallo más comunes, manejar errores con claridad y evitar que una pequeña excepción rompa toda la experiencia del usuario.
 
-## Temas que aparecen en el material
+## Conceptos clave
 
-- Bienvenido a aplicaciones a prueba de fallos
-- Puntos comunes de fallo en aplicaciones
-- Anatomía de fallos de aplicaciones
-- Dominando la sintaxis try/catch/finally
-- Manejo de errores en operaciones asíncronas
-- Construir llamadas API seguras
-- Probar manejo de errores en API
-- Usando valores por defecto y de respaldo
-- Cadena opcional para acceso seguro
-- Implementar acceso a datos a prueba de fallos
-- Practicar renderizado seguro de datos
-- Traduciendo errores a mensajes amigables
-- Construir componentes UI de error
-- Personalizar retroalimentación de errores
-- Evaluación de maestría en manejo de errores
-- Resumen de construcción de aplicaciones resilientes
+- Los puntos habituales donde fallan las aplicaciones: red, datos incompletos y entradas inesperadas.
+- La anatomía de los fallos y cómo se propagan por un sistema.
+- El uso de try/catch/finally para controlar errores de forma explícita.
+- El manejo de errores en operaciones asíncronas y en llamadas a APIs.
+- La importancia de usar valores por defecto y de respaldo cuando los datos no llegan completos.
+- El acceso seguro a datos mediante encadenamiento opcional y renderizado defensivo.
+- La traducción de errores técnicos a mensajes amigables para la interfaz.
+- La construcción de componentes de error y mejores prácticas de retroalimentación para el usuario.
 
 ## Enfoque del resumen
 
-El contenido de esta clase se centra en:
-
-- identificar puntos comunes de fallo,
-- usar try/catch/finally de forma consciente,
-- manejar errores en operaciones asíncronas,
-- proteger el acceso a datos con valores por defecto y encadenamiento opcional y
-- traducir errores técnicos a mensajes más claros para la interfaz.
+La clase no se limita a “capturar errores”, sino a diseñar una experiencia más robusta: anticipar fallos, degradar con elegancia y mantener la app usable incluso cuando algo sale mal.

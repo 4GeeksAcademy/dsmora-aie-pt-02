@@ -1,34 +1,21 @@
 # Resumen de la clase 34
 
-Este resumen está basado exclusivamente en los temas que aparecen en el material del scraper para la clase 34.
+Este resumen está basado en el contenido de los JSON del scraper para la clase 34.
 
-## Objetivo del tema
+## Qué se enseña en esta clase
 
-Introducir la gestión de sesiones en frontend, el ciclo de vida de la sesión y la diferencia entre mecanismos de autenticación y estrategias de almacenamiento.
+La clase se centra en cómo las aplicaciones frontend gestionan la sesión del usuario. El tema principal es entender que una sesión no es solo un estado visual, sino un sistema que permite mantener la autenticación a lo largo del tiempo y decidir qué rutas o datos están disponibles para cada usuario.
 
-## Temas que aparecen en el material
+## Conceptos clave
 
-- Bienvenido a la gestión de sesiones frontend
-- Qué son las sesiones en aplicaciones web
-- Por qué las sesiones importan
-- Resumen del ciclo de vida de la sesión
-- Conceptos de memoria de sesión
-- Distinción entre mecanismos y almacenamiento
-- Explorando mecanismos de autenticación
-- Entendiendo estrategias de almacenamiento
-- Arquitecturas con estado vs sin estado
-- Fundamentos del token de sesión
-- Almacenamiento frontend con localStorage
-- Patrones de integración de sesión
-- Evaluación de la gestión de sesiones
-- Dominando las sesiones frontend
+- Qué es una sesión en una aplicación web y por qué importa.
+- El ciclo de vida de la sesión: inicio, mantenimiento y cierre.
+- La diferencia entre mecanismos de autenticación y estrategias de almacenamiento.
+- Cómo funcionan los tokens de sesión y por qué su almacenamiento en frontend debe pensarse con cuidado.
+- El papel de localStorage y otras formas de persistencia en el navegador.
+- La relación entre autenticación, rutas protegidas y estado de la aplicación.
+- Patrones de hidratación de sesión al iniciar la app y limpieza al cerrar sesión o cuando expira el token.
 
 ## Enfoque del resumen
 
-El contenido de esta clase se centra en:
-
-- entender qué es una sesión en frontend,
-- distinguir mecanismos de autenticación de estrategias de almacenamiento,
-- revisar el ciclo de vida de la sesión,
-- hablar de tokens de sesión y localStorage y
-- conectar estos conceptos con patrones de integración en aplicaciones web.
+La clase conecta la teoría de la autenticación con la implementación práctica en frontend: cómo mantener el estado de sesión, proteger rutas y hacer que la experiencia del usuario sea coherente y segura.
