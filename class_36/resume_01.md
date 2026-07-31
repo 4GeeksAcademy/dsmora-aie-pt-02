@@ -26,6 +26,23 @@ Un ejemplo útil es empezar con una función de validación o un endpoint simple
 - No todas las pruebas sirven para lo mismo: cada tipo cubre un nivel distinto del sistema.
 - En FastAPI es importante probar endpoints y operaciones CRUD, mientras que en TypeScript conviene pensar en pruebas unitarias con marcos como Jest, Vitest o Mocha/Chai.
 
+## Ejemplo de código
+
+El material del JSON muestra este ejemplo de prueba con FastAPI y TestClient:
+
+```python
+from fastapi import FastAPI
+from fastapi.testclient import TestClient
+
+app = FastAPI()
+
+@app.get("/hello")
+async def say_hello():
+    return {"message": "¡Hola, FastAPI!"}
+
+client = TestClient(app)
+```
+
 ## Cierre sugerido
 
 Pedir a los estudiantes que propongan una prueba mínima para una funcionalidad sencilla antes de escribir el código.

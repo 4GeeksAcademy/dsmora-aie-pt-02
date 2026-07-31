@@ -26,6 +26,23 @@ Un caso claro es una pantalla que intenta cargar datos desde una API y debe most
 - El renderizado defensivo evita que la UI se rompa con datos incompletos.
 - El usuario necesita feedback claro cuando algo sale mal.
 
+## Ejemplo de código
+
+El archivo JSON de la clase incluye este ejemplo de manejo de errores con try/catch:
+
+```javascript
+function parseUserData(json) {
+  return JSON.parse(json);
+}
+
+try {
+  const user = parseUserData('invalid json');
+  console.log(user.name);
+} catch (error) {
+  console.log('Error:', error.message);
+}
+```
+
 ## Cierre sugerido
 
 Pedir a los estudiantes que identifiquen un punto de fallo en una aplicación real y propongan una forma de manejarlo de forma más robusta.

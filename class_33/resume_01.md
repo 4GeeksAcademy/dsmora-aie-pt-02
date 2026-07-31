@@ -26,6 +26,17 @@ Un ejemplo útil es un flujo de login en el que el usuario entrega credenciales,
 - Un JWT permite llevar identidad y permisos de forma portable.
 - La seguridad real requiere más que un token: también hay que proteger rutas y manejar expiración y almacenamiento adecuado.
 
+## Ejemplo de código
+
+El JSON de la clase incluye un ejemplo de creación de token JWT en Python:
+
+```python
+from datetime import datetime, timedelta
+import jwt
+
+def create_access_token(data: dict, secret_key: str, expires_delta: timedelta):
+```
+
 ## Cierre sugerido
 
 Pedir a los alumnos que expliquen con sus palabras por qué un sistema puede autenticarse pero no estar autorizado a acceder a todo.

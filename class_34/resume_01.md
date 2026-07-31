@@ -26,6 +26,22 @@ Un ejemplo claro es una app que permite entrar con usuario y contraseña, conser
 - Los tokens y su almacenamiento son clave para la experiencia y la seguridad.
 - Las rutas protegidas ayudan a controlar el acceso a secciones sensibles.
 
+## Ejemplo de código
+
+El JSON de la clase muestra un ejemplo de manejo de sesión y token en frontend:
+
+```javascript
+fetch('/api/protected', {
+  headers: { 'Authorization': `Bearer ${token}` }
+}).then(res => {
+  if (res.status === 401) {
+    localStorage.removeItem('auth_token');
+    window.location.href = '/login?sessionExpired=true';
+  }
+  return res.json();
+});
+```
+
 ## Cierre sugerido
 
 Pedir a los alumnos que expliquen qué pasaría si la sesión no se hidrata correctamente al iniciar la aplicación.

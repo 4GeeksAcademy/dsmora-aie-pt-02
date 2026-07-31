@@ -26,6 +26,16 @@ Un ejemplo claro es una pequeña API de contactos: primero se guarda la informac
 - La validación con Pydantic evita datos inconsistentes.
 - Los seeders ayudan a preparar un entorno de desarrollo con datos iniciales.
 
+## Ejemplo de código
+
+El material del JSON muestra este ejemplo inicial de persistencia con TinyDB:
+
+```python
+from tinydb import TinyDB
+
+db = TinyDB("db.json")
+```
+
 ## Cierre sugerido
 
 Preguntar si los estudiantes entienden la diferencia entre tener datos en memoria y tener datos reales guardados para una aplicación que va a usarse de forma continua.
