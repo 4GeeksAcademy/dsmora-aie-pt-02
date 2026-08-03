@@ -1,34 +1,179 @@
-# Resumen de la clase 36
+# Guía Docente Completa: Clase 36 - Introducción a las Pruebas
 
-Este resumen está basado en el contenido de los JSON del scraper para la clase 36 y está pensado para usarlo como guía de clase.
+Clase online para 60-75 minutos.
+Documento para profesor: incluye objetivo, agenda, guion literal y ejemplos para presentar la mentalidad de testing, TDD, pruebas unitarias en TypeScript y pruebas de endpoints en FastAPI.
 
-## Objetivo de la clase
+## 1) Objetivo de la clase
 
-Introducir la mentalidad de testing y mostrar cómo las pruebas ayudan a prevenir errores, validar comportamiento y mejorar la calidad del software.
+Al finalizar, el estudiante podrá:
 
-## Cómo desarrollar la clase
+- Explicar por qué las pruebas reducen costo y riesgo en desarrollo.
+- Diferenciar pruebas unitarias, de integración, funcionales y de rendimiento.
+- Identificar casos normales, límite y de error.
+- Entender el ciclo TDD: rojo, verde, refactorizar.
+- Reconocer frameworks comunes de pruebas en TypeScript y Python/FastAPI.
+- Relacionar pruebas unitarias con calidad, refactorización y confianza técnica.
 
-1. Explicar por qué los errores cuestan más cuando aparecen tarde y por qué las pruebas son una inversión.
-2. Diferenciar entre pruebas unitarias, de integración, funcionales y de rendimiento.
-3. Mostrar cómo identificar casos normales, casos límite y casos de error.
-4. Introducir el ciclo TDD: rojo, verde y refactorización.
-5. Explicar cómo aplicar pruebas en TypeScript y en FastAPI, incluyendo el uso de frameworks y TestClient.
-6. Cerrar con la importancia de planificar pruebas y evitar anti-patrones.
+## 2) Agenda sugerida (60-75 min)
 
-## Ejemplo práctico para explicar
+Ruta base de 70 minutos:
 
-Un ejemplo útil es empezar con una función de validación o un endpoint simple, escribir una prueba que falle, implementar la solución y luego refactorizarla.
+- Apertura y costo de errores: 8 min
+- Bloque A: tipos de pruebas y casos de prueba: 12 min
+- Bloque B: primera mentalidad TDD: 12 min
+- Bloque C: pruebas unitarias en TypeScript: 15 min
+- Bloque D: pruebas en FastAPI con TestClient: 15 min
+- Cierre y preguntas: 8 min
 
-## Puntos clave para enfatizar
+Si tienes 75 min:
 
-- Las pruebas no solo detectan errores, también ayudan a diseñar mejor el código.
-- El TDD obliga a pensar primero en el comportamiento esperado.
-- No todas las pruebas sirven para lo mismo: cada tipo cubre un nivel distinto del sistema.
-- En FastAPI es importante probar endpoints y operaciones CRUD, mientras que en TypeScript conviene pensar en pruebas unitarias con marcos como Jest, Vitest o Mocha/Chai.
+- Añade una práctica comparando un test de TypeScript con uno de FastAPI.
 
-## Ejemplo de código
+Si tienes 60 min:
 
-El material del JSON muestra este ejemplo de prueba con FastAPI y TestClient:
+- Presenta TypeScript y FastAPI como dos ejemplos paralelos sin entrar tanto en frameworks alternativos.
+
+## 3) Preparación docente
+
+Checklist:
+
+- Tener listo un ejemplo de función pequeña para probar.
+- Tener claro el patrón AAA.
+- Poder mostrar un endpoint FastAPI con TestClient.
+
+## 4) Guion docente detallado
+
+## Apertura (8 min)
+
+Qué decir (literal):
+
+"Las pruebas no son un castigo ni una burocracia. Son una forma de reducir miedo al cambio."
+
+"Cuando no hay pruebas, cada cambio pequeño puede sentirse como una apuesta. Cuando sí las hay, el código se vuelve más confiable y más fácil de evolucionar."
+
+## Bloque A - Tipos de pruebas y casos de prueba (12 min)
+
+### A1. El costo de los errores (4 min)
+
+Qué decir (literal):
+
+"Un error detectado tarde cuesta más. No solo por la corrección, sino por soporte, confianza y tiempo de depuración."
+
+Caso del material:
+
+- Errores en producción cuestan más que errores detectados temprano.
+
+### A2. Tipos principales de pruebas (5 min)
+
+Explica:
+
+- Unitarias: una función o unidad aislada.
+- Integración: varias piezas trabajando juntas.
+- Funcionales: comportamiento completo desde la mirada del usuario.
+- Rendimiento: velocidad, carga y estabilidad.
+
+Qué decir (literal):
+
+"No todas las pruebas hacen lo mismo. La clave es entender qué cubre cada nivel y cuándo conviene usarlo."
+
+### A3. Casos normales, límite y error (3 min)
+
+Qué decir (literal):
+
+"Probar solo el camino feliz deja huecos. Una suite mínima útil piensa también en bordes y fallos esperables."
+
+## Bloque B - Primera mentalidad TDD (12 min)
+
+### B1. Ciclo rojo, verde, refactorizar (6 min)
+
+Qué decir (literal):
+
+"En TDD primero escribes una prueba que falla. Luego haces lo mínimo para que pase. Después limpias el diseño sin cambiar el comportamiento."
+
+### B2. Ejemplo de TDD con TaskManager (6 min)
+
+Código tomado del material:
+
+```python
+import pytest
+
+
+class TaskManager:
+        def __init__(self):
+                self.tasks = []
+
+        def add_task(self, description):
+                pass
+
+
+def test_add_task():
+        tm = TaskManager()
+        task_id = tm.add_task("Escribir pruebas unitarias")
+        assert task_id == 1
+        assert len(tm.tasks) == 1
+        assert tm.tasks[0]["description"] == "Escribir pruebas unitarias"
+        assert tm.tasks[0]["completed"] is False
+```
+
+Punto docente:
+
+- La prueba define comportamiento antes de la implementación.
+
+## Bloque C - Pruebas unitarias en TypeScript (15 min)
+
+### C1. Frameworks comunes (4 min)
+
+Comparativa del material:
+
+- Jest: solución todo en uno.
+- Mocha/Chai: modular y flexible.
+- Vitest: rápido y alineado con tooling moderno.
+
+### C2. Patrón AAA (4 min)
+
+Qué decir (literal):
+
+"Una buena prueba suele tener tres actos: preparar, ejecutar y verificar. Eso mantiene intención y legibilidad."
+
+### C3. Ejemplo de función en TypeScript (7 min)
+
+```typescript
+export interface Shape {
+    type: 'circle' | 'rectangle' | 'triangle';
+    dimensions: number[];
+}
+
+export function calculateArea(shape: Shape): number {
+    switch (shape.type) {
+        case 'circle':
+            return Math.PI * Math.pow(shape.dimensions[0], 2);
+        case 'rectangle':
+            return shape.dimensions[0] * shape.dimensions[1];
+        case 'triangle':
+            return 0.5 * shape.dimensions[0] * shape.dimensions[1];
+        default:
+            throw new Error('Tipo de figura desconocido');
+    }
+}
+```
+
+Qué decir (literal):
+
+"TypeScript ayuda con tipos, pero los tipos no reemplazan el comportamiento en runtime. Por eso igual necesitamos pruebas."
+
+## Bloque D - Pruebas en FastAPI con TestClient (15 min)
+
+### D1. Frameworks de Python (4 min)
+
+Panorama del material:
+
+- unittest
+- pytest
+- doctest
+
+### D2. TestClient y endpoints (5 min)
+
+Ejemplo:
 
 ```python
 from fastapi import FastAPI
@@ -36,21 +181,74 @@ from fastapi.testclient import TestClient
 
 app = FastAPI()
 
-@app.get("/hello")
+
+@app.get('/hello')
 async def say_hello():
-    return {"message": "¡Hola, FastAPI!"}
+        return {'message': '¡Hola, FastAPI!'}
+
 
 client = TestClient(app)
 ```
 
-## Qué decir en clase
+Qué decir (literal):
 
-Explicar que las pruebas ayudan a definir el comportamiento esperado antes de escribir toda la lógica.
+"TestClient permite probar el ciclo de request/response sin levantar un servidor real. Eso hace las pruebas más rápidas y prácticas."
 
-## Qué preguntar después
+### D3. CRUD y casos de error (6 min)
 
-¿Qué prueba mínima escribirías primero para una funcionalidad nueva?
+Qué enfatizar:
 
-## Cierre sugerido
+- Probar POST con payload válido e inválido.
+- Probar GET de recurso existente e inexistente.
+- Probar update y delete.
+- Verificar códigos 404, 422 y respuestas esperadas.
 
-Pedir a los estudiantes que propongan una prueba mínima para una funcionalidad sencilla antes de escribir el código.
+Qué decir (literal):
+
+"Una API no está bien probada solo porque responde 200 una vez. Hay que verificar validación, errores y comportamiento en cada operación principal."
+
+## 5) Ejemplo de validación completa
+
+Caso tomado del material:
+
+```python
+def validate_user(name, age, email):
+        if not isinstance(name, str) or len(name.strip()) == 0:
+                raise ValueError('Name must be a non-empty string')
+        if not isinstance(age, int) or age < 0 or age > 150:
+                raise ValueError('Age must be between 0 and 150')
+        if not isinstance(email, str) or '@' not in email or '.' not in email:
+                raise ValueError('Email must contain @ and .')
+        return {'name': name.strip(), 'age': age, 'email': email.lower()}
+```
+
+Úsalo para explicar:
+
+- caso normal
+- caso límite
+- caso de error
+
+## 6) Mejores prácticas para remarcar
+
+- Nombres descriptivos de tests.
+- Un comportamiento por prueba cuando sea posible.
+- AAA para claridad.
+- Cobertura útil, no solo cobertura alta.
+- Aislamiento entre pruebas.
+- Evitar pruebas frágiles o demasiado acopladas a implementación interna.
+
+## 7) Preguntas de chequeo
+
+- ¿Por qué las pruebas reducen el costo de cambio?
+- ¿Qué diferencia hay entre una prueba unitaria y una de integración?
+- ¿Qué significa la fase roja en TDD?
+- ¿Qué aporta TestClient en FastAPI?
+- ¿Por qué una alta cobertura no garantiza una buena suite de pruebas?
+
+## 8) Cierre sugerido
+
+Qué decir (literal):
+
+"Las pruebas no solo detectan errores: también obligan a pensar mejor el comportamiento esperado del sistema."
+
+"Cuando un equipo prueba bien, refactoriza con más seguridad, documenta mejor el código y reduce el miedo a tocar piezas importantes."

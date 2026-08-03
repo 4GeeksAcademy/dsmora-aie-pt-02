@@ -23,11 +23,20 @@ Automatizar este flujo completo en una sola ejecución:
 Antes de redactar cualquier resumen o ejemplo:
 
 - La única fuente de verdad es el contenido de los JSON generados por el scraper.
+- No usar teoría, ejemplos, definiciones, comparaciones, comandos ni fuentes externas al propio JSON de la clase, salvo que el usuario lo pida explícitamente.
+- No reutilizar contenido teórico de otras clases, memorias, README, documentación externa o conocimiento general del modelo.
+- Sí se permite reorganizar el material en formato docente y añadir estructura pedagógica como agenda, bloques, tiempos, checklist, preguntas de chequeo y cierres, siempre que esa estructura no introduzca teoría nueva.
 - No inventar librerías, frameworks, comandos, ejemplos, prompts ni explicaciones que no aparezcan en los JSON.
 - Si el JSON contiene un ejemplo de código, reutilizarlo o parafrasearlo conservadoramente.
 - Si el JSON no contiene un ejemplo concreto, no inventarlo: se debe omitir el ejemplo o dejarlo como una idea conceptual muy general.
 - Cada afirmación del resumen debe estar respaldada por el contenido del JSON. Si no lo está, debe eliminarse.
 - El resumen debe ser útil para enseñar en clase y debe incluir: objetivo, desarrollo de la clase, ejemplo de código validado por el JSON, qué decir en clase, qué preguntar después y cierre sugerido.
+
+### Regla de trazabilidad obligatoria
+
+- Si el usuario pregunta si "se inventó algo", interpretar eso como contenido teórico o fuentes, no como formato docente.
+- La respuesta correcta debe distinguir explícitamente entre estructura pedagógica añadida por el agente y contenido teórico, que debe salir solo de los JSON.
+- En caso de duda, sacrificar riqueza pedagógica antes que introducir teoría no respaldada por el JSON.
 
 ## Entradas esperadas
 
