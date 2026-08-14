@@ -1,0 +1,116 @@
+# Analisis de modulos class_37
+
+## Introduccion a Bases de Datos
+- Total lecciones: 9
+- Secuencia de lecciones:
+  - 0 El paisaje de la base de datos
+  - 1 El modelo relacional
+  - 1.1 La familia sql
+  - 2 Bases de datos de documentos
+  - 2.1 Almacenes clave valor
+  - 2.2 Otros tipos de bases de datos
+  - 3 Elegir la base de datos correcta
+  - 3.1 Verificacion de conocimientos
+  - 4 Que sigue
+- Hallazgos tematicos clave:
+  - CTE: aparece en 2.2 Otros tipos de bases de datos
+  - GROUP BY: aparece en 2.2 Otros tipos de bases de datos
+  - JOIN: aparece en 1.1 La familia sql, 2 Bases de datos de documentos, 2.2 Otros tipos de bases de datos
+  - MariaDB: aparece en 3.1 Verificacion de conocimientos, 4 Que sigue
+  - MySQL: aparece en 3.1 Verificacion de conocimientos, 4 Que sigue
+  - NULL: aparece en 2.1 Almacenes clave valor
+  - PostgreSQL: aparece en 3 Elegir la base de datos correcta, 3.1 Verificacion de conocimientos, 4 Que sigue
+  - SELECT: aparece en 2.2 Otros tipos de bases de datos
+  - SQL: aparece en 1 El modelo relacional, 1.1 La familia sql, 2 Bases de datos de documentos
+  - SQL Server: aparece en 3.1 Verificacion de conocimientos, 4 Que sigue
+  - TinyDB: aparece en 0 El paisaje de la base de datos, 1.1 La familia sql, 2 Bases de datos de documentos
+  - WHERE: aparece en 2.2 Otros tipos de bases de datos
+  - clave primaria: aparece en 1 El modelo relacional
+  - relacional: aparece en 0 El paisaje de la base de datos, 1 El modelo relacional, 1.1 La familia sql
+  - ventana: aparece en 2.1 Almacenes clave valor
+- Lecciones utiles para dinamica docente:
+  - 0 El paisaje de la base de datos
+  - 1 El modelo relacional
+  - 1.1 La familia sql
+  - 2 Bases de datos de documentos
+  - 2.1 Almacenes clave valor
+  - 2.2 Otros tipos de bases de datos
+  - 3 Elegir la base de datos correcta
+  - 3.1 Verificacion de conocimientos
+
+## Fundamentos de SQL
+- Total lecciones: 11
+- Secuencia de lecciones:
+  - 0 Bienvenido a sql y bases de datos relacionales
+  - 1 Que es sql y como funcionan las tablas relacionales
+  - 1.1 Tipos de datos y claves primarias en la practica
+  - 2 Entendiendo select insert update y delete
+  - 2.1 Consultas basicas crud
+  - 3 Clausulas where y operadores
+  - 3.1 Consultas de filtrado complejas
+  - 4 Group by funciones aggregate y manejo de nulos
+  - 4.1 Consultas de agrupacion y manejo de nulos
+  - 5 Evaluacion de fundamentos sql
+  - 6 Tu viaje sql hacia adelante
+- Hallazgos tematicos clave:
+  - CTE: aparece en 5 Evaluacion de fundamentos sql, 6 Tu viaje sql hacia adelante
+  - DELETE: aparece en 2 Entendiendo select insert update y delete, 2.1 Consultas basicas crud
+  - GROUP BY: aparece en 0 Bienvenido a sql y bases de datos relacionales, 4 Group by funciones aggregate y manejo de nulos, 4.1 Consultas de agrupacion y manejo de nulos
+  - INSERT: aparece en 0 Bienvenido a sql y bases de datos relacionales, 1.1 Tipos de datos y claves primarias en la practica, 2 Entendiendo select insert update y delete
+  - JOIN: aparece en 5 Evaluacion de fundamentos sql, 6 Tu viaje sql hacia adelante
+  - NULL: aparece en 0 Bienvenido a sql y bases de datos relacionales, 1 Que es sql y como funcionan las tablas relacionales, 1.1 Tipos de datos y claves primarias en la practica
+  - PostgreSQL: aparece en 0 Bienvenido a sql y bases de datos relacionales, 1 Que es sql y como funcionan las tablas relacionales, 1.1 Tipos de datos y claves primarias en la practica
+  - SELECT: aparece en 1.1 Tipos de datos y claves primarias en la practica, 2 Entendiendo select insert update y delete, 2.1 Consultas basicas crud
+  - SQL: aparece en 0 Bienvenido a sql y bases de datos relacionales, 1 Que es sql y como funcionan las tablas relacionales, 1.1 Tipos de datos y claves primarias en la practica
+  - UPDATE: aparece en 2 Entendiendo select insert update y delete, 2.1 Consultas basicas crud
+  - WHERE: aparece en 0 Bienvenido a sql y bases de datos relacionales, 2 Entendiendo select insert update y delete, 2.1 Consultas basicas crud
+  - clave primaria: aparece en 1 Que es sql y como funcionan las tablas relacionales, 1.1 Tipos de datos y claves primarias en la practica
+  - relacional: aparece en 0 Bienvenido a sql y bases de datos relacionales, 1 Que es sql y como funcionan las tablas relacionales
+  - ventana: aparece en 5 Evaluacion de fundamentos sql, 6 Tu viaje sql hacia adelante
+- Lecciones utiles para dinamica docente:
+  - 0 Bienvenido a sql y bases de datos relacionales
+  - 1 Que es sql y como funcionan las tablas relacionales
+  - 1.1 Tipos de datos y claves primarias en la practica
+  - 2 Entendiendo select insert update y delete
+  - 2.1 Consultas basicas crud
+  - 3 Clausulas where y operadores
+  - 3.1 Consultas de filtrado complejas
+  - 4 Group by funciones aggregate y manejo de nulos
+
+## PostgreSQL remoto con Supabase
+- Total lecciones: 9
+- Secuencia de lecciones:
+  - 0 De local a remoto
+  - 1 Que es supabase
+  - 1.1 Configurando tu proyecto
+  - 1.2 Manejando tablas
+  - 2 El cliente python de supabase
+  - 2.1 Sembrando tu base de datos
+  - 2.2 Leyendo y filtrando datos
+  - 3 Verificacion de integracion supabase
+  - 4 Bases de datos remotas en practica
+- Hallazgos tematicos clave:
+  - .env: aparece en 2 El cliente python de supabase, 2.1 Sembrando tu base de datos, 2.2 Leyendo y filtrando datos
+  - CTE: aparece en 1 Que es supabase, 4 Bases de datos remotas en practica
+  - DELETE: aparece en 2 El cliente python de supabase
+  - INSERT: aparece en 0 De local a remoto, 1 Que es supabase, 1.1 Configurando tu proyecto
+  - MySQL: aparece en 1 Que es supabase
+  - PostgreSQL: aparece en 0 De local a remoto, 1 Que es supabase, 1.1 Configurando tu proyecto
+  - RLS: aparece en 3 Verificacion de integracion supabase, 4 Bases de datos remotas en practica
+  - SELECT: aparece en 1.1 Configurando tu proyecto, 1.2 Manejando tablas, 2 El cliente python de supabase
+  - SQL: aparece en 0 De local a remoto, 1 Que es supabase, 1.1 Configurando tu proyecto
+  - Supabase: aparece en 0 De local a remoto, 1 Que es supabase, 1.1 Configurando tu proyecto
+  - UPDATE: aparece en 2 El cliente python de supabase
+  - WHERE: aparece en 2 El cliente python de supabase, 2.2 Leyendo y filtrando datos
+  - clave primaria: aparece en 1.1 Configurando tu proyecto, 1.2 Manejando tablas
+  - create_client: aparece en 2 El cliente python de supabase, 2.1 Sembrando tu base de datos, 2.2 Leyendo y filtrando datos
+  - relacional: aparece en 4 Bases de datos remotas en practica
+- Lecciones utiles para dinamica docente:
+  - 0 De local a remoto
+  - 1 Que es supabase
+  - 1.1 Configurando tu proyecto
+  - 1.2 Manejando tablas
+  - 2 El cliente python de supabase
+  - 2.1 Sembrando tu base de datos
+  - 2.2 Leyendo y filtrando datos
+  - 3 Verificacion de integracion supabase

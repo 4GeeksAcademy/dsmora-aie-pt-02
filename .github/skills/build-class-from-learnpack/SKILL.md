@@ -42,12 +42,14 @@ Antes de redactar cualquier resumen o ejemplo:
 
 - `class_name`: formato `class_N`.
 - `urls`: lista de URLs learn-pack (mínimo 1).
+- `project_urls` (opcional): lista de URLs de proyecto onepage de Learn (por ejemplo rutas `/project/...`).
 - `duration_target`: por defecto 60-75 min.
 - `resume_file`: por defecto `resume_01.md`.
 
 ## Salidas esperadas
 
 - Archivos JSON en `class_N/` nombrados por subdominio de cada URL.
+- Si hay proyecto: archivo fuente del proyecto en `class_N/` (JSON o Markdown) con contenido extraido del onepage.
 - Archivo `class_N/resume_01.md` con guía docente completa.
 
 ## Flujo operativo
@@ -73,6 +75,24 @@ Notas:
 - Mantener `--max-concurrency` por defecto salvo que el usuario pida cambiarlo.
 - Si hay tokens en URL, mantenerlos intactos.
 
+### Paso 2.5: Proyectos onepage (opcional)
+
+Si el usuario incluye `project_urls`, procesar cada proyecto asi:
+
+1. Intentar extraer contenido visible desde el selector `#main-container` (onepage, sin navegacion por cards).
+2. Si el render falla (por ejemplo `Application error`), usar fallback por API de BreatheCode:
+	- Resolver `slug` del proyecto desde la URL.
+	- Consultar `https://breathecode.herokuapp.com/v1/registry/asset/<slug>` (o variante `-es` si aplica).
+	- Tomar `readme_url` y descargar el README (idealmente idioma del usuario).
+3. Guardar evidencia en `class_N/` con nombre estable, por ejemplo:
+	- `<project_slug>_project_asset.json`
+	- `<project_slug>_project_README.es.md`
+
+Reglas:
+
+- Tratar el proyecto como fuente adicional de verdad, con la misma restriccion: no inventar contenido fuera de lo extraido.
+- Si no se logra extraer contenido util, declarar la limitacion explicitamente en el resumen y no inventar requisitos.
+
 ### Paso 3: Verificación de salida
 
 - Listar `class_N/`.
@@ -91,6 +111,11 @@ Generar `class_N/resume_01.md` con estos requisitos estrictos:
 6. Distribuir tiempos por bloque pensando en tiempo de explicación, no en tiempo de tipeo.
 7. Incluir variantes de recorte (60) y extensión (75).
 8. Incluir checklist de preparación y plan de contingencia.
+9. Si hay proyecto, agregar bloque especifico con:
+	- Resumen de requisitos del proyecto.
+	- Como hilar el proyecto con los modulos/lecciones previos.
+	- Ejemplos en lenguaje natural alineados al brief del proyecto.
+	- Mini plan en pseudocodigo para ejecutar el proyecto paso a paso.
 
 ### Paso 5: Control de calidad
 
@@ -101,6 +126,12 @@ Antes de finalizar, confirmar que el resumen contiene como mínimo:
 - Guion detallado por bloques.
 - Ejemplos completos de comandos y prompts.
 - Cierre con preguntas de chequeo.
+
+Si existe proyecto, validar ademas:
+
+- El bloque de proyecto no contradice el brief original.
+- Las tareas/criterios de evaluacion del proyecto aparecen resumidos.
+- El mini plan en pseudocodigo refleja el flujo real (setup, consultas, validacion, informe/entrega).
 
 ## Estilo de redacción requerido
 

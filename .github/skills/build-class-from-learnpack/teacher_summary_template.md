@@ -52,3 +52,32 @@ Solo incluir este bloque si el JSON contiene un ejemplo real de código o una re
 - <PUNTO_CLAVE_1>
 - <PUNTO_CLAVE_2>
 - <PUNTO_CLAVE_3>
+
+## 8) Bloque opcional de proyecto (si aplica)
+
+### Resumen de requisitos del proyecto
+
+- <REQ_1>
+- <REQ_2>
+- <REQ_3>
+
+### Como hilarlo con las lecciones/modulos
+
+- <CONEXION_1>
+- <CONEXION_2>
+- <CONEXION_3>
+
+### Ejemplos en lenguaje natural
+
+- <EJEMPLO_NATURAL_1>
+- <EJEMPLO_NATURAL_2>
+
+### Mini plan en pseudocodigo
+
+```text
+INICIO
+	Paso 1: <...>
+	Paso 2: <...>
+	Paso 3: <...>
+FIN
+```

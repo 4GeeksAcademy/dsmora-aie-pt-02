@@ -1,0 +1,294 @@
+{
+  "id": 3591,
+  "slug": "edutrack-data-audit-sql-es",
+  "title": "Auditoría de Datos en EduTrack",
+  "lang": "es",
+  "assessment": null,
+  "category": {
+    "id": 52,
+    "slug": "habilidades-technicas",
+    "title": "Habilidades Técnicas"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": null,
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/edutrack-data-audit-sql/README.es.md",
+  "difficulty": "BEGINNER",
+  "duration": 1,
+  "description": "Audita la tabla de inscripciones de EduTrack en Supabase: escribe 12 consultas SQL (SELECT, INSERT, UPDATE, DELETE, GROUP BY, HAVING) y documenta los hallazgos reales en un informe de análisis en Markdown.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/edutrack-data-audit-sql/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/edutrack-data-audit-sql/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "translations": {
+    "us": "edutrack-data-audit-sql"
+  },
+  "technologies": [
+    {
+      "slug": "sql",
+      "title": "SQL",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "data-analysis",
+      "title": "Data Analysis",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "postgre",
+      "title": "postgre",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "technical-documentation",
+      "title": "technical-documentation",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "supabase",
+      "title": "supabase",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "data-cleaning",
+      "title": "data-cleaning",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-07-03T13:35:14.804687Z",
+  "agent": null,
+  "config": {
+    "slug": "edutrack-data-audit-sql",
+    "title": {
+      "en": "EduTrack Data Audit",
+      "es": "Auditoría de Datos en EduTrack"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/edutrack-data-audit-sql/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed the EduTrack Data Audit with LearnPack @4GeeksAcademy: 12 SQL queries on Supabase plus a written analysis report. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/edutrack-data-audit-sql #SQL #Supabase #DataAnalysis #LearnPack #4GeeksAcademy",
+        "es": "Acabo de completar la Auditoría de Datos en EduTrack con LearnPack @4GeeksAcademy: 12 consultas SQL en Supabase y un informe de análisis escrito. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/edutrack-data-audit-sql #SQL #Supabase #DataAnalysis #LearnPack #4GeeksAcademy"
+      },
+      {
+        "en": "Built and shipped: EduTrack Data Audit - cleaning enrollments data with SQL on Supabase and reporting the findings. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/edutrack-data-audit-sql #SQL #Postgres #DataCleaning #LearnPack #4GeeksAcademy",
+        "es": "Construido y publicado: Auditoría de Datos en EduTrack - limpieza de inscripciones con SQL en Supabase y reporte de hallazgos. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/edutrack-data-audit-sql #SQL #Postgres #DataCleaning #LearnPack #4GeeksAcademy"
+      }
+    ],
+    "duration": 1,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/edutrack-data-audit-sql/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3590"
+    },
+    "difficulty": "beginner",
+    "description": {
+      "en": "Audit the EduTrack enrollments table in Supabase: write 12 SQL queries (SELECT, INSERT, UPDATE, DELETE, GROUP BY, HAVING) and document the real findings in a Markdown analysis report.",
+      "es": "Audita la tabla de inscripciones de EduTrack en Supabase: escribe 12 consultas SQL (SELECT, INSERT, UPDATE, DELETE, GROUP BY, HAVING) y documenta los hallazgos reales en un informe de análisis en Markdown."
+    },
+    "projectType": "project",
+    "technologies": [
+      "sql",
+      "supabase",
+      "postgres",
+      "data-analysis",
+      "data-cleaning",
+      "technical-documentation"
+    ],
+    "template_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/edutrack-data-audit-sql/edutrack.sql",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-07-03T13:35:11.930205+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6362b375f82d70cecb516c14dcf84b5afebc86a4",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-03T13:35:14.804530+00:00",
+      "repository_webhook_id": 73465
+    },
+    {
+      "at": "2026-07-03T13:35:11.894201+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6362b375f82d70cecb516c14dcf84b5afebc86a4",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-03T13:35:14.799406+00:00",
+      "repository_webhook_id": 73466
+    },
+    {
+      "at": "2026-06-26T20:47:42.662408+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6eac0d3e118197506de36e5a691e8cfdd0c2d85f",
+      "modified_file": "content/projects/edutrack-data-audit-sql/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 73203
+    },
+    {
+      "at": "2026-06-26T20:47:42.646047+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6eac0d3e118197506de36e5a691e8cfdd0c2d85f",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T20:47:45.763957+00:00",
+      "repository_webhook_id": 73202
+    },
+    {
+      "at": "2026-06-26T15:12:36.335211+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6de5215b7cc68c5166786bbd378f16d10a57bfc2",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T15:13:23.092240+00:00",
+      "repository_webhook_id": 73195
+    },
+    {
+      "at": "2026-06-26T15:12:35.961007+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6de5215b7cc68c5166786bbd378f16d10a57bfc2",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T15:13:00.046072+00:00",
+      "repository_webhook_id": 73194
+    },
+    {
+      "at": "2026-06-24T12:33:48.608561+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a0c92fd0600ccf0d6fad8a0c985f0df02866fc2d",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-24T12:34:42.476136+00:00",
+      "repository_webhook_id": 73132
+    },
+    {
+      "at": "2026-06-24T12:33:46.705738+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a0c92fd0600ccf0d6fad8a0c985f0df02866fc2d",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-24T12:34:24.705317+00:00",
+      "repository_webhook_id": 73133
+    },
+    {
+      "at": "2026-06-18T12:25:22.782590+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "c404e7868f882b328878462c3683b6774a71c94d",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-18T12:26:07.955624+00:00",
+      "repository_webhook_id": 72924
+    },
+    {
+      "at": "2026-06-18T12:25:17.978643+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "c404e7868f882b328878462c3683b6774a71c94d",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/edutrack-data-audit-sql/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-18T12:25:52.674476+00:00",
+      "repository_webhook_id": 72923
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-07-03T13:35:14.762186Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/edutrack-data-audit-sql/edutrack.sql",
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "edutrack-data-audit-sql-es"
+  ]
+}
