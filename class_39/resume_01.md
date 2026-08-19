@@ -193,14 +193,14 @@ Que decir (literal):
 Comandos exactos para demo:
 
 ```bash
-pip install alembic
-alembic init migrations
+uv add alembic
+uv run alembic init migrations
 ```
 
 ```bash
-alembic revision --autogenerate -m "agregar telefono a usuarios"
-alembic upgrade head
-alembic downgrade -1
+uv run alembic revision --autogenerate -m "agregar telefono a usuarios"
+uv run alembic upgrade head
+uv run alembic downgrade -1
 ```
 
 Fragmento de ejemplo para inspeccion:
@@ -278,16 +278,24 @@ Backoffice:
 
 ## 4) Comandos de clase listos para copiar
 
-```bash
-# Dependencias ORM / DB para milestone backend (segun brief)
-uv add sqlmodel psycopg2-binary
+Librerias necesarias segun el contenido de esta clase:
+- sqlmodel: ORM para mapear clases Python a tablas relacionales y operar sesiones.
+- psycopg2-binary: driver PostgreSQL para conectar FastAPI/SQLModel con Supabase.
+- alembic: sistema de migraciones versionadas (upgrade/downgrade) para evolucion de esquema.
 
-# Alembic para versionado de esquema
-pip install alembic
-alembic init migrations
-alembic revision --autogenerate -m "add bio column to users"
-alembic upgrade head
-alembic downgrade -1
+```bash
+# Preparacion del entorno backend con uv (segun brief y lecciones)
+uv add sqlmodel psycopg2-binary alembic
+
+# sqlmodel: define modelos ORM, relaciones y sesiones con sintaxis tipada.
+# psycopg2-binary: driver PostgreSQL para conectar con Supabase desde SQLModel/SQLAlchemy.
+# alembic: versiona cambios de esquema y permite upgrade/downgrade controlado.
+
+# Flujo base de migraciones con Alembic usando uv
+uv run alembic init migrations
+uv run alembic revision --autogenerate -m "add bio column to users"
+uv run alembic upgrade head
+uv run alembic downgrade -1
 ```
 
 ```bash
