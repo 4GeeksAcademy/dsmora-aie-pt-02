@@ -10,12 +10,12 @@
 
 ## 2. Conceptos clave de Contenedores
 
-| Concepto | Definición |
-|---|---|
-| **Contenedor** | Unidad autónoma y aislada que agrupa app + entorno (runtime, librerías, config). Ligero y portátil. |
-| **Imagen** | Plano de **solo lectura**. Como una **clase** en programación. |
-| **Contenedor (ejecución)** | Instancia viva de una imagen. Como un **objeto**. Escribible, aislado y **efímero** (los cambios se pierden al detenerse). |
-| **Capas** | Las imágenes se construyen por capas: base → dependencias → código. Esto hace las compilaciones **eficientes** (cache). |
+| Concepto              | Definición                                                                                                                              |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Contenedor**        | Unidad autónoma y aislada que agrupa app + entorno (runtime, librerías, config). Ligero y portátil.                                     |
+| **Imagen**            | Plano de **solo lectura**. Como una **clase** en programación.                                                                          |
+| **Contenedor (ejec.)** | Instancia viva de una imagen. Como un **objeto**. Escribible, aislado y **efímero** (los cambios se pierden al detenerse).              |
+| **Capas**             | Las imágenes se construyen por capas: base → dependencias → código. Esto hace las compilaciones **eficientes** (cache).                 |
 
 **Analogía del contenedor de envío**: un contenedor guarda mercancías de forma segura y las protege del entorno externo. Puede cargarse en cualquier barco, camión o tren y el contenido permanece igual.
 
@@ -23,12 +23,12 @@
 
 ## 3. Contenedores vs Máquinas Virtuales (diferencia CLAVE)
 
-| Aspecto | VM | Contenedor |
-|---|---|---|
-| **Tamaño** | Gigabytes (SO completo) | Megabytes (app + deps) |
-| **Inicio** | Minutos | Segundos / milisegundos |
-| **Kernel** | Cada VM tiene su propio kernel | **Comparten el kernel del host** |
-| **Aislamiento** | Fuerte (hipervisor + SO invitado) | Moderado (namespaces / cgroups) |
+| Aspecto         | VM                                          | Contenedor                                  |
+| --------------- | ------------------------------------------- | ------------------------------------------- |
+| **Tamaño**      | Gigabytes (SO completo)                     | Megabytes (app + deps)                      |
+| **Inicio**      | Minutos                                     | Segundos / milisegundos                     |
+| **Kernel**      | Cada VM tiene su propio kernel              | **Comparten el kernel del host**            |
+| **Aislamiento** | Fuerte (hipervisor + SO invitado)           | Moderado (namespaces / cgroups)             |
 
 - **Usa VMs** cuando necesites aislamiento completo de SO o seguridad multi-inquilino.
 - **Usa contenedores** para desarrollo diario, apps que escalan horizontalmente, despliegues rápidos.
