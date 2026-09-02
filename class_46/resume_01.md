@@ -117,6 +117,38 @@ También se incorporó el proyecto `ai-eng-telemetry-storage` mediante `ai-eng-t
 
 Los HTML originales enlazan con notebooks de Colab, pero esta guía es autosuficiente: el profesor puede impartir la clase leyendo únicamente este archivo. Los bloques de código incluidos aquí proceden de los notebooks; las preguntas, tiempos y orden son estructura docente.
 
+## Por qué usar NumPy y Pandas en lugar de listas y bucles clásicos
+
+**Qué decir (literal)**
+
+> Todo esto podríamos hacerlo con una lista de Python y un bucle `for`. La razón para usar NumPy y Pandas es la que da el propio material: NumPy permite realizar operaciones matemáticas en arrays completos sin necesidad de bucles explícitos en el código, lo que lo hace mucho más rápido y eficiente que la misma funcionalidad implementada directamente sobre Python nativo. Pandas hereda esa misma ventaja: todas sus operaciones y funciones se aplican de forma vectorizada, para mejorar el rendimiento frente a los bucles tradicionales y los iteradores de Python.
+
+**Comparación para mostrar en clase**
+
+Con una lista clásica, sumar 10 a cada elemento exige recorrerla uno por uno:
+
+```python
+lista = [1, 2, 3, 4, 5]
+resultado = []
+for valor in lista:
+    resultado.append(valor + 10)
+```
+
+Con un array de NumPy, la misma operación se aplica al conjunto completo en una sola línea, sin bucle explícito:
+
+```python
+array = np.array([1, 2, 3, 4, 5])
+array += 10
+```
+
+**Qué preguntar**
+
+> ¿Qué pasaría con el bucle `for` si la lista tuviera un millón de elementos en lugar de cinco?
+
+**Por qué importa para el resto de la clase**
+
+Esta misma ventaja —operar sobre el conjunto completo sin escribir un bucle— es la que usaremos después para calcular estadísticas (`np.mean`, `np.sum`, etc.), transformar columnas enteras de un DataFrame y aplicar funciones sobre filas o columnas con `apply`.
+
 ## Objetivos
 
 Al terminar, el grupo podrá:
@@ -159,7 +191,7 @@ Para 60 minutos, reducir los ejercicios de NumPy a los ejercicios 01, 03, 05, 06
 
 > Vamos a empezar representando datos numéricos como arrays. Primero crearemos un array unidimensional a partir de una lista y después veremos cómo acceder a sus posiciones, modificar valores y aplicar operaciones al conjunto.
 
-Mostrar este ejemplo del notebook:
+Mostrar este ejemplo:
 
 ```python
 import numpy as np
@@ -180,7 +212,7 @@ La práctica del material usa `array[2]`, cambia el segundo elemento con `array[
 
 > Un array también puede tener más de una dimensión. La dimensión se refleja en la estructura de listas que pasamos a `np.array`; después podemos trabajar con sus valores y con su forma.
 
-Mostrar los ejemplos de arrays 2D y 3D del notebook y pedir al grupo que describa la estructura antes de ejecutarlos:
+Mostrar estos ejemplos de arrays 2D y 3D y pedir al grupo que describa la estructura antes de ejecutarlos:
 
 ```python
 array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
@@ -251,15 +283,30 @@ Cerrar con los ejercicios de NumPy 01-08, seleccionando dos o tres según el rit
 
 > Ahora aplicaremos operaciones a arrays completos y cambiaremos su organización. El objetivo es practicar inversión, cambio de tamaño, búsqueda de índices, filtrado, ordenación y operaciones entre dos vectores.
 
-Usar los ejercicios 09-15 del notebook de NumPy. Priorizar:
+Estos son los ejercicios 09-15 del material, cada uno con la función que el propio material sugiere revisar:
 
-- Invertir un vector.
-- Cambiar un array de dimensiones 5x12 a 12x5.
-- Obtener los índices de los elementos distintos de cero.
-- Multiplicar valores por -2 y obtener los elementos pares.
-- Ordenar un vector aleatorio.
-- Sumar, restar y multiplicar dos vectores.
-- Transformar 12 valores en una matriz con filas de 3 columnas.
+- **Ejercicio 09**: invertir el vector del ejercicio anterior. Función sugerida: `np.flip`.
+- **Ejercicio 10**: cambiar un array aleatorio de dimensiones 5x12 a 12x5. Función sugerida: `np.reshape`.
+- **Ejercicio 11**: convertir `[1, 2, 0, 0, 4, 0]` en un array y obtener el índice de los elementos distintos de cero. Función sugerida: `np.where`.
+- **Ejercicio 12**: convertir `[0, 5, -1, 3, 15]` en un array, multiplicar sus valores por `-2` y obtener los elementos pares.
+- **Ejercicio 13**: crear un vector aleatorio de 10 elementos y ordenarlo de menor a mayor. Función sugerida: `np.sort`.
+- **Ejercicio 14**: generar dos vectores aleatorios de 8 elementos y aplicar suma, resta y multiplicación entre ellos.
+- **Ejercicio 15**: convertir la lista `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]` en un array y transformarlo en una matriz con filas de 3 columnas.
+
+**Cómo se usan las funciones sugeridas** (demostración con un vector de ejemplo, sin depender de ningún archivo externo):
+
+```python
+vector = np.array([1, 2, 3, 4, 5])
+
+print(np.flip(vector))             # invierte el orden de los elementos
+print(np.reshape(vector, (5, 1)))  # cambia la forma sin cambiar los datos
+print(np.where(vector == 0))       # devuelve los índices que cumplen una condición
+print(np.sort(vector))             # ordena los elementos de menor a mayor
+```
+
+**Qué preguntar**
+
+> ¿Qué diferencia hay entre invertir un array con `np.flip` y ordenarlo con `np.sort`?
 
 ### 4. Series y DataFrames (15 minutos)
 
@@ -348,15 +395,7 @@ Una función `lambda` es una función anónima escrita en una sola expresión. P
 
 ### 6. Ejercicios y soluciones (10 minutos)
 
-Pedir que el grupo resuelva primero en el notebook de ejercicios:
-
-- Crear Series desde una lista, un array de NumPy y un diccionario.
-- Crear DataFrames desde un array, un diccionario y una lista de tuplas.
-- Construir un DataFrame con dos Series.
-- Seleccionar posiciones comunes y no comunes.
-- Crear un DataFrame aleatorio, ordenar una columna y actualizar nombres e índices.
-
-Después abrir el notebook de soluciones y comparar. Destacar que la solución usa `np.random.seed(42)` para fijar la generación aleatoria.
+Pedir que el grupo resuelva primero estos ejercicios, y comparar después con la solución de cada uno (ya incluida aquí, no hace falta abrir ningún archivo aparte). Todas las soluciones fijan la aleatoriedad con `np.random.seed(42)` al inicio:
 
 ```python
 import numpy as np
@@ -364,6 +403,96 @@ import pandas as pd
 
 np.random.seed(42)
 ```
+
+**Ejercicio 01: crear una Series desde una lista, un array de NumPy y un diccionario**
+
+```python
+l = [1, 2, 3, 4, 5, 6]
+serie = pd.Series(l)
+
+array = np.array([1, 2, 3, 4, 5, 6])
+serie = pd.Series(array)
+
+d = {"A": 1, "B": 2, "C": 3}
+serie = pd.Series(d)
+```
+
+**Ejercicio 02: crear un DataFrame desde un array de NumPy, un diccionario y una lista de tuplas**
+
+```python
+array = np.random.randint(1, 10, size = (5, 5))
+dataframe = pd.DataFrame(array)
+
+d = {
+    "A": np.random.randint(10, 100, size = 5),
+    "B": np.linspace(1, 10, 5),
+    "C": np.random.randn(5)
+}
+dataframe = pd.DataFrame(d)
+
+t = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+dataframe = pd.DataFrame(t)
+```
+
+**Ejercicio 03: construir un DataFrame a partir de dos Series**
+
+```python
+s1 = pd.Series([1, 2, 3, 4, 5])
+s2 = pd.Series([4, 5, 6, 7, 8])
+
+# Método 1
+dataframe = pd.DataFrame({"ser1": s1, "ser2": s2})
+
+# Método 2
+dataframe = pd.concat([s1, s2], axis = 1)
+
+# Método 3
+s1.name = "ser1"
+s2.name = "ser2"
+dataframe = s1.to_frame().join(s2)
+```
+
+**Ejercicio 04: seleccionar las posiciones de la primera serie que están en la segunda**
+
+```python
+# Con Pandas
+filtering_results = s1.isin(s2)
+indices = s1[filtering_results].index
+
+# Con NumPy
+indices = np.where(s1.isin(s2))
+```
+
+**Ejercicio 05: listar los elementos no comunes entre ambas series**
+
+```python
+unique_s1 = s1[~s1.isin(s2)]
+unique_s2 = s2[~s2.isin(s1)]
+unique_elements = np.concatenate([unique_s1, unique_s2])
+```
+
+**Ejercicio 06: crear un DataFrame aleatorio de 5 columnas y 10 filas, y ordenar una columna**
+
+```python
+df = pd.DataFrame(np.random.rand(10, 5) * 10, columns = [f"Col {i}" for i in range(5)])
+df.sort_values("Col 0")
+```
+
+**Ejercicio 07: renombrar las 5 columnas con el formato `N_column`**
+
+```python
+df.columns = [f"{i}_column" for i in range(5)]
+```
+
+**Ejercicio 08: modificar el índice de las filas del DataFrame anterior**
+
+```python
+df.index = [f"{i}_row" for i in range(10)]
+```
+
+**Qué preguntar**
+
+> En el ejercicio 04, ¿qué diferencia hay entre resolverlo con `isin` de Pandas y con `np.where`?
 
 ### 7. Proyecto: almacenamiento de telemetría (10 minutos)
 

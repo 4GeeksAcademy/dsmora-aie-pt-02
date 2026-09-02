@@ -2,7 +2,8 @@ const state = {
   className: null,
   type: null,
   file: null,
-  catalog: []
+  catalog: [],
+  sidebarOpen: true
 };
 
 const menuEl = document.getElementById("menu");
@@ -17,17 +18,24 @@ function isMobile() {
   return window.matchMedia("(max-width: 960px)").matches;
 }
 
-function setMenuOpen(open) {
-  document.body.classList.toggle("menu-open", open);
+function applySidebarState() {
+  const mobile = isMobile();
+  document.body.classList.toggle("menu-open", mobile && state.sidebarOpen);
+  document.body.classList.toggle("sidebar-collapsed", !mobile && !state.sidebarOpen);
 
   if (menuToggleEl) {
-    menuToggleEl.setAttribute("aria-expanded", String(open));
-    menuToggleEl.setAttribute("aria-label", open ? "Cerrar menu" : "Abrir menu");
+    menuToggleEl.setAttribute("aria-expanded", String(state.sidebarOpen));
+    menuToggleEl.setAttribute("aria-label", state.sidebarOpen ? "Ocultar panel" : "Mostrar panel");
   }
 }
 
+function setSidebarOpen(open) {
+  state.sidebarOpen = open;
+  applySidebarState();
+}
+
 function closeMenuIfMobile() {
-  if (isMobile()) setMenuOpen(false);
+  if (isMobile()) setSidebarOpen(false);
 }
 
 function escapeHtml(value) {
@@ -266,9 +274,11 @@ function highlightActive() {
 function renderMenu() {
   menuEl.innerHTML = "";
 
+  const lastIdx = state.catalog.length - 1;
+
   state.catalog.forEach((entry, idx) => {
     const block = document.createElement("section");
-    block.className = `class-block${idx === 0 ? " open" : ""}`;
+    block.className = `class-block${idx === lastIdx ? " open" : ""}`;
 
     const header = document.createElement("button");
     header.className = "class-header";
@@ -315,6 +325,11 @@ function renderMenu() {
   });
 }
 
+function pickDefaultSummary(summaries) {
+  const resume = summaries.find((file) => /^resume/i.test(file) || /^resumen/i.test(file));
+  return resume || summaries[0];
+}
+
 function pickInitialSelection() {
   const params = new URLSearchParams(window.location.search);
   const qClass = params.get("class");
@@ -328,34 +343,43 @@ function pickInitialSelection() {
     return;
   }
 
-  for (const entry of state.catalog) {
+  for (let i = state.catalog.length - 1; i >= 0; i--) {
+    const entry = state.catalog[i];
     if (entry.summaries.length > 0) {
       state.className = entry.class;
       state.type = "resumen";
-      state.file = entry.summaries[0];
+      state.file = pickDefaultSummary(entry.summaries);
       return;
     }
   }
 }
 
 async function bootstrap() {
+  let wasMobile = isMobile();
+  state.sidebarOpen = !wasMobile;
+
   if (menuToggleEl) {
     menuToggleEl.addEventListener("click", () => {
-      const open = !document.body.classList.contains("menu-open");
-      setMenuOpen(open);
+      setSidebarOpen(!state.sidebarOpen);
     });
   }
 
   if (menuOverlayEl) {
     menuOverlayEl.addEventListener("click", () => {
-      setMenuOpen(false);
+      setSidebarOpen(false);
     });
   }
 
   window.addEventListener("resize", () => {
-    if (!isMobile()) setMenuOpen(false);
+    const mobileNow = isMobile();
+    if (mobileNow !== wasMobile) {
+      state.sidebarOpen = !mobileNow;
+      wasMobile = mobileNow;
+    }
+    applySidebarState();
   });
 
+  applySidebarState();
   state.catalog = await loadCatalog();
   renderMenu();
   pickInitialSelection();

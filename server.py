@@ -43,7 +43,7 @@ def _build_catalog():
                 continue
 
             lower = entry.lower()
-            if lower.endswith('.md') and (lower.startswith('resume_') or lower.startswith('resumen_')):
+            if lower.endswith('.md') and (lower.startswith('resume_') or lower.startswith('resumen_') or 'project_readme' in lower):
                 summaries.append(entry)
             elif lower.endswith('.json'):
                 complete.append(entry)

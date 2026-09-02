@@ -42,7 +42,9 @@ aside {
 }
 
 .mobile-topbar {
-  display: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .menu-toggle {
@@ -272,6 +274,18 @@ main {
   font-style: italic;
 }
 
+@media (min-width: 961px) {
+  body.sidebar-collapsed .layout {
+    grid-template-columns: 0 1fr;
+  }
+
+  body.sidebar-collapsed .sidebar {
+    padding: 0;
+    border-right: none;
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 960px) {
   .layout {
     grid-template-columns: 1fr;
@@ -297,8 +311,6 @@ main {
   }
 
   .mobile-topbar {
-    display: flex;
-    align-items: center;
     margin-bottom: 10px;
   }
 
