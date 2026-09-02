@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 from urllib.parse import urlsplit
+from urllib.request import Request, urlopen
 from playwright.async_api import async_playwright
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,29 @@ async def scrape_tutorial(context, output_dir: Path, tutorial_name: str, url: st
         print(f"[{label}] Se encontraron {len(cards)} lecciones.")
 
         results = []
+
+        if not cards:
+            page_content = await page.evaluate('''() => {
+                const clone = (document.body || document.documentElement).cloneNode(true);
+                const toRemove = clone.querySelectorAll('button, .badge, .continue-button, script, style, .self-closing-modal, .exercise-list, .sidebar-component, nav, header, footer');
+                toRemove.forEach(c => c.remove());
+                return clone.innerText;
+            }''')
+            title = await page.title()
+            heading = await page.query_selector("h1")
+            if heading:
+                title = " ".join((await heading.inner_text()).split())
+            results.append(
+                {
+                    "index": 0,
+                    "title": title.strip(),
+                    "content": page_content.strip(),
+                }
+            )
+            with output_file.open("w", encoding="utf-8") as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+            print(f"[{label}] Pagina directa capturada como una unica leccion.")
+            return
 
         for i in range(len(cards)):
             await clear_modals()
@@ -110,9 +134,9 @@ async def scrape_tutorial(context, output_dir: Path, tutorial_name: str, url: st
 
 
 def slug_from_url(url: str) -> str:
-    host = urlsplit(url).hostname or ""
-    subdomain = host.split(".")[0] if host else "tutorial"
-    slug = subdomain.replace("-", "_").strip("_")
+    path_parts = [part for part in urlsplit(url).path.split("/") if part]
+    slug = path_parts[-1] if path_parts else "tutorial"
+    slug = slug.replace("-", "_").strip("_")
     return slug or "tutorial"
 
 
@@ -174,6 +198,38 @@ def build_class_tutorials(target_specs):
     return class_tutorials
 
 
+def scrape_projects(project_specs):
+    for project_spec in project_specs:
+        class_name, urls = parse_target_spec(project_spec)
+        output_dir = BASE_DIR / class_name
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        for url in urls:
+            project_slug = [part for part in urlsplit(url).path.split("/") if part][-1]
+            api_url = f"https://breathecode.herokuapp.com/v1/registry/asset/{project_slug}"
+            request = Request(api_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(request) as response:
+                asset = json.load(response)
+
+            asset_file = output_dir / f"{project_slug}_project_asset.json"
+            with asset_file.open("w", encoding="utf-8") as f:
+                json.dump(asset, f, ensure_ascii=False, indent=2)
+
+            readme_url = asset.get("readme_url", "")
+            if readme_url.endswith("README.md"):
+                readme_url = readme_url[:-len("README.md")] + "README.es.md"
+            readme_url = readme_url.replace(
+                "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/",
+                "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/",
+            )
+            readme_file = output_dir / f"{project_slug}_project_README.es.md"
+            readme_request = Request(readme_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(readme_request) as response:
+                readme = response.read().decode("utf-8")
+            readme_file.write_text(readme, encoding="utf-8")
+            print(f"Proyecto guardado en {asset_file} y {readme_file}")
+
+
 async def run(class_tutorials, max_concurrency: int):
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -221,6 +277,13 @@ if __name__ == "__main__":
         default=4,
         help="Numero maximo de tutoriales a procesar en paralelo (default: 4).",
     )
+    parser.add_argument(
+        "--project",
+        dest="projects",
+        action="append",
+        default=[],
+        help="Proyecto con formato class_x:url (se puede repetir).",
+    )
     args = parser.parse_args()
 
     if args.max_concurrency < 1:
@@ -228,3 +291,4 @@ if __name__ == "__main__":
 
     selected = build_class_tutorials(args.targets)
     asyncio.run(run(selected, args.max_concurrency))
+    scrape_projects(args.projects)

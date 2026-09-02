@@ -1,0 +1,279 @@
+{
+  "id": 3670,
+  "slug": "ai-eng-telemetry-storage",
+  "title": "Company's Telemetry – Storage",
+  "lang": "us",
+  "assessment": null,
+  "category": {
+    "id": 51,
+    "slug": "technical-skills",
+    "title": "Technical Skills"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-telemetry-storage/README.md",
+  "difficulty": "INTERMEDIATE",
+  "duration": 2,
+  "description": "Replace the telemetry stub with persistent storage: create telemetry_events in Supabase (indexes, immutable write-only), per-event TelemetryEvent.model_validate with partial batch acceptance (no typed list body → 422), bulk-insert valid rows in one transaction, preserve CONTEXT-specific tags from telemetry-plan.md, return received/stored/rejected — frontend unchanged, same endpoint URL.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-telemetry-storage/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-telemetry-storage/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "translations": {
+    "us": "ai-eng-telemetry-storage",
+    "es": "ai-eng-almacenamiento-de-telemetria"
+  },
+  "technologies": [
+    {
+      "slug": "postgre",
+      "title": "postgre",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "fastapi",
+      "title": "fastapi",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "backend-design",
+      "title": "backend-design",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "supabase",
+      "title": "supabase",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "telemetry",
+      "title": "telemetry",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-09-02T13:43:14.028149Z",
+  "agent": null,
+  "config": {
+    "slug": "ai-eng-telemetry-storage",
+    "title": {
+      "en": "Company's Telemetry – Storage",
+      "es": "Telemetría de tu compañía – Almacenamiento"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-telemetry-storage/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed Company's Telemetry – Storage with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-telemetry-storage #AIEngineering #LearnPack #4GeeksAcademy #fastapi #supabase #postgresql #telemetry",
+        "es": "Acabo de completar Telemetría de tu compañía – Almacenamiento con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-telemetry-storage #AIEngineering #LearnPack #4GeeksAcademy #fastapi #supabase #postgresql #telemetry"
+      },
+      {
+        "en": "Built and shipped: Company's Telemetry – Storage. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-telemetry-storage #AIEngineering #LearnPack #4GeeksAcademy #fastapi #supabase #postgresql #telemetry",
+        "es": "Construido y publicado: Telemetría de tu compañía – Almacenamiento. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-telemetry-storage #AIEngineering #LearnPack #4GeeksAcademy #fastapi #supabase #postgresql #telemetry"
+      }
+    ],
+    "duration": 2,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-telemetry-storage/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3670"
+    },
+    "difficulty": "intermediate",
+    "description": {
+      "en": "Replace the telemetry stub with persistent storage: create telemetry_events in Supabase (indexes, immutable write-only), per-event TelemetryEvent.model_validate with partial batch acceptance (no typed list body → 422), bulk-insert valid rows in one transaction, preserve CONTEXT-specific tags from telemetry-plan.md, return received/stored/rejected — frontend unchanged, same endpoint URL.",
+      "es": "Sustituye el stub de telemetría por almacenamiento persistente: crea telemetry_events en Supabase (índices, solo escritura inmutable), TelemetryEvent.model_validate por evento con aceptación parcial del lote (sin body tipado list → 422), inserta filas válidas en bulk en una transacción, preserva tags específicos del CONTEXT según telemetry-plan.md, devuelve received/stored/rejected — frontend sin cambios, misma URL de endpoint."
+    },
+    "projectType": "project",
+    "technologies": [
+      "fastapi",
+      "supabase",
+      "postgresql",
+      "telemetry",
+      "backend-design"
+    ],
+    "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-08-18T17:01:55.217194+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "86404ddbb9b0989ac9dd546213370171a935f687",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:04:04.034739+00:00",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:51.764787+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "86404ddbb9b0989ac9dd546213370171a935f687",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:03:17.503609+00:00",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-13T16:00:25.815114+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:01:58.688413+00:00",
+      "repository_webhook_id": 74792
+    },
+    {
+      "at": "2026-08-13T16:00:25.798797+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:01:49.594206+00:00",
+      "repository_webhook_id": 74793
+    },
+    {
+      "at": "2026-08-07T19:56:58.008865+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "86404ddbb9b0989ac9dd546213370171a935f687",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-07T19:57:55.986659+00:00",
+      "repository_webhook_id": 74615
+    },
+    {
+      "at": "2026-08-07T19:56:57.251686+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "86404ddbb9b0989ac9dd546213370171a935f687",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74614
+    },
+    {
+      "at": "2026-07-14T13:47:05.706921+00:00",
+      "kind": "academy",
+      "action": "pull",
+      "detail": "AcademyAssetActionView PUT",
+      "status": "ok",
+      "http_status": 200,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset/ai-eng-telemetry-storage/action/pull",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    },
+    {
+      "at": "2026-07-14T13:47:05.691328+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-07-14T13:43:03.141850+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "b64a56d570f437ac2e71f2876ac60201ad83f023",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-14T13:43:29.964381+00:00",
+      "repository_webhook_id": 73741
+    },
+    {
+      "at": "2026-07-14T13:43:02.915508+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "b64a56d570f437ac2e71f2876ac60201ad83f023",
+      "modified_file": "content/projects/ai-eng-telemetry-storage/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 73741
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-08-18T17:04:03.990264Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "ai-eng-telemetry-storage"
+  ]
+}

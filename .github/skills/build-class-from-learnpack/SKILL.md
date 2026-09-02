@@ -31,6 +31,10 @@ Antes de redactar cualquier resumen o ejemplo:
 - Si el JSON no contiene un ejemplo concreto, no inventarlo: se debe omitir el ejemplo o dejarlo como una idea conceptual muy general.
 - Cada afirmación del resumen debe estar respaldada por el contenido del JSON. Si no lo está, debe eliminarse.
 - El resumen debe ser útil para enseñar en clase y debe incluir: objetivo, desarrollo de la clase, ejemplo de código validado por el JSON, qué decir en clase, qué preguntar después y cierre sugerido.
+- El resumen debe ser autosuficiente para impartir la clase sin abrir simultáneamente los JSON, HTML, notebooks ni README fuente. Toda explicación, definición, función, parámetro, ejemplo de código, resultado esperado y ejercicio que el profesor vaya a usar debe aparecer dentro de `resume_01.md`.
+- No escribir instrucciones como "mostrar el bloque del notebook", "abrir el JSON" o "explicar según el material" cuando ese contenido sea necesario para la clase: trasladar el contenido relevante directamente al resumen.
+- Para funciones y APIs, explicar en el resumen qué recibe cada una, qué hace, qué devuelve y mostrar un ejemplo ejecutable respaldado por el JSON. Para ejercicios, incluir el enunciado y, cuando sea necesario para la docencia, la solución o los pasos de resolución.
+- Cuando existan clases anteriores relacionadas en el repositorio, incluir al principio un hilo de continuidad: qué conceptos se heredaron, qué frase de transición puede decir el profesor, qué añade la clase actual y cómo conecta con el proyecto o la siguiente etapa. No asumir que el profesor abrirá los resúmenes anteriores durante la sesión.
 
 ### Regla de trazabilidad obligatoria
 
@@ -104,14 +108,16 @@ Reglas:
 Generar `class_N/resume_01.md` con estos requisitos estrictos:
 
 1. Enfoque para profesor, no para alumno.
-2. Duración total 60-75 minutos.
-3. Incluir frases literales de explicación (`Qué decir (literal)`).
-4. Incluir comandos shell exactos en bloques `bash`.
-5. Incluir prompts exactos para OpenClaw en bloques `text`.
-6. Distribuir tiempos por bloque pensando en tiempo de explicación, no en tiempo de tipeo.
-7. Incluir variantes de recorte (60) y extensión (75).
-8. Incluir checklist de preparación y plan de contingencia.
-9. Si hay proyecto, agregar bloque especifico con:
+2. Autosuficiencia: el profesor debe poder impartir la sesión usando únicamente `resume_01.md`.
+3. Duración total 60-75 minutos.
+4. Incluir frases literales de explicación (`Qué decir (literal)`).
+5. Incluir comandos shell exactos en bloques `bash`.
+6. Incluir prompts exactos para OpenClaw en bloques `text`.
+7. Explicar directamente en el resumen las funciones, APIs, parámetros y resultados que se vayan a utilizar.
+8. Distribuir tiempos por bloque pensando en tiempo de explicación, no en tiempo de tipeo.
+9. Incluir variantes de recorte (60) y extensión (75).
+10. Incluir checklist de preparación y plan de contingencia.
+11. Si hay proyecto, agregar bloque especifico con:
 	- Resumen de requisitos del proyecto.
 	- Como hilar el proyecto con los modulos/lecciones previos.
 	- Ejemplos en lenguaje natural alineados al brief del proyecto.
