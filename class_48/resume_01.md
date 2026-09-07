@@ -66,9 +66,9 @@ git pull
 | --- | --- | --- |
 | 0-8 min | Continuidad y audiencia | Separacion entre reporte tecnico y pipeline de negocio |
 | 8-20 min | Formato de transporte | Decision razonada entre JSON, CSV y YAML, con ejemplos por etapa del pipeline |
-| 20-32 min | Base de datos y estructura | Eleccion por carga de trabajo; 1FN/3FN |
-| 32-45 min | Pipeline y ETL | Diagrama de extraccion, transformacion y carga |
-| 45-58 min | Diseno del proyecto | Checklist de `PIPELINE_DESIGN.md` |
+| 20-34 min | Base de datos y estructura | Eleccion por carga de trabajo; 1FN/3FN explicadas con analogia y tabla resumen |
+| 34-46 min | Pipeline y ETL | Diagrama de extraccion, transformacion y carga |
+| 46-58 min | Diseno del proyecto | Checklist de `PIPELINE_DESIGN.md` |
 | 58-60 min | Cierre | Respuestas de comprobacion |
 
 La version extendida usa los 15 minutos adicionales para resolver los escenarios de normalizacion y resiliencia del final de esta guia.
@@ -175,7 +175,7 @@ Tres ejemplos para mostrar en clase, cada uno en la etapa donde ese formato real
 
 **Enlace al siguiente bloque:** el formato resuelve como viajan los datos entre sistemas, pero no donde quedan una vez que llegan. Esa es la segunda decision: que base de datos y que estructura de tabla usamos para guardarlos.
 
-### 20-32 min: Elegir almacenamiento y estructura
+### 20-34 min: Elegir almacenamiento y estructura
 
 Una carga de trabajo describe como la aplicacion escribe, lee, consulta y transforma datos. El tutorial separa tres casos: reportes, integridad primero y muchas consultas.
 
@@ -190,6 +190,12 @@ Relacionar los casos del material:
 - Para muchas lecturas, el material propone replicas de lectura y cache como Redis.
 
 Usar esta tabla de ejemplo para introducir 1FN:
+
+**Que decir (literal), version simple:**
+
+> Imaginad una biblioteca gigante donde los libros estan esparcidos por todas partes, con copias repetidas y paginas faltantes. Encontrar o actualizar algo es una pesadilla. Una base de datos mal diseñada es esa biblioteca. Normalizar es ordenarla: cada pieza de informacion se guarda una sola vez, en el lugar correcto. Una forma normal es simplemente un contrato: la tabla cumple sus reglas o no las cumple.
+
+**1FN en una frase:** cada celda debe tener un solo valor (atomico), nunca una lista escondida en una columna.
 
 ```sql
 CREATE TABLE orders (
@@ -209,7 +215,40 @@ CREATE TABLE order_items (
 );
 ```
 
-**Que explicar (contenido) sobre 3FN:** una dependencia transitiva ocurre cuando una columna no clave depende de otra columna no clave, en lugar de depender directamente de la clave primaria. En `employees(id, name, department_id, department_name, department_budget)`, `department_name` y `department_budget` dependen de `department_id`, no del empleado. La correccion es separarlos en una tabla `departments` y conservar `department_id` como clave foranea en `employees`.
+Ahora cada fila de `order_items` tiene un solo `product_id`. Ya no hay una lista escondida dentro de una celda.
+
+**3FN en una frase:** cada columna debe depender solo de la clave primaria, nunca de otra columna que no sea clave.
+
+**Que explicar (contenido) sobre 3FN, con ejemplo simple:** el tutorial usa este caso: si la ciudad de un cliente se guarda en muchos lugares y el cliente se muda, hay que actualizar cada registro, y es facil olvidar alguno. Eso es justo lo que 3FN evita. Una dependencia transitiva ocurre cuando una columna no clave depende de otra columna no clave, en lugar de depender directamente de la clave primaria:
+
+```sql
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  department_id INT,
+  department_name VARCHAR(100),
+  department_budget DECIMAL(15,2)
+);
+```
+
+Aqui `department_name` y `department_budget` no describen al empleado (la clave primaria `id`): describen al departamento. Si el presupuesto de un departamento cambia, hay que actualizar todas las filas de empleados de ese departamento, con riesgo de dejar alguna desactualizada. La correccion es separar esa informacion en su propia tabla:
+
+```sql
+CREATE TABLE departments (
+  department_id INT PRIMARY KEY,
+  department_name VARCHAR(100),
+  department_budget DECIMAL(15,2)
+);
+```
+
+`employees` conserva solo `department_id` como clave foranea. Ahora el presupuesto vive en un unico lugar: cambia una vez, en `departments`, y todos los empleados de ese departamento quedan actualizados automaticamente porque solo referencian el id.
+
+**Resumen para la pizarra:**
+
+| | Que exige | Que evita | Ejemplo de esta clase |
+| --- | --- | --- | --- |
+| 1FN | Valores atomicos, sin listas en una celda | Que una columna esconda varios datos | `product_ids` dividido en `order_items` |
+| 3FN | Cada columna depende solo de la clave primaria | Que cambiar un dato obligue a actualizar muchas filas | `department_name` movido a `departments` |
 
 **Que decir (literal)**
 
@@ -221,7 +260,7 @@ Respuesta esperada: que cada fila se escriba una vez y nunca se actualice, mante
 
 **Enlace al siguiente bloque:** ya sabemos en que formato viajan los datos y en que tabla y forma normal quedan guardados. Falta la pieza que conecta ambas decisiones con la fuente real: el mecanismo automatizado que mueve los datos de `telemetry_events` hasta esa tabla de destino.
 
-### 32-45 min: Diseñar el flujo ETL
+### 34-46 min: Diseñar el flujo ETL
 
 Una tuberia es una secuencia automatizada y estructurada que mueve datos de una o varias fuentes a destinos y aplica transformaciones. Debe ser automatizada, repetible y observable. El patron ETL separa responsabilidades:
 
@@ -257,7 +296,7 @@ Respuesta esperada: la frescura requerida por el entregable y su frecuencia, def
 
 **Enlace al siguiente bloque:** formato, almacenamiento y ETL son las tres decisiones tecnicas del hilo de esta clase. Ahora toca volcarlas, junto con idempotencia y observabilidad, en el documento que el proyecto va a evaluar.
 
-### 45-58 min: Convertir el brief en un diseno evaluable
+### 46-58 min: Convertir el brief en un diseno evaluable
 
 El entregable de esta parte es `data/pipelines/PIPELINE_DESIGN.md`, en Markdown y dentro del monorepo. No se implementa aun codigo de orquestacion.
 
