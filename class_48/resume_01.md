@@ -65,11 +65,11 @@ git pull
 | Tiempo | Bloque | Resultado visible |
 | --- | --- | --- |
 | 0-8 min | Continuidad y audiencia | Separacion entre reporte tecnico y pipeline de negocio |
-| 8-18 min | Formato de transporte | Decision razonada entre JSON, CSV y YAML |
-| 18-30 min | Base de datos y estructura | Eleccion por carga de trabajo; 1FN/3FN |
-| 30-43 min | Pipeline y ETL | Diagrama de extraccion, transformacion y carga |
-| 43-57 min | Diseno del proyecto | Checklist de `PIPELINE_DESIGN.md` |
-| 57-60 min | Cierre | Respuestas de comprobacion |
+| 8-20 min | Formato de transporte | Decision razonada entre JSON, CSV y YAML, con ejemplos por etapa del pipeline |
+| 20-32 min | Base de datos y estructura | Eleccion por carga de trabajo; 1FN/3FN |
+| 32-45 min | Pipeline y ETL | Diagrama de extraccion, transformacion y carga |
+| 45-58 min | Diseno del proyecto | Checklist de `PIPELINE_DESIGN.md` |
+| 58-60 min | Cierre | Respuestas de comprobacion |
 
 La version extendida usa los 15 minutos adicionales para resolver los escenarios de normalizacion y resiliencia del final de esta guia.
 
@@ -89,7 +89,7 @@ Respuesta esperada: porque el brief exige tablas de destino nuevas bajo `reporti
 
 **Enlace al siguiente bloque:** ya separamos la fuente (telemetria) del destino (reporting). Antes de dibujar ese recorrido, hay que resolver la primera decision tecnica concreta: en que formato viajan los datos entre esos sistemas.
 
-### 8-18 min: Seleccionar el formato de transporte
+### 8-20 min: Seleccionar el formato de transporte
 
 Un formato de transporte define como se estructura y representa la informacion cuando se mueve entre sistemas. Las tres propiedades que compara el tutorial son soporte estructural, legibilidad humana y costo de analisis.
 
@@ -128,9 +128,54 @@ roles:
 
 Respuesta esperada: YAML; usa indentacion con espacios y no permite tabulaciones.
 
+**Como encajan estos formatos en un pipeline (contenido):** el tutorial no deja el formato como algo abstracto; lo ubica en una etapa concreta:
+
+| Formato | Donde aparece en el pipeline segun el tutorial | Por que |
+| --- | --- | --- |
+| JSON | Respuestas de API, mensajeria entre servicios | Datos anidados o jerarquicos que una maquina produce y otra consume |
+| CSV | Pipelines de analisis, exportaciones masivas de datos | Datos tabulares planos, gran volumen, facil de analizar |
+| YAML | Definiciones de pipelines CI/CD, archivos de orquestacion como Docker Compose | Legible para humanos, soporta comentarios, sintaxis limpia |
+
+Tres ejemplos para mostrar en clase, cada uno en la etapa donde ese formato realmente aparece:
+
+1. **CSV como fuente de un extractor de archivos.** El pipeline llama "Lector de Archivos" al extractor que lee CSV, JSON o Parquet desde almacenamiento local o en la nube. Un export diario de pedidos es exactamente ese caso: datos planos, tabulares, de gran volumen.
+
+   ```csv
+   order_id,customer_id,total,created_at
+   1042,88,59.90,2026-09-01
+   1043,12,120.00,2026-09-01
+   ```
+
+   El extractor recupera este archivo sin transformarlo; la transformacion y agregacion llegan despues, en la siguiente etapa del ETL.
+
+2. **JSON como mensaje entre la fuente y el extractor.** El mismo componente extractor tambien incluye "Clientes API": llamadas REST que traen datos anidados. Un evento de `telemetry_events` viaja asi:
+
+   ```json
+   {
+     "eventId": "evt_9f21",
+     "type": "outbound_order_created",
+     "payload": { "orderId": 1042, "total": 59.90 }
+   }
+   ```
+
+   JSON encaja aqui porque el dato es anidado (`payload` dentro del evento) y lo consume una maquina, no una persona.
+
+3. **YAML como definicion del pipeline, no como dato que se mueve.** El tutorial ubica YAML en "definiciones de pipelines CI/CD" y "archivos de orquestacion de contenedores como Docker Compose", con este ejemplo:
+
+   ```yaml
+   version: '3.8'
+   services:
+     web:
+       image: nginx:latest
+       ports:
+         - "80:80"
+   ```
+
+   La diferencia clave: este YAML no contiene los datos de negocio del pipeline. Describe como se ejecuta o se orquesta la infraestructura que lo corre. Es el mismo rol que cumpliria un archivo de definicion de un flow de Prefect o de un job programado por cron: configuracion del pipeline, no su carga util.
+
 **Enlace al siguiente bloque:** el formato resuelve como viajan los datos entre sistemas, pero no donde quedan una vez que llegan. Esa es la segunda decision: que base de datos y que estructura de tabla usamos para guardarlos.
 
-### 18-30 min: Elegir almacenamiento y estructura
+### 20-32 min: Elegir almacenamiento y estructura
 
 Una carga de trabajo describe como la aplicacion escribe, lee, consulta y transforma datos. El tutorial separa tres casos: reportes, integridad primero y muchas consultas.
 
@@ -176,7 +221,7 @@ Respuesta esperada: que cada fila se escriba una vez y nunca se actualice, mante
 
 **Enlace al siguiente bloque:** ya sabemos en que formato viajan los datos y en que tabla y forma normal quedan guardados. Falta la pieza que conecta ambas decisiones con la fuente real: el mecanismo automatizado que mueve los datos de `telemetry_events` hasta esa tabla de destino.
 
-### 30-43 min: Diseñar el flujo ETL
+### 32-45 min: Diseñar el flujo ETL
 
 Una tuberia es una secuencia automatizada y estructurada que mueve datos de una o varias fuentes a destinos y aplica transformaciones. Debe ser automatizada, repetible y observable. El patron ETL separa responsabilidades:
 
@@ -212,7 +257,7 @@ Respuesta esperada: la frescura requerida por el entregable y su frecuencia, def
 
 **Enlace al siguiente bloque:** formato, almacenamiento y ETL son las tres decisiones tecnicas del hilo de esta clase. Ahora toca volcarlas, junto con idempotencia y observabilidad, en el documento que el proyecto va a evaluar.
 
-### 43-57 min: Convertir el brief en un diseno evaluable
+### 45-58 min: Convertir el brief en un diseno evaluable
 
 El entregable de esta parte es `data/pipelines/PIPELINE_DESIGN.md`, en Markdown y dentro del monorepo. No se implementa aun codigo de orquestacion.
 
@@ -248,7 +293,7 @@ esbozar endpoints de estado, disparo manual y consulta de KPIs
 escribir data/pipelines/PIPELINE_DESIGN.md
 ```
 
-### 57-60 min: Cierre
+### 58-60 min: Cierre
 
 **Que decir (literal)**
 
