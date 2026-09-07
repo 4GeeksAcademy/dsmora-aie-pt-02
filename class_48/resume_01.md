@@ -274,16 +274,46 @@ Una tuberia es una secuencia automatizada y estructurada que mueve datos de una 
 
 > Separar ETL evita una tuberia opaca. El extractor no limpia ni agrega: recupera. La transformacion prepara los datos para la pregunta de negocio. La carga escribe la salida en la tabla de reporting, nunca de vuelta en `telemetry_events`.
 
+**Nota de trazabilidad:** el tutorial de pipelines detalla con precision la etapa de extraccion (tipos de extractor, buenas practicas de conexion y validacion). Las lecciones sobre transformadores y cargadores no aportaron contenido adicional distinto en el scraping; por eso el diagrama y el texto describen esa etapa solo con lo que el brief del proyecto exige (calcular KPIs, cargar sin duplicar), sin inventar tecnica de transformacion no presente en las fuentes.
+
 Dibujar esta estructura y reemplazar los marcadores por los nombres del contexto de cada empresa:
 
 ```mermaid
 flowchart LR
-  source[telemetry_events y tablas de dominio necesarias] --> extract[Extraccion]
-  extract --> transform[Transformacion de metricas y KPIs del CONTEXT]
-  transform --> load[Carga]
-  load --> destination[reporting.tabla_destino_exacta]
-  destination --> reporting[services/reporting: estado, disparo y KPIs]
+    subgraph Disparo["Disparo por lotes"]
+        cron["cron o DAG de Airflow"]
+    end
+
+    subgraph Extraer["Extraer (sin transformar, solo recuperar)"]
+        direction TB
+        e1["Conector de base de datos: telemetry_events"]
+        e2["Lector de archivos: CSV / JSON / Parquet"]
+        e3["Cliente API: REST"]
+        e4["Consumidor de flujo: Kafka"]
+    end
+
+    subgraph Transformar["Transformar"]
+        t1["Calcular metricas y KPIs del CONTEXT-company.md"]
+    end
+
+    subgraph Cargar["Cargar"]
+        l1["Upsert por clave de particion en reporting.tabla_destino_exacta"]
+    end
+
+    subgraph Servir["Servir"]
+        s1["services/reporting: estado, disparo manual, consulta de KPIs"]
+    end
+
+    cron --> e1
+    e1 --> t1
+    e2 -.otro origen posible.-> t1
+    e3 -.otro origen posible.-> t1
+    e4 -.otro origen posible.-> t1
+    t1 --> l1
+    l1 --> s1
 ```
+
+**Que explicar (contenido):** para este proyecto, el extractor real es el conector de base de datos que lee `telemetry_events`; los otros tres tipos (lector de archivos, cliente API, consumidor de flujo) aparecen en el diagrama en trazo punteado porque son los otros extractores que el tutorial describe, pero no son la fuente de este pipeline. Un cron o un DAG de Airflow dispara la corrida por lotes; el extractor solo recupera datos, sin transformarlos, y valida que el esquema esperado este presente antes de pasarlos a la siguiente etapa.
 
 Contrastar los dos modos sin decidir por defecto:
 
