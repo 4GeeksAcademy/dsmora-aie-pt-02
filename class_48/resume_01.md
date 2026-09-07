@@ -33,6 +33,7 @@ Esta guia usa exclusivamente los contenidos extraidos en esta carpeta:
 - `database_normalization.json`: 1FN, 3FN y desnormalizacion deliberada.
 - `introduction_to_data_pipelines.json`: pipeline, lotes, streaming y componentes ETL.
 - `ai-eng-data-pipeline-design_project_README.es.md`: brief y criterios del proyecto.
+- `context-example-brasaland.md`: un `CONTEXT-company.md` real (empresa ficticia Brasaland), aportado como ejemplo resuelto para ilustrar cada decision con numeros concretos. No es un JSON scrapeado; es contenido de proyecto aportado directamente y se usa solo como caso de referencia, nunca como sustituto del `CONTEXT-company.md` real de cada equipo.
 
 Los tutoriales no contienen prompts para OpenClaw. Por tanto, esta guia no propone ninguno: inventarlo incumpliria la restriccion de basarse solo en las fuentes. La agenda, las preguntas y la secuenciacion son estructura pedagogica anadida; el contenido tecnico procede de las fuentes anteriores.
 
@@ -48,7 +49,7 @@ Al finalizar, el alumnado podra:
 
 ## Preparacion del profesor
 
-- Tener disponibles los cinco archivos fuente enumerados arriba y el `CONTEXT-company.md` correspondiente a la empresa del equipo.
+- Tener disponibles los cinco archivos fuente enumerados arriba, `context-example-brasaland.md` como caso resuelto, y el `CONTEXT-company.md` correspondiente a la empresa del equipo.
 - Confirmar que el alumnado trabaja en su copia del monorepo de la compania, no en un repositorio nuevo.
 - Recordar que el proyecto pide un documento de diseno, no codigo de orquestacion.
 
@@ -73,6 +74,8 @@ git pull
 
 La version extendida usa los 15 minutos adicionales para resolver los escenarios de normalizacion y resiliencia del final de esta guia.
 
+**Nota de tiempo:** los ejemplos de Brasaland en cada bloque son profundidad opcional, no teoria nueva obligatoria. Si el tiempo aprieta, se pueden resumir en una o dos frases en vez de leerlos completos, sin perder el hilo con el proyecto.
+
 ## Guion docente
 
 ### 0-8 min: Del reporte tecnico al resultado de negocio
@@ -86,6 +89,8 @@ La version extendida usa los 15 minutos adicionales para resolver los escenarios
 **Pregunta de chequeo:** "Si `telemetry_events` es la fuente, por que no debe ser tambien el destino del pipeline?"
 
 Respuesta esperada: porque el brief exige tablas de destino nuevas bajo `reporting`; es un pipeline nuevo y no un reemplazo del reporte tecnico.
+
+**Por que hacen falta un pipeline y tablas nuevas, y no basta con `telemetry_events` (contenido):** Brasaland ilustra esto con numeros reales. `telemetry_events` ya guarda, evento por evento, cada `inbound_order_created` y cada `stock_waste_registered` de sus 14 locales. Eso responde "que paso" evento a evento. La pregunta de Mariana (CEO) es distinta: "cuanto costo comprar y cuanto perdimos por merma, por local, esta semana, comparado entre los 14 locales". Esa respuesta no existe como fila en ninguna tabla: hay que sumar el costo de muchos eventos `inbound_order_created` de un mismo `location_id` en una misma semana, sumar por separado los de `stock_waste_registered`, dividir uno entre otro para el ratio de merma, y contar los `stock_threshold_triggered` y `ingredient_price_variance_detected`. Recalcular eso leyendo `telemetry_events` fila por fila cada vez que alguien abre el reporte seria cada vez mas lento y no dejaria rastro de cuando se calculo. Por eso hacen falta dos cosas nuevas: un pipeline que haga esa agregacion de forma automatica y repetible, y una tabla nueva (`reporting.weekly_location_performance` en Brasaland) que guarde el resultado ya calculado, con una fila por local y semana en vez de una fila por evento.
 
 **Enlace al siguiente bloque:** ya separamos la fuente (telemetria) del destino (reporting). Antes de dibujar ese recorrido, hay que resolver la primera decision tecnica concreta: en que formato viajan los datos entre esos sistemas.
 
@@ -250,6 +255,27 @@ CREATE TABLE departments (
 | 1FN | Valores atomicos, sin listas en una celda | Que una columna esconda varios datos | `product_ids` dividido en `order_items` |
 | 3FN | Cada columna depende solo de la clave primaria | Que cambiar un dato obligue a actualizar muchas filas | `department_name` movido a `departments` |
 
+**Ejemplo real de tabla de reporting (Brasaland):** el pipeline de Brasaland no sigue normalizando mas alla de 3FN: hace lo contrario a proposito, en la misma tabla destino que resuelve su entregable.
+
+```sql
+create table reporting.weekly_location_performance (
+  id uuid primary key default gen_random_uuid(),
+  location_id text not null,
+  country text not null,
+  week_start date not null,
+  total_purchase_cost numeric not null default 0,
+  total_waste_cost numeric not null default 0,
+  waste_ratio numeric not null default 0,
+  stockout_events_count integer not null default 0,
+  price_alert_events_count integer not null default 0,
+  currency text not null,
+  computed_at timestamptz not null default now(),
+  unique (location_id, week_start)
+);
+```
+
+Una sola fila por `location_id` y `week_start` junta cinco metricas que en `telemetry_events` estan repartidas en cientos de eventos individuales. Esto es la desnormalizacion deliberada que el tutorial permite para cargas de trabajo de reportes: aqui el reporte semanal de Mariana es exactamente ese caso. La restriccion `unique (location_id, week_start)` es ademas la base de la idempotencia: si el pipeline corre dos veces para la misma semana y el mismo local, un upsert sobre esa clave actualiza la fila en vez de duplicarla.
+
 **Que decir (literal)**
 
 > Para datos transaccionales que se actualizan, 3FN es el punto de partida porque evita anomalias de actualizacion. Para registros inmutables, solo de anexado, como eventos de clic, 1FN puede ser suficiente. Desnormalizar es una decision deliberada para muchas lecturas o reportes, no una excusa para duplicar datos sin control.
@@ -315,6 +341,14 @@ flowchart LR
 
 **Que explicar (contenido):** para este proyecto, el extractor real es el conector de base de datos que lee `telemetry_events`; los otros tres tipos (lector de archivos, cliente API, consumidor de flujo) aparecen en el diagrama en trazo punteado porque son los otros extractores que el tutorial describe, pero no son la fuente de este pipeline. Un cron o un DAG de Airflow dispara la corrida por lotes; el extractor solo recupera datos, sin transformarlos, y valida que el esquema esperado este presente antes de pasarlos a la siguiente etapa.
 
+**Ejemplo real de extraer, transformar y cargar (Brasaland):**
+
+- **Extraer:** leer `telemetry_events` filtrando por cinco `event_type`: `inbound_order_created`, `stock_waste_registered`, `stock_threshold_triggered`, `ingredient_price_variance_detected`, y `outbound_order_created` solo como contexto de volumen (no alimenta ningun KPI de este reporte).
+- **Transformar:** agrupar por `location_id` y semana ISO (`week_start`), y calcular `total_purchase_cost` (suma de costos de `inbound_order_created`), `total_waste_cost` (suma de costos de `stock_waste_registered`), `waste_ratio` (`total_waste_cost / total_purchase_cost`, 0 si no hubo compras), `stockout_events_count` (conteo de `stock_threshold_triggered`) y `price_alert_events_count` (conteo de `ingredient_price_variance_detected`).
+- **Cargar:** upsert en `reporting.weekly_location_performance` usando la restriccion `unique (location_id, week_start)`, sin mezclar monedas: los locales en `COP` y los locales en `USD` se reportan en filas separadas, nunca sumados entre si.
+
+Es el mismo patron extraer -> transformar -> cargar del diagrama de arriba, con nombres reales en vez de marcadores.
+
 Contrastar los dos modos sin decidir por defecto:
 
 - Lotes: recopilan datos durante un periodo y los procesan de una vez; ofrecen alto rendimiento y simplicidad, a cambio de mayor latencia. El material cita reportes de ventas al final del dia y reentrenamiento semanal.
@@ -347,6 +381,19 @@ Recorrer este checklist del proyecto:
 6. **Observabilidad:** definir un log de corrida con, como minimo, hora de inicio, hora de fin, registros procesados, estado y errores. El nombre, tipo y motivo de cada campo deben aparecer en el diseno.
 7. **Recuperabilidad:** indicar checkpoint de fase y como retomar despues de una caida de base de datos.
 8. **Prefect:** un flow principal, al menos tres tasks (extraccion, transformacion y carga), estados `Running`, `Completed` y `Failed`, y blocks para configuracion o credenciales como la conexion a Supabase.
+
+**Ejemplo completo resuelto, item por item (Brasaland):**
+
+1. Estado actual y brecha: `telemetry_events` ya registra `inbound_order_created`, `stock_waste_registered`, `stock_threshold_triggered`, `ingredient_price_variance_detected` y `outbound_order_created`, evento por evento. El reporte tecnico de ingenieria no calcula costo ni merma por local; esa es la brecha de negocio.
+2. Proposito: producir el "Reporte Semanal de Costo y Merma por Local" para Mariana (CEO) y Felipe (Director de Operaciones), calculando costo de compra, costo de merma, ratio de merma, frecuencia de quiebre de stock y frecuencia de alertas de precio por local y semana.
+3. Extraccion y flujo: fuente `telemetry_events` filtrada a los cinco `event_type` de la seccion ETL; frecuencia semanal, fresco la mañana del lunes; diagrama extraer -> transformar -> cargar igual al de esta clase.
+4. Destino e integracion: tabla `reporting.weekly_location_performance` (esquema exacto en el bloque de almacenamiento); endpoints `GET /reporting/weekly-location-performance`, `GET /reporting/pipeline-runs/latest` y `POST /reporting/pipeline-runs` en `services/reporting/`.
+5. Idempotencia: upsert apoyado en la restriccion `unique (location_id, week_start)` — si la corrida del lunes se repite, la fila se actualiza, no se duplica.
+6. Observabilidad: un log de corrida registraria `run_id`, `week_start` procesada, `locations_processed_count`, `status` y `error_message` — cada campo sirve para auditar que semana se calculo y si algun local fallo.
+7. Recuperabilidad: si la carga falla a mitad de los 14 locales, la siguiente corrida repite el upsert completo para ese `week_start` sin duplicar los locales ya cargados, gracias a la misma restriccion unica.
+8. Prefect: un flow `weekly_location_performance_flow` con tasks `extract_telemetry_events`, `aggregate_weekly_metrics` y `load_reporting_table`; blocks para la conexion a Supabase.
+
+Brasaland es una empresa de ejemplo; cada equipo repite este mismo ejercicio con los nombres, KPIs y tabla de su propio `CONTEXT-company.md`, no con estos.
 
 Mini plan en pseudocodigo, alineado al brief:
 
