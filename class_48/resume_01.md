@@ -8,6 +8,22 @@ En las clases previas se capturaron eventos de telemetria, se almacenaron en `te
 
 > Ya tenemos telemetria y un reporte para ingenieria. Ahora cambiamos de audiencia y de pregunta: el pipeline nuevo lee esa fuente, pero debe producir indicadores de negocio que una persona no tecnica pueda usar. Antes de automatizarlo, tenemos que justificar cada decision de formato, base de datos, estructura y etapas.
 
+### El hilo de esta clase, de un vistazo
+
+Toda la sesion resuelve, en orden, las cuatro decisiones que exige `PIPELINE_DESIGN.md`. Cada decision depende de la anterior: no se puede disenar el ETL sin saber donde se guardan los datos, y no se puede elegir almacenamiento sin saber en que formato viajan.
+
+```text
+1. Formato de transporte  -> como viajan los datos entre sistemas (JSON/CSV/YAML)
+        ↓
+2. Base de datos y estructura -> donde y como se guardan (SQL/NoSQL, 1FN/3FN)
+        ↓
+3. Flujo ETL -> como se mueven automaticamente de la fuente al destino
+        ↓
+4. Documento de diseno -> las tres decisiones anteriores, volcadas en PIPELINE_DESIGN.md
+```
+
+Cada bloque del guion recuerda de donde viene y hacia donde va, para que el hilo no se pierda aunque se recorte tiempo.
+
 ## Fuentes y limite de trazabilidad
 
 Esta guia usa exclusivamente los contenidos extraidos en esta carpeta:
@@ -65,11 +81,13 @@ La version extendida usa los 15 minutos adicionales para resolver los escenarios
 
 > `telemetry_events` sigue siendo la fuente. El endpoint `GET /telemetry/report` y `services/telemetry/analysis.py` siguen sirviendo a ingenieria y no se modifican. El nuevo pipeline debe producir otra salida, bajo el esquema `reporting`, para una audiencia de negocio.
 
-Explicar que el documento debe empezar por el estado actual: eventos capturados, ubicacion de almacenamiento, que responde el reporte tecnico y la pregunta de negocio que todavia queda abierta. La pregunta, KPIs, audiencia, cadencia, granularidad y nombre exacto de la tabla destino deben tomarse del `CONTEXT-company.md` del equipo.
+**Que explicar (contenido):** el documento debe empezar por una seccion "Estado Actual": eventos ya capturados, donde se almacenan (`telemetry_events`), que responde el reporte tecnico existente y cual es la pregunta de negocio que todavia queda abierta. La pregunta exacta, los KPIs, la audiencia, la cadencia, la granularidad y el nombre exacto de la tabla destino no se inventan en clase: se toman del `CONTEXT-company.md` de cada equipo.
 
 **Pregunta de chequeo:** "Si `telemetry_events` es la fuente, por que no debe ser tambien el destino del pipeline?"
 
 Respuesta esperada: porque el brief exige tablas de destino nuevas bajo `reporting`; es un pipeline nuevo y no un reemplazo del reporte tecnico.
+
+**Enlace al siguiente bloque:** ya separamos la fuente (telemetria) del destino (reporting). Antes de dibujar ese recorrido, hay que resolver la primera decision tecnica concreta: en que formato viajan los datos entre esos sistemas.
 
 ### 8-18 min: Seleccionar el formato de transporte
 
@@ -104,11 +122,13 @@ roles:
   - user
 ```
 
-Explicar directamente lo que muestra el ejemplo: JSON y YAML representan estructuras anidadas; CSV aplana la lista. JSON es apropiado para datos anidados entre maquinas y APIs; CSV para datos planos y tabulares de gran volumen; YAML para configuracion mantenida por personas cuando importan legibilidad y comentarios.
+**Que explicar (contenido):** en el ejemplo, JSON y YAML representan la lista de roles como una estructura anidada; CSV la aplana en una sola celda con comas, lo que complica su lectura posterior. Por eso JSON es apropiado para datos anidados que viajan entre maquinas y APIs; CSV para datos planos y tabulares de gran volumen; YAML para configuracion que va a leer y comentar una persona.
 
 **Pregunta de chequeo:** "Para una configuracion que el equipo debe leer, comentar y modificar, que formato encaja y que condicion de sintaxis hay que vigilar?"
 
 Respuesta esperada: YAML; usa indentacion con espacios y no permite tabulaciones.
+
+**Enlace al siguiente bloque:** el formato resuelve como viajan los datos entre sistemas, pero no donde quedan una vez que llegan. Esa es la segunda decision: que base de datos y que estructura de tabla usamos para guardarlos.
 
 ### 18-30 min: Elegir almacenamiento y estructura
 
@@ -144,7 +164,7 @@ CREATE TABLE order_items (
 );
 ```
 
-Para 3FN, explicar que una dependencia transitiva ocurre cuando una columna no clave depende de otra columna no clave y no directamente de la clave primaria. En `employees(id, name, department_id, department_name, department_budget)`, los datos de departamento dependen de `department_id`; se separan en una tabla de departamentos y se conserva una clave foranea.
+**Que explicar (contenido) sobre 3FN:** una dependencia transitiva ocurre cuando una columna no clave depende de otra columna no clave, en lugar de depender directamente de la clave primaria. En `employees(id, name, department_id, department_name, department_budget)`, `department_name` y `department_budget` dependen de `department_id`, no del empleado. La correccion es separarlos en una tabla `departments` y conservar `department_id` como clave foranea en `employees`.
 
 **Que decir (literal)**
 
@@ -153,6 +173,8 @@ Para 3FN, explicar que una dependencia transitiva ocurre cuando una columna no c
 **Pregunta de chequeo:** "Que condicion del uso de los datos hace que 1FN pueda ser suficiente para una tabla de eventos?"
 
 Respuesta esperada: que cada fila se escriba una vez y nunca se actualice, manteniendo valores atomicos.
+
+**Enlace al siguiente bloque:** ya sabemos en que formato viajan los datos y en que tabla y forma normal quedan guardados. Falta la pieza que conecta ambas decisiones con la fuente real: el mecanismo automatizado que mueve los datos de `telemetry_events` hasta esa tabla de destino.
 
 ### 30-43 min: Diseñar el flujo ETL
 
@@ -187,6 +209,8 @@ Contrastar los dos modos sin decidir por defecto:
 **Pregunta de chequeo:** "Que requisito determina si la frescura de un KPI puede resolverse por lotes o necesita procesamiento continuo?"
 
 Respuesta esperada: la frescura requerida por el entregable y su frecuencia, definidos en el `CONTEXT-company.md`.
+
+**Enlace al siguiente bloque:** formato, almacenamiento y ETL son las tres decisiones tecnicas del hilo de esta clase. Ahora toca volcarlas, junto con idempotencia y observabilidad, en el documento que el proyecto va a evaluar.
 
 ### 43-57 min: Convertir el brief en un diseno evaluable
 
