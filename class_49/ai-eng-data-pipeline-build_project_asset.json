@@ -1,0 +1,291 @@
+{
+  "id": 3687,
+  "slug": "ai-eng-data-pipeline-build",
+  "title": "Milestone — Implementing a Resilient Business Performance Pipeline (Part 2 of 3)",
+  "lang": "us",
+  "assessment": null,
+  "category": {
+    "id": 51,
+    "slug": "technical-skills",
+    "title": "Technical Skills"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-build/README.md",
+  "difficulty": "INTERMEDIATE",
+  "duration": 3,
+  "description": "Build a resilient Prefect business-performance pipeline: implement extract-transform-load from telemetry_events into reporting.business_metrics, configure retries caching and partial-failure tolerance, ensure idempotent loads with run metadata, run via python data/pipelines/pipeline.py, and expose status + trigger endpoints in services/reporting/ — without touching GET /telemetry/report.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-data-pipeline-build/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-build/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "translations": {
+    "us": "ai-eng-data-pipeline-build",
+    "es": "ai-eng-data-pipeline-build-es"
+  },
+  "technologies": [
+    {
+      "slug": "fastapi",
+      "title": "fastapi",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "architecture",
+      "title": "architecture",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "backend-design",
+      "title": "backend-design",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "data-engineering",
+      "title": "data-engineering",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "etl",
+      "title": "etl",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "prefect",
+      "title": "prefect",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-09-02T13:52:10.424829Z",
+  "agent": null,
+  "config": {
+    "slug": "ai-eng-milestone-data-pipeline-build",
+    "title": {
+      "en": "Milestone — Implementing a Resilient Business Performance Pipeline (Part 2 of 3)",
+      "es": "Hito — Pipeline de Desempeño de Negocio Resiliente (Parte 2 de 3)"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-data-pipeline-build/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed Milestone — Implementing a Resilient Business Performance Pipeline (Part 2 of 3) with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
+        "es": "Acabo de completar Hito — Pipeline de Desempeño de Negocio Resiliente (Parte 2 de 3) con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+      },
+      {
+        "en": "Built and shipped: Milestone — Implementing a Resilient Business Performance Pipeline (Part 2 of 3). Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
+        "es": "Construido y publicado: Hito — Pipeline de Desempeño de Negocio Resiliente (Parte 2 de 3). Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+      }
+    ],
+    "duration": 3,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-build/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3687"
+    },
+    "coverImage": "workflow.svg",
+    "difficulty": "intermediate",
+    "description": {
+      "en": "Build a resilient Prefect business-performance pipeline: implement extract-transform-load from telemetry_events into reporting.business_metrics, configure retries caching and partial-failure tolerance, ensure idempotent loads with run metadata, run via python data/pipelines/pipeline.py, and expose status + trigger endpoints in services/reporting/ — without touching GET /telemetry/report.",
+      "es": "Construye un pipeline Prefect de desempeño de negocio resiliente: implementa extracción-transformación-carga desde telemetry_events hacia reporting.business_metrics, configura reintentos, caché y tolerancia a fallos parciales, garantiza cargas idempotentes con metadata de corrida, ejecuta con python data/pipelines/pipeline.py y expone endpoints de estado y disparo en services/reporting/ — sin tocar GET /telemetry/report."
+    },
+    "projectType": "project",
+    "technologies": [
+      "architecture",
+      "data-engineering",
+      "etl",
+      "prefect",
+      "fastapi",
+      "backend-design"
+    ],
+    "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-08-18T17:01:58.163805+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "84c5941653069bb1458e384bf586b531c3430f73",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:04:28.567638+00:00",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:58.040107+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "84c5941653069bb1458e384bf586b531c3430f73",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:54.522123+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "84c5941653069bb1458e384bf586b531c3430f73",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:03:49.235994+00:00",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-18T17:01:54.394467+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "84c5941653069bb1458e384bf586b531c3430f73",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-18T16:57:02.037007+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a30ee7a00f0e4f2bb36a656b6f6c39a9dd6f29d4",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T16:57:11.933787+00:00",
+      "repository_webhook_id": 74912
+    },
+    {
+      "at": "2026-08-18T16:56:56.469199+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a30ee7a00f0e4f2bb36a656b6f6c39a9dd6f29d4",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T16:57:00.131673+00:00",
+      "repository_webhook_id": 74911
+    },
+    {
+      "at": "2026-08-13T16:00:21.824472+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:01:22.410169+00:00",
+      "repository_webhook_id": 74792
+    },
+    {
+      "at": "2026-08-13T16:00:21.818700+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:01:09.693318+00:00",
+      "repository_webhook_id": 74793
+    },
+    {
+      "at": "2026-08-12T15:57:22.045875+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": "22e793d2b2678e06ea76b8bbef0e9c4644c14a7e",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": 74729
+    },
+    {
+      "at": "2026-08-12T15:57:13.107048+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "22e793d2b2678e06ea76b8bbef0e9c4644c14a7e",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-milestone-data-pipeline-build/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-12T15:57:24.040388+00:00",
+      "repository_webhook_id": 74730
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-08-18T17:04:28.513913Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "ai-eng-data-pipeline-build"
+  ]
+}
