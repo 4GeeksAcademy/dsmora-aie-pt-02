@@ -1,0 +1,313 @@
+{
+  "id": 3720,
+  "slug": "ai-eng-cronjobs",
+  "title": "Background Processes",
+  "lang": "us",
+  "assessment": null,
+  "category": {
+    "id": 51,
+    "slug": "technical-skills",
+    "title": "Technical Skills"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-cronjobs/README.md",
+  "difficulty": "INTERMEDIATE",
+  "duration": 2,
+  "description": "Build a nightly telemetry export cronjob in your company monorepo: implement scripts/nightly_export.py as an independent CLI process, add job_runs with required target_date and processing-as-lock state machine in services/job_runner, export previous-day telemetry_events to data/raw/ CSV (backup only — pipeline reads DB), trigger the pipeline subprocess (e.g. python -m data.pipelines.telemetry_kpi_daily.run --no-prefect), configure OS crontab (not FastAPI-embedded scheduler), support TARGET_DATE (UTC) for testing, and log every execution.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-cronjobs/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-cronjobs/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "is_seo_tracked": false,
+  "translations": {
+    "us": "ai-eng-cronjobs",
+    "es": "ai-eng-cronjobs-es"
+  },
+  "technologies": [
+    {
+      "slug": "data-engineering",
+      "title": "data-engineering",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "background-jobs",
+      "title": "background-jobs",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "fastapi",
+      "title": "fastapi",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "cron",
+      "title": "cron",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "python",
+      "title": "Python",
+      "description": "",
+      "icon_url": "https://storage.googleapis.com/breathecode/logos-technologias/python.png",
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "technical-documentation",
+      "title": "technical-documentation",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "architecture",
+      "title": "architecture",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "backend-design",
+      "title": "backend-design",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-08-18T17:10:35.283690Z",
+  "agent": null,
+  "config": {
+    "slug": "ai-eng-cronjobs",
+    "title": {
+      "en": "Background Processes",
+      "es": "Procesos en Segundo Plano"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-cronjobs/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed Background Processes with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-cronjobs #AIEngineering #LearnPack #4GeeksAcademy #python #cron #backgroundjobs",
+        "es": "Acabo de completar Procesos en Segundo Plano con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-cronjobs #AIEngineering #LearnPack #4GeeksAcademy #python #cron #backgroundjobs"
+      },
+      {
+        "en": "Built and shipped: Background Processes. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-cronjobs #AIEngineering #LearnPack #4GeeksAcademy #python #cron #backgroundjobs",
+        "es": "Construido y publicado: Procesos en Segundo Plano. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-cronjobs #AIEngineering #LearnPack #4GeeksAcademy #python #cron #backgroundjobs"
+      }
+    ],
+    "duration": 2,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-cronjobs/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3720"
+    },
+    "coverImage": "command-line.svg",
+    "difficulty": "intermediate",
+    "description": {
+      "en": "Build a nightly telemetry export cronjob in your company monorepo: implement scripts/nightly_export.py as an independent CLI process, add job_runs with required target_date and processing-as-lock state machine in services/job_runner, export previous-day telemetry_events to data/raw/ CSV (backup only — pipeline reads DB), trigger the pipeline subprocess (e.g. python -m data.pipelines.telemetry_kpi_daily.run --no-prefect), configure OS crontab (not FastAPI-embedded scheduler), support TARGET_DATE (UTC) for testing, and log every execution.",
+      "es": "Construye un cronjob nocturno de exportación de telemetría en el monorepo de tu empresa: implementa scripts/nightly_export.py como proceso CLI independiente, añade job_runs con target_date obligatorio y máquina de estados processing-as-lock en services/job_runner, exporta telemetry_events del día anterior a CSV en data/raw/ (solo backup — el pipeline lee BD), lanza el pipeline como subproceso (p. ej. python -m data.pipelines.telemetry_kpi_daily.run --no-prefect), configura crontab del SO (no scheduler embebido en FastAPI), soporta TARGET_DATE (UTC) para pruebas y registra cada ejecución."
+    },
+    "projectType": "project",
+    "technologies": [
+      "python",
+      "cron",
+      "background-jobs",
+      "data-engineering",
+      "architecture",
+      "backend-design",
+      "fastapi",
+      "technical-documentation"
+    ],
+    "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-08-18T17:02:03.106101+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:05:23.028982+00:00",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:58.685642+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:04:31.400132+00:00",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-13T16:00:17.036675+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:00:34.489157+00:00",
+      "repository_webhook_id": 74793
+    },
+    {
+      "at": "2026-08-13T16:00:16.804003+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:00:26.918615+00:00",
+      "repository_webhook_id": 74792
+    },
+    {
+      "at": "2026-07-07T01:31:18.813220+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": "d28b9f79b6e0c2ace060cb4616f9a3b839037502",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": 73510
+    },
+    {
+      "at": "2026-07-07T01:31:15.535244+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "d28b9f79b6e0c2ace060cb4616f9a3b839037502",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-07T01:31:18.800605+00:00",
+      "repository_webhook_id": 73509
+    },
+    {
+      "at": "2026-06-26T12:20:41.054830+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "c094f154b7207f5383054892dc134751ff004c4d",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T12:20:51.050309+00:00",
+      "repository_webhook_id": 73181
+    },
+    {
+      "at": "2026-06-26T12:20:41.012081+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "c094f154b7207f5383054892dc134751ff004c4d",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T12:20:44.235491+00:00",
+      "repository_webhook_id": 73180
+    },
+    {
+      "at": "2026-06-26T12:18:23.357298+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6715d611f3a6bf161e60cf2d7514ed1f63bb034c",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-cronjobs/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T12:18:26.326116+00:00",
+      "repository_webhook_id": 73177
+    },
+    {
+      "at": "2026-06-26T12:18:23.334227+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "6715d611f3a6bf161e60cf2d7514ed1f63bb034c",
+      "modified_file": "content/projects/ai-eng-cronjobs/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 73176
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-08-18T17:05:22.983781Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "ai-eng-cronjobs"
+  ]
+}
