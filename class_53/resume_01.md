@@ -33,7 +33,19 @@ Para 60 minutos, omitir la comparación detallada con Streams y mostrar solo `ad
 ## Preparación
 
 - Tener Docker disponible y abrir el monorepo de cada estudiante.
-- Instalar `redis`, `celery` y `flower` según los comandos del material.
+- Instalar dependencias con `uv`:
+
+```bash
+uv add redis celery flower
+```
+
+- Levantar Redis con Docker:
+
+```bash
+docker run -d -p 6379:6379 --name redis-broker redis
+docker exec -it redis-broker redis-cli ping
+```
+
 - Mantener separadas las bases Redis 0 para broker y Redis 1 para resultados.
 - Preparar dos procesos: API y worker; el worker no vive dentro de FastAPI.
 
@@ -99,10 +111,10 @@ docker run -d -p 6379:6379 --name redis-broker redis
 docker exec -it redis-broker redis-cli ping
 ```
 
-La segunda orden debe mostrar `PONG`. Para el cliente Python, el tutorial indica:
+La segunda orden debe mostrar `PONG`. Para el cliente Python, el entorno del curso usa `uv` como gestor de paquetes:
 
 ```bash
-pip install redis
+uv add redis
 ```
 
 El material también pide un `docker-compose` mínimo con Redis y el puerto `6379`; en el proyecto DEV-55 se exige además política `noeviction` y Flower en `5555`.
@@ -141,10 +153,10 @@ La API debe responder antes de que termine la tarea. Preguntar: «¿Cuándo resp
 
 ### 58-70 min: observabilidad y patrones de producción
 
-Instalar y levantar Flower:
+Instalar y levantar Flower con `uv`:
 
 ```bash
-pip install flower
+uv add flower
 celery -A celery_app flower
 ```
 
