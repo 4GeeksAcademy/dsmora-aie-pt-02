@@ -1,0 +1,280 @@
+{
+  "id": 3722,
+  "slug": "branch-queue",
+  "title": "Branch Queue — Tagged Service Queue",
+  "lang": "us",
+  "assessment": null,
+  "category": {
+    "id": 51,
+    "slug": "technical-skills",
+    "title": "Technical Skills"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/branch-queue/README.md",
+  "difficulty": "INTERMEDIATE",
+  "duration": 2,
+  "description": "Build a terminal Python tagged service queue for a bank branch: model tickets with service types (deposit, withdrawal, account management), implement issue_ticket, call_next, peek_next, list_waiting, and stats with one deque per service type, build a CLI menu, and document why per-service queues beat a single shared list and how concurrent call_next mutations should be ordered using only the Python standard library.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/branch-queue/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/branch-queue/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "is_seo_tracked": false,
+  "translations": {
+    "us": "branch-queue",
+    "es": "branch-queue-es"
+  },
+  "technologies": [
+    {
+      "slug": "algorithms",
+      "title": "Algorithms",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PRIVATE"
+    },
+    {
+      "slug": "python",
+      "title": "Python",
+      "description": "",
+      "icon_url": "https://storage.googleapis.com/breathecode/logos-technologias/python.png",
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "command-line",
+      "title": "The Command Line",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "data-structures",
+      "title": "Data Structures",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "queue-data-structure",
+      "title": "Queue Data Structure",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PRIVATE"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-08-18T17:10:55.427175Z",
+  "agent": null,
+  "config": {
+    "slug": "branch-queue",
+    "title": {
+      "en": "Branch Queue — Tagged Service Queue",
+      "es": "Branch Queue — Cola de Servicio Etiquetada"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/branch-queue/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed Branch Queue — Tagged Service Queue with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms",
+        "es": "Acabo de completar Branch Queue — Cola de Servicio Etiquetada con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms"
+      },
+      {
+        "en": "Built and shipped: Branch Queue — Tagged Service Queue. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms",
+        "es": "Construido y publicado: Branch Queue — Cola de Servicio Etiquetada. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms"
+      }
+    ],
+    "duration": 2,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/branch-queue/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3722"
+    },
+    "coverImage": "command-line.svg",
+    "difficulty": "intermediate",
+    "description": {
+      "en": "Build a terminal Python tagged service queue for a bank branch: model tickets with service types (deposit, withdrawal, account management), implement issue_ticket, call_next, peek_next, list_waiting, and stats with one deque per service type, build a CLI menu, and document why per-service queues beat a single shared list and how concurrent call_next mutations should be ordered using only the Python standard library.",
+      "es": "Construye una cola de servicio etiquetada en Python para terminal en una sucursal bancaria: modela tickets con tipos de servicio (depósito, retiro, gestión de cuenta), implementa issue_ticket, call_next, peek_next, list_waiting y stats con una deque por tipo de servicio, crea un menú CLI y documenta por qué las colas por servicio superan una lista compartida y cómo ordenar mutaciones concurrentes de call_next usando solo la biblioteca estándar de Python."
+    },
+    "projectType": "project",
+    "technologies": [
+      "python",
+      "data-structures",
+      "algorithms",
+      "cli",
+      "queue"
+    ],
+    "template_url": "self",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-08-18T17:02:03.793329+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/branch-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:05:38.489930+00:00",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:59.350656+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/branch-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:04:42.060217+00:00",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-13T16:00:26.750544+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/branch-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:01:58.662776+00:00",
+      "repository_webhook_id": 74792
+    },
+    {
+      "at": "2026-08-13T16:00:26.733216+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/branch-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:01:56.922127+00:00",
+      "repository_webhook_id": 74793
+    },
+    {
+      "at": "2026-06-26T12:19:33.278345+00:00",
+      "kind": "academy",
+      "action": "pull",
+      "detail": "AcademyAssetActionView PUT",
+      "status": "ok",
+      "http_status": 200,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset/branch-queue/action/pull",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    },
+    {
+      "at": "2026-06-26T12:19:33.263839+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-06-26T12:19:22.634023+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "0b26e2a5f2e0aa7016e0b8dbfcc696af1be01674",
+      "modified_file": "content/projects/branch-queue/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 73178
+    },
+    {
+      "at": "2026-06-26T12:19:22.624173+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "0b26e2a5f2e0aa7016e0b8dbfcc696af1be01674",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/branch-queue/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-06-26T12:19:25.991601+00:00",
+      "repository_webhook_id": 73179
+    },
+    {
+      "at": "2026-06-26T12:18:44.666181+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "System does not know what github credentials to use to retrieve asset info for: branch-queue",
+      "pull_status": "error",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-06-26T12:18:44.450501+00:00",
+      "kind": "academy",
+      "action": "pull_queued",
+      "detail": "POST create academy asset: initial pull",
+      "status": "ok",
+      "http_status": 201,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-08-18T17:05:38.454326Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "self",
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "branch-queue"
+  ]
+}

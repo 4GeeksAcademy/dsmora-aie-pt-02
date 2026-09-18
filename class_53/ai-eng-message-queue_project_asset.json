@@ -1,0 +1,304 @@
+{
+  "id": 3726,
+  "slug": "ai-eng-message-queue",
+  "title": "Message Queues and Async Tasks",
+  "lang": "us",
+  "assessment": null,
+  "category": {
+    "id": 51,
+    "slug": "technical-skills",
+    "title": "Technical Skills"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-message-queue/README.md",
+  "difficulty": "INTERMEDIATE",
+  "duration": 2,
+  "description": "Decouple heavy API operations with Redis and Celery in your company monorepo: add Redis and Flower to Docker Compose, configure Celery with retries and exponential backoff, convert the slowest endpoint to async (202 + task_id), implement GET /tasks/{task_id}, record failed tasks in a Dead Letter Queue after max_retries, run workers as separate processes, and monitor with Flower.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-message-queue/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-message-queue/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "is_seo_tracked": false,
+  "translations": {
+    "us": "ai-eng-message-queue",
+    "es": "ai-eng-colas-de-mensajes"
+  },
+  "technologies": [
+    {
+      "slug": "docker",
+      "title": "Docker",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "fastapi",
+      "title": "fastapi",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "flower",
+      "title": "flower",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "redis",
+      "title": "redis",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "celery",
+      "title": "celery",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "python",
+      "title": "Python",
+      "description": "",
+      "icon_url": "https://storage.googleapis.com/breathecode/logos-technologias/python.png",
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "architecture",
+      "title": "architecture",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "message-queue",
+      "title": "message-queue",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "async-tasks",
+      "title": "async-tasks",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "backend-design",
+      "title": "backend-design",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-09-02T13:52:56.096609Z",
+  "agent": null,
+  "config": {
+    "slug": "ai-eng-message-queue",
+    "title": {
+      "en": "Message Queues and Async Tasks",
+      "es": "Colas de Mensajes y Tareas Asíncronas"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-message-queue/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed Message Queues and Async Tasks with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis",
+        "es": "Acabo de completar Colas de Mensajes y Tareas Asíncronas con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis"
+      },
+      {
+        "en": "Built and shipped: Message Queues and Async Tasks. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis",
+        "es": "Construido y publicado: Colas de Mensajes y Tareas Asíncronas. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis"
+      }
+    ],
+    "duration": 2,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-message-queue/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3726"
+    },
+    "coverImage": "command-line.svg",
+    "difficulty": "intermediate",
+    "description": {
+      "en": "Decouple heavy API operations with Redis and Celery in your company monorepo: add Redis and Flower to Docker Compose, configure Celery with retries and exponential backoff, convert the slowest endpoint to async (202 + task_id), implement GET /tasks/{task_id}, record failed tasks in a Dead Letter Queue after max_retries, run workers as separate processes, and monitor with Flower.",
+      "es": "Desacopla operaciones pesadas de la API con Redis y Celery en el monorepo de tu empresa: añade Redis y Flower a Docker Compose, configura Celery con reintentos y backoff exponencial, convierte el endpoint más lento en asíncrono (202 + task_id), implementa GET /tasks/{task_id}, registra tareas fallidas en una Dead Letter Queue tras max_retries, ejecuta workers como procesos separados y monitorea con Flower."
+    },
+    "projectType": "project",
+    "technologies": [
+      "python",
+      "celery",
+      "redis",
+      "fastapi",
+      "message-queue",
+      "async-tasks",
+      "docker",
+      "flower",
+      "backend-design",
+      "architecture"
+    ],
+    "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-08-18T17:02:03.568617+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-message-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:05:29.962060+00:00",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:59.131199+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-message-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:04:38.335641+00:00",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-13T16:00:19.423943+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-message-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:00:56.391876+00:00",
+      "repository_webhook_id": 74793
+    },
+    {
+      "at": "2026-08-13T16:00:19.166493+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a23c33f4d13fe636a3e9fece10371c414a63d264",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/ai-eng-message-queue/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-13T16:00:52.465447+00:00",
+      "repository_webhook_id": 74792
+    },
+    {
+      "at": "2026-06-26T16:10:09.654387+00:00",
+      "kind": "academy",
+      "action": "pull",
+      "detail": "AcademyAssetActionView PUT",
+      "status": "ok",
+      "http_status": 200,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset/ai-eng-message-queue/action/pull",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    },
+    {
+      "at": "2026-06-26T16:10:09.622998+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-06-26T16:08:39.194133+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "System does not know what github credentials to use to retrieve asset info for: ai-eng-message-queue",
+      "pull_status": "error",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-06-26T16:08:38.991879+00:00",
+      "kind": "academy",
+      "action": "pull_queued",
+      "detail": "POST create academy asset: initial pull",
+      "status": "ok",
+      "http_status": 201,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-08-18T17:05:29.927807Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "ai-eng-message-queue"
+  ]
+}
