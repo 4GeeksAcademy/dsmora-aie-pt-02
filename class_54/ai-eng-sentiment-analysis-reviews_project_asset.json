@@ -1,0 +1,304 @@
+{
+  "id": 3771,
+  "slug": "ai-eng-sentiment-analysis-reviews",
+  "title": "Sentiment Analysis on Customer Reviews — WeLoveReviews",
+  "lang": "us",
+  "assessment": null,
+  "category": {
+    "id": 51,
+    "slug": "technical-skills",
+    "title": "Technical Skills"
+  },
+  "asset_type": "PROJECT",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/existing-model-sentiment-analysis-reviews/README.md",
+  "difficulty": "INTERMEDIATE",
+  "duration": 2,
+  "description": "Start from the machine-learning-python-template: run the EDA prompt in `src/explore.ipynb`, integrate `nlptown/bert-base-multilingual-uncased-sentiment` in `src/app.py`, export a processed CSV with sentiment labels, find false negatives from product-vs-service domain mismatch, and compare sentiment breakdown against a 4.5-star average.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": true,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/existing-model-sentiment-analysis-reviews/.learn/preview.png",
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/existing-model-sentiment-analysis-reviews/.learn/solution/README.md",
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "is_seo_tracked": false,
+  "translations": {
+    "us": "ai-eng-sentiment-analysis-reviews",
+    "es": "ai-eng-sentiment-analysis-reviews-es"
+  },
+  "technologies": [
+    {
+      "slug": "huggingface",
+      "title": "huggingface",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "sentiment-analysis",
+      "title": "sentiment-analysis",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "jupyter",
+      "title": "jupyter",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "data-analysis",
+      "title": "Data Analysis",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "machine-learning",
+      "title": "Machine Learning",
+      "description": "",
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "python",
+      "title": "Python",
+      "description": "",
+      "icon_url": "https://storage.googleapis.com/breathecode/logos-technologias/python.png",
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "transformers",
+      "title": "transformers",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "pytorch",
+      "title": "pytorch",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": true,
+  "with_video": false,
+  "updated_at": "2026-09-15T16:27:36.499478Z",
+  "agent": null,
+  "config": {
+    "slug": "ai-eng-sentiment-analysis-reviews",
+    "title": {
+      "en": "Sentiment Analysis on Customer Reviews — WeLoveReviews",
+      "es": "Análisis de Sentimiento en Reseñas de Clientes — WeLoveReviews"
+    },
+    "gitpod": true,
+    "status": "draft",
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/existing-model-sentiment-analysis-reviews/.learn/preview.png",
+    "sharing": [
+      {
+        "en": "I just completed Sentiment Analysis on Customer Reviews — WeLoveReviews with LearnPack @4GeeksAcademy. EDA in src/explore.ipynb, Hugging Face inference in src/app.py, processed CSV, and domain-mismatch false negatives vs 4.5-star average. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-sentiment-analysis-reviews #AIEngineering #LearnPack #4GeeksAcademy #python #huggingface #machinelearning",
+        "es": "Acabo de completar Análisis de Sentimiento en Reseñas de Clientes — WeLoveReviews con LearnPack @4GeeksAcademy. EDA en src/explore.ipynb, inferencia Hugging Face en src/app.py, CSV procesado y falsos negativos por desajuste de dominio vs promedio 4.5 estrellas. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-sentiment-analysis-reviews #AIEngineering #LearnPack #4GeeksAcademy #python #huggingface #machinelearning"
+      },
+      {
+        "en": "Built and shipped: Sentiment Analysis on Customer Reviews — WeLoveReviews. Learning by building with @4GeeksAcademy. ML template, EDA prompt, src/explore.ipynb narrative, src/app.py pipeline, and processed sentiment CSV. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-sentiment-analysis-reviews #AIEngineering #LearnPack #4GeeksAcademy #python #transformers #sentimentanalysis",
+        "es": "Construido y publicado: Análisis de Sentimiento en Reseñas de Clientes — WeLoveReviews. Aprendiendo con proyectos reales en @4GeeksAcademy. Plantilla ML, prompt EDA, narrativa en src/explore.ipynb, pipeline en src/app.py y CSV de sentimiento procesado. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-sentiment-analysis-reviews #AIEngineering #LearnPack #4GeeksAcademy #python #transformers #sentimentanalysis"
+      }
+    ],
+    "duration": 2,
+    "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/existing-model-sentiment-analysis-reviews/.learn/solution/README.md",
+    "telemetry": {
+      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3771"
+    },
+    "coverImage": "ai-coding.svg",
+    "difficulty": "intermediate",
+    "description": {
+      "en": "Start from the machine-learning-python-template: run the EDA prompt in `src/explore.ipynb`, integrate `nlptown/bert-base-multilingual-uncased-sentiment` in `src/app.py`, export a processed CSV with sentiment labels, find false negatives from product-vs-service domain mismatch, and compare sentiment breakdown against a 4.5-star average.",
+      "es": "Parte del machine-learning-python-template: ejecuta el prompt de EDA en `src/explore.ipynb`, integra `nlptown/bert-base-multilingual-uncased-sentiment` en `src/app.py`, exporta un CSV procesado con etiquetas de sentimiento, encuentra falsos negativos por desajuste de dominio producto vs servicio y compara la distribución de sentimiento con un promedio de 4.5 estrellas."
+    },
+    "projectType": "project",
+    "technologies": [
+      "python",
+      "jupyter",
+      "huggingface",
+      "transformers",
+      "pytorch",
+      "machine-learning",
+      "sentiment-analysis",
+      "data-analysis"
+    ],
+    "template_url": "https://github.com/4GeeksAcademy/machine-learning-python-template",
+    "translations": [
+      "es",
+      "en"
+    ]
+  },
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-09-15T16:27:35.685686+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": "161ac4e0ae0e4285ee1423aadf438cc79b108c73",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": 75780
+    },
+    {
+      "at": "2026-09-15T16:27:19.205119+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "161ac4e0ae0e4285ee1423aadf438cc79b108c73",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-09-15T16:27:22.956935+00:00",
+      "repository_webhook_id": 75779
+    },
+    {
+      "at": "2026-08-18T17:18:08.855577+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a18e9bcc03a2fdfd7dc607ad742554d32840a478",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:19:10.171959+00:00",
+      "repository_webhook_id": 74932
+    },
+    {
+      "at": "2026-08-18T17:18:08.741740+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a18e9bcc03a2fdfd7dc607ad742554d32840a478",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74932
+    },
+    {
+      "at": "2026-08-18T17:18:03.380562+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a18e9bcc03a2fdfd7dc607ad742554d32840a478",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:19:06.625145+00:00",
+      "repository_webhook_id": 74931
+    },
+    {
+      "at": "2026-08-18T17:18:03.264329+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "a18e9bcc03a2fdfd7dc607ad742554d32840a478",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74931
+    },
+    {
+      "at": "2026-08-18T17:01:46.316607+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "90319da2e364626a706e2ccf7296914aaf3ac356",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:02:20.292444+00:00",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:46.096563+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "90319da2e364626a706e2ccf7296914aaf3ac356",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74930
+    },
+    {
+      "at": "2026-08-18T17:01:43.312376+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "90319da2e364626a706e2ccf7296914aaf3ac356",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/learn.json",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-08-18T17:01:55.791138+00:00",
+      "repository_webhook_id": 74929
+    },
+    {
+      "at": "2026-08-18T17:01:43.103873+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "90319da2e364626a706e2ccf7296914aaf3ac356",
+      "modified_file": "content/projects/existing-model-sentiment-analysis-reviews/README.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74929
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-09-15T16:27:35.623370Z",
+  "delivery_instructions": "",
+  "delivery_formats": "url",
+  "delivery_regex_url": "",
+  "template_url": "https://github.com/4GeeksAcademy/machine-learning-python-template",
+  "is_in_subdirectory": true,
+  "dependencies": "python=unknown",
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "ai-eng-sentiment-analysis-reviews"
+  ]
+}
