@@ -1,5 +1,19 @@
 # Clase 55: preparar datos y construir predicciones supervisadas
 
+> **Nota de trazabilidad:** esta guía se redactó después de ejecutar el scraper sobre `tutorial.json` y `tutorial_2.json`. Los nombres y conceptos de los módulos están respaldados por esos JSON. La agenda, las preguntas del profesor y el puente con WeLoveReviews son organización docente añadida; no forman parte literal del LearnPack.
+
+## Contenido de los módulos scrapeados
+
+### Módulo 1: modelos de predicción
+
+El JSON contiene estas lecciones: bienvenida a los modelos de predicción, qué es un modelo, cómo funciona el aprendizaje supervisado, para qué se utilizan los modelos, clasificación frente a regresión, evaluación de modelos de predicción y cierre.
+
+### Módulo 2: preparación de datos
+
+El JSON contiene estas lecciones: bienvenida a la preparación de datos, ETL y transformación, técnicas de limpieza y validación, normalización y enriquecimiento, desafío de transformación, carga de datos, destinos de datos, evaluación de la preparación y cierre del pipeline.
+
+El resto de esta guía es una propuesta para facilitar la clase a partir de esos contenidos.
+
 ## Hilo de continuidad
 
 La clase 54 presentó el aprendizaje automático, las redes neuronales y la integración de un modelo preentrenado para analizar sentimiento. Ahora damos el siguiente paso: entender que una predicción supervisada solo es confiable si los datos están correctamente preparados. El flujo de hoy conecta los dos módulos de LearnPack enviados por el instructor:

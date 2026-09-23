@@ -5,6 +5,13 @@ Materiales docentes:
 - `resume_01.md`: guía principal de la sesión, agenda, guion y taller.
 - `resume_02.md`: guía de debate y preguntas socráticas.
 
+## Fuentes scrapeadas
+
+- `tutorial.json`: módulo **Supervised Learning: Prediction with Labeled Data**, con 7 lecciones.
+- `tutorial_2.json`: módulo **Preparing Data for Model Training**, con 9 lecciones.
+
+Los JSON son la fuente del contenido LearnPack. Los archivos Markdown son una guía docente elaborada a partir de ellos; incluyen agenda, preguntas y conexión con el proyecto anterior, que son aportes de organización y no contenido literal de los módulos.
+
 ## Fuentes y continuidad
 
 La clase se prepara a partir de los módulos:
