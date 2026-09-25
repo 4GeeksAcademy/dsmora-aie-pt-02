@@ -1,7 +1,5 @@
 # Clase 55: guía de debate — los datos también forman parte del modelo
 
-> **Trazabilidad:** las preguntas siguientes son material del instructor. Se basan en las lecciones scrapeadas de los dos módulos, pero no son una transcripción literal de los JSON. El vínculo con WeLoveReviews es una actividad de continuidad con la clase 54.
-
 ## Propósito
 
 Esta guía acompaña `resume_01.md` con preguntas socráticas para que el grupo deje de entender la preparación de datos como una lista mecánica de comandos. La meta es que puedan defender cada transformación: qué problema resuelve, qué información conserva, qué riesgo introduce y cómo se valida.
