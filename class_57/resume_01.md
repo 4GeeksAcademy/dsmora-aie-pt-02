@@ -258,11 +258,13 @@ Donde:
 
 **Ejemplo concreto para la pizarra**:
 
+```
 | Casa | Precio real | Precio medio (naive) | Predicción del modelo |
 |------|-------------|---------------------|----------------------|
-| A | 200.000 € | 180.000 € | 195.000 € |
-| B | 160.000 € | 180.000 € | 165.000 € |
-| C | 180.000 € | 180.000 € | 178.000 € |
+| A    | 200.000 €   | 180.000 €           | 195.000 €            |
+| B    | 160.000 €   | 180.000 €           | 165.000 €            |
+| C    | 180.000 €   | 180.000 €           | 178.000 €            |
+```
 
 - `SS_tot` = (200k-180k)² + (160k-180k)² + (180k-180k)² = 400M + 400M + 0 = **800M**
 - `SS_res` = (200k-195k)² + (160k-165k)² + (180k-178k)² = 25M + 25M + 4M = **54M**
@@ -272,12 +274,14 @@ El modelo explica el **93,25 %** de la variabilidad de los precios.
 
 **Posibles valores de R²**:
 
-| Valor | Significado |
-|-------|-------------|
-| **1.0** | El modelo predice perfectamente (sin errores). |
-| **0.9** | El modelo explica el 90 % de la variabilidad. Muy bueno. |
-| **0.0** | El modelo no mejora respecto a predecir siempre la media. |
-| **Negativo** | El modelo es peor que predecir siempre la media. ¡Algo va mal! |
+```
+| Valor      | Significado                                                        |
+|------------|--------------------------------------------------------------------|
+| **1.0**    | El modelo predice perfectamente (sin errores).                    |
+| **0.9**    | El modelo explica el 90 % de la variabilidad. Muy bueno.          |
+| **0.0**    | El modelo no mejora respecto a predecir siempre la media.         |
+| **Negativo** | El modelo es peor que predecir siempre la media. ¡Algo va mal!  |
+```
 
 **Pregunta para la clase**: "Si R² = 0.75, ¿qué porcentaje de la variabilidad NO explica el modelo?" → 25 %.
 
@@ -313,11 +317,13 @@ MSE = (1/n) * Σ(y_i - ŷ_i)²
 
 Dos modelos A y B para el mismo problema (predecir 3 casas):
 
-| Casa | Real | Modelo A | Error A | Modelo B | Error B |
-|------|------|----------|---------|----------|---------|
-| 1 | 100 € | 105 € | 5 € | 100 € | 0 € |
-| 2 | 100 € | 95 € | 5 € | 100 € | 0 € |
-| 3 | 100 € | 100 € | 0 € | 200 € | 100 € |
+```
+| Casa | Real   | Modelo A | Error A | Modelo B | Error B |
+|------|--------|----------|---------|----------|---------|
+| 1    | 100 €  | 105 €    | 5 €     | 100 €    | 0 €     |
+| 2    | 100 €  | 95 €     | 5 €     | 100 €    | 0 €     |
+| 3    | 100 €  | 100 €    | 0 €     | 200 €    | 100 €   |
+```
 
 ```
 MAE_A = (5+5+0)/3 = 3.33 €
@@ -345,12 +351,14 @@ Vuelve a las unidades originales (euros). Es el "desvío típico de los errores"
 
 ### Tabla resumen de métricas
 
-| Métrica | Fórmula | Unidad | Sensible a outliers | Fácil de interpretar |
-|---------|---------|--------|---------------------|---------------------|
-| **R²** | 1 - SS_res/SS_tot | Sin unidad (proporción) | No directamente | Sí (es un %) |
-| **MAE** | promedio de \|error\| | Misma que objetivo | No | Sí |
-| **MSE** | promedio de error² | Objetivo al cuadrado | **Mucho** | No tanto |
-| **RMSE** | √(MSE) | Misma que objetivo | Sí | Bastante |
+```
+| Métrica | Fórmula                   | Unidad               | Sensible a outliers | Fácil de interpretar |
+|---------|---------------------------|----------------------|--------------------|----------------------|
+| **R²**  | 1 - SS_res/SS_tot         | Sin unidad (proporción) | No directamente | Sí (es un %)         |
+| **MAE** | promedio de |error|        | Misma que objetivo  | No                 | Sí                   |
+| **MSE** | promedio de error²        | Objetivo al cuadrado | **Mucho**          | No tanto             |
+| **RMSE**| √(MSE)                    | Misma que objetivo   | Sí                 | Bastante             |
+```
 
 ## 57-68 min: entrenar y evaluar un modelo de regresión con scikit-learn (tutorial_2.json, lesson 5)
 
