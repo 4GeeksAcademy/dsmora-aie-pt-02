@@ -230,27 +230,127 @@ Pipeline completa de preparación del JSON:
 
 Explicar que las métricas de clasificación (accuracy, precisión, recall) no funcionan para regresión porque la variable objetivo es continua: no hay una "clase correcta".
 
+### Contraste con clasificación
+
+Recordar que en clasificación las métricas (accuracy, precisión, recall) comparan si la predicción coincide exactamente con la clase real. Eso no funciona en regresión porque la variable objetivo es continua: ningún modelo acierta el valor exacto, la pregunta es **qué tan cerca** estuvo.
+
 ### R² (Coeficiente de Determinación)
 
-- **Qué mide**: proporción de la varianza en el objetivo que el modelo explica, comparado con predecir siempre la media.
-- **Rango**: 1.0 es ajuste perfecto; 0 significa que el modelo no mejora respecto a la media.
-- Es la métrica más reportada en regresión.
+**Fórmula** (mostrarla en la pizarra o pantalla):
 
-### Error Absoluto Medio (MAE)
+```
+R² = 1 - (SS_res / SS_tot)
 
-- Media de los errores absolutos (sin signo).
-- Fácil de interpretar en la misma unidad que el objetivo.
+SS_res = Σ(y_i - ŷ_i)²     ← suma de cuadrados de los residuos
+SS_tot = Σ(y_i - ȳ)²       ← suma de cuadrados respecto a la media
+```
 
-### Error Cuadrático Medio (MSE)
+Donde:
+- `y_i` = valor real
+- `ŷ_i` = valor predicho por el modelo
+- `ȳ` = media de todos los valores reales
 
-- Media de los errores al cuadrado.
-- **Penaliza más los errores grandes**: los eleva al cuadrado, por lo que un error de 200 € se penaliza 4 veces más que uno de 100 € (no 2 veces).
+**Intuición pedagógica paso a paso**:
 
-Pregunta conceptual del JSON para lanzar a la clase:
+1. **Modelo naive (línea base)**: Imagina que no tienes modelo y solo dices "el precio medio de todas las casas". Eso es `SS_tot` — cuánto error tendrías si siempre predijeras la media.
+2. **Tu modelo**: `SS_res` es el error que comete tu modelo.
+3. **R² responde**: ¿qué fracción del error del modelo naive eliminaste?
+
+**Ejemplo concreto para la pizarra**:
+
+| Casa | Precio real | Precio medio (naive) | Predicción del modelo |
+|------|-------------|---------------------|----------------------|
+| A | 200.000 € | 180.000 € | 195.000 € |
+| B | 160.000 € | 180.000 € | 165.000 € |
+| C | 180.000 € | 180.000 € | 178.000 € |
+
+- `SS_tot` = (200k-180k)² + (160k-180k)² + (180k-180k)² = 400M + 400M + 0 = **800M**
+- `SS_res` = (200k-195k)² + (160k-165k)² + (180k-178k)² = 25M + 25M + 4M = **54M**
+- `R² = 1 - 54M/800M = 1 - 0.0675 = **0.9325`**
+
+El modelo explica el **93,25 %** de la variabilidad de los precios.
+
+**Posibles valores de R²**:
+
+| Valor | Significado |
+|-------|-------------|
+| **1.0** | El modelo predice perfectamente (sin errores). |
+| **0.9** | El modelo explica el 90 % de la variabilidad. Muy bueno. |
+| **0.0** | El modelo no mejora respecto a predecir siempre la media. |
+| **Negativo** | El modelo es peor que predecir siempre la media. ¡Algo va mal! |
+
+**Pregunta para la clase**: "Si R² = 0.75, ¿qué porcentaje de la variabilidad NO explica el modelo?" → 25 %.
+
+### MAE (Error Absoluto Medio)
+
+**Fórmula**:
+
+```
+MAE = (1/n) * Σ|y_i - ŷ_i|
+```
+
+**Intuición**: "En promedio, ¿por cuánto me equivoco?"
+
+**Ejemplo concreto**: Si el MAE de un modelo de precios de casas es 12.500 €, significa que en promedio el modelo se equivoca por 12.500 € — a veces por encima, a veces por debajo.
+
+**Ventaja**: Está en la misma unidad que la variable objetivo (euros, kilovatios, minutos), lo que facilita la interpretación.
+
+**Desventaja**: Trata todos los errores por igual (no penaliza más los errores grandes).
+
+### MSE (Error Cuadrático Medio)
+
+**Fórmula**:
+
+```
+MSE = (1/n) * Σ(y_i - ŷ_i)²
+```
+
+**Intuición**: Promedio de los errores al cuadrado. No tiene una interpretación directa en euros porque las unidades están al cuadrado (€²).
+
+**Propiedad clave**: penaliza desproporcionadamente los errores grandes.
+
+**Ejemplo comparativo MAE vs MSE** (mostrar en pizarra):
+
+Dos modelos A y B para el mismo problema (predecir 3 casas):
+
+| Casa | Real | Modelo A | Error A | Modelo B | Error B |
+|------|------|----------|---------|----------|---------|
+| 1 | 100 € | 105 € | 5 € | 100 € | 0 € |
+| 2 | 100 € | 95 € | 5 € | 100 € | 0 € |
+| 3 | 100 € | 100 € | 0 € | 200 € | 100 € |
+
+```
+MAE_A = (5+5+0)/3 = 3.33 €
+MAE_B = (0+0+100)/3 = 33.33 €
+
+MSE_A = (25+25+0)/3 = 16.67
+MSE_B = (0+0+10000)/3 = 3333.33
+```
+
+El MAE dice que B es 10 veces peor que A. El MSE dice que B es **200 veces peor**. ¿Cuál métrica tiene razón? Las dos, pero el MSE castiga severamente ese error catastrófico de 100 €, mientras que MAE lo trata como "10 veces peor". Depende del caso de negocio: si un error de 100 € puede significar una pérdida inasumible, el MSE captura mejor ese riesgo.
+
+**Pregunta conceptual del JSON para lanzar a la clase**:
 
 > Un modelo predice 200 € para un artículo que cuesta 100 €, y 105 € para otro que cuesta 100 €. ¿Cómo trata el MSE estos errores?
 
-Respuesta: "MSE penaliza 100 veces más la predicción de 200 € porque el error se eleva al cuadrado (100² vs 5²)."
+**Respuesta**: "MSE penaliza 100 veces más la predicción de 200 € porque el error se eleva al cuadrado (100² = 10.000 vs 5² = 25)."
+
+### RMSE (Raíz del MSE) — mención breve
+
+```
+RMSE = √(MSE)
+```
+
+Vuelve a las unidades originales (euros). Es el "desvío típico de los errores". Si el RMSE es 15.000 €, en promedio los errores rondan los 15.000 €, pero con mayor sensibilidad a outliers que el MAE.
+
+### Tabla resumen de métricas
+
+| Métrica | Fórmula | Unidad | Sensible a outliers | Fácil de interpretar |
+|---------|---------|--------|---------------------|---------------------|
+| **R²** | 1 - SS_res/SS_tot | Sin unidad (proporción) | No directamente | Sí (es un %) |
+| **MAE** | promedio de \|error\| | Misma que objetivo | No | Sí |
+| **MSE** | promedio de error² | Objetivo al cuadrado | **Mucho** | No tanto |
+| **RMSE** | √(MSE) | Misma que objetivo | Sí | Bastante |
 
 ## 57-68 min: entrenar y evaluar un modelo de regresión con scikit-learn (tutorial_2.json, lesson 5)
 
@@ -349,7 +449,10 @@ Preguntar a la clase:
 - Los mismos algoritmos de clasificación (árboles, random forest) se adaptan a regresión, pero cambia cómo dividen (minimizar varianza) y cómo predicen (promedio).
 - La regresión lineal es rápida e interpretable; Random Forest maneja no linealidades; XGBoost ofrece alta precisión con más ajuste.
 - En regresión no hay estratificación al dividir datos.
-- R² mide proporción de varianza explicada; MSE penaliza errores grandes al cuadrado.
+- R² responde: ¿qué fracción de la variabilidad total explica mi modelo? Va de 1.0 (perfecto) a negativo (peor que la media). Fórmula: 1 - SS_res/SS_tot.
+- MSE penaliza errores grandes al cuadrado: un error de 100 € se penaliza 10.000 veces más que uno de 1 €. Ideal cuando errores grandes son inaceptables.
+- MAE es el error promedio absoluto en las mismas unidades que el objetivo. Fácil de interpretar pero trata todos los errores por igual.
+- RMSE es la raíz cuadrada del MSE — vuelve a unidades originales pero mantiene sensibilidad a outliers.
 - El PSI monitorea si la distribución de los datos en producción ha cambiado respecto a los datos de entrenamiento.
 
 ## Bloque opcional: series temporales (lectura 4Geeks)
