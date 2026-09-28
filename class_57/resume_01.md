@@ -53,7 +53,7 @@ Para 60 minutos, omitir el detalle de XGBoost y PSI, y centrarse en regresión l
 ## Preparación del instructor
 
 - Tener abiertos `class_57/tutorial.json` (regression-models) y `class_57/tutorial_2.json` (training a regression model).
-- Los dos tutoriales de lectura (time-series y exploring-time-series) requieren autenticación en 4Geeks; el profesor debe mostrarlos en vivo desde la plataforma si desea cubrir la parte de series temporales.
+- Los contenidos de series temporales están en `class_57/time_series.json` (3 lecciones: qué son, análisis visual, modelos ARIMA/Exponential Smoothing/LSTM) y `class_57/exploring_time_series.json` (enlace a notebook Colab interactivo).
 - Tener preparado un dataset pequeño de precios de casas o usar el que proporciona el tutorial_2.
 - Recordar que la clase 56 usó clasificación; esta clase cambia a regresión pero comparte herramientas (árboles, ensamblajes, train/test split).
 
@@ -354,11 +354,21 @@ Preguntar a la clase:
 
 ## Bloque opcional: series temporales (lectura 4Geeks)
 
-Las URLs de lectura sobre "Time Series" y "Exploring Time Series" están alojadas en la plataforma de 4Geeks y requieren autenticación. El profesor debe:
+Los contenidos de las lecturas sobre series temporales están disponibles en `class_57/time_series.json` (3 lecciones) y `class_57/exploring_time_series.json` (notebook interactivo). El profesor debe:
 
-1. Acceder a las lecturas desde la plataforma en vivo.
-2. Explicar que las series temporales son un tipo especial de datos donde el tiempo es una dimensión fundamental.
-3. Relacionar la regresión con predicción temporal: un modelo de regresión puede usarse para pronosticar valores futuros en una serie temporal si se construyen características basadas en rezagos (lags), tendencia y estacionalidad.
-4. Mencionar que el análisis exploratorio de series temporales incluye visualización de tendencia, estacionalidad, ciclos y residuos; y la comprobación de estacionariedad.
+1. **Acceder en vivo** a las URLs de 4Geeks para mostrar el contenido directamente desde la plataforma.
+2. **Explicar** que las series temporales son un tipo especial de datos donde el tiempo es la dimensión fundamental: cada observación está asociada a un instante específico y existe correlación temporal entre puntos consecutivos.
+3. **Relacionar** la regresión con predicción temporal: un modelo de regresión puede usarse para pronosticar valores futuros en una serie temporal si se construyen características basadas en rezagos (lags), tendencia y estacionalidad. Los modelos ARIMA combinan autorregresión (AR), diferenciación (I) y media móvil (MA).
+4. **Cubrir** los conceptos del análisis exploratorio de series temporales:
+   - **Tendencia**: ¿los datos aumentan/disminuyen con el tiempo? (lineal o no lineal)
+   - **Estacionalidad**: ¿hay patrones que se repiten en intervalos regulares?
+   - **Variabilidad**: ¿cambia la dispersión de los datos a lo largo del tiempo?
+   - **Outliers**: valores extremos que se desvían del patrón general
+   - **Autocorrelación**: dependencia entre observaciones pasadas y actuales
+   - **Puntos de inflexión**: cambios bruscos en la tendencia
+5. **Presentar** los modelos de forecasting:
+   - **ARIMA**: autorregresivo, integrado, media móvil — versátil para tendencias y estacionalidad
+   - **Suavizado Exponencial**: pesos decrecientes para observaciones más antiguas — simple y eficiente
+   - **RNN/LSTM**: deep learning para patrones complejos y relaciones a largo plazo
+6. **Recomendar** abrir el notebook de "Exploring Time Series" en Google Colab para la parte práctica: [Colab](https://colab.research.google.com/github/4GeeksAcademy/machine-learning-content/blob/master/06-ml_algos/exploring-time-series.es.ipynb)
 
-No hay contenido adicional extraído de estas URLs por requerir autenticación; el profesor debe proyectarlas directamente.
