@@ -1,0 +1,205 @@
+{
+  "id": 3791,
+  "slug": "simple-rag-fastapi-qdrant-example-es",
+  "title": "RAG desde cero con Python y Qdrant",
+  "lang": "es",
+  "assessment": null,
+  "category": {
+    "id": 52,
+    "slug": "habilidades-technicas",
+    "title": "Habilidades Técnicas"
+  },
+  "asset_type": "LESSON",
+  "visibility": "PUBLIC",
+  "url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus",
+  "readme_url": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/lessons/simple-rag-fastapi-qdrant-example/simple-rag-fastapi-qdrant-example.es.md",
+  "difficulty": null,
+  "duration": null,
+  "description": "Construye un pipeline de Retrieval-Augmented Generation desde cero solo con Python y Qdrant, sin framework, para ver cómo encajan recuperación, prompting y generación.",
+  "status": "DRAFT",
+  "graded": false,
+  "gitpod": false,
+  "enable_table_of_content": true,
+  "interactive": false,
+  "feature": false,
+  "preview": null,
+  "external": false,
+  "solution_video_url": null,
+  "solution_url": null,
+  "intro_video_url": null,
+  "published_at": null,
+  "learnpack_deploy_url": null,
+  "allow_contributions": true,
+  "learnpack_id": null,
+  "manifest": null,
+  "is_seo_tracked": false,
+  "translations": {
+    "us": "simple-rag-fastapi-qdrant-example",
+    "es": "simple-rag-fastapi-qdrant-example-es"
+  },
+  "technologies": [
+    {
+      "slug": "python",
+      "title": "Python",
+      "description": "",
+      "icon_url": "https://storage.googleapis.com/breathecode/logos-technologias/python.png",
+      "is_deprecated": false,
+      "visibility": "PUBLIC"
+    },
+    {
+      "slug": "qdrant",
+      "title": "qdrant",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "rag",
+      "title": "rag",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    },
+    {
+      "slug": "vector-databases",
+      "title": "Vector Databases",
+      "description": null,
+      "icon_url": null,
+      "is_deprecated": false,
+      "visibility": "UNLISTED"
+    }
+  ],
+  "seo_keywords": [],
+  "assets_related": [],
+  "with_solutions": false,
+  "with_video": false,
+  "updated_at": "2026-07-24T17:51:11.280912Z",
+  "agent": null,
+  "config": null,
+  "status_text": "Successfully Synched",
+  "author": {
+    "id": 1708,
+    "first_name": "Marco",
+    "last_name": "Gomez",
+    "profile": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/410890?v=4",
+      "github_username": null
+    }
+  },
+  "owner": {
+    "id": 1,
+    "first_name": "Alejandro",
+    "last_name": "Sanchez",
+    "profile": {
+      "avatar_url": "https://techhubsouthflorida.org/wp-content/uploads/2023/09/Alejandro-Sanchez.jpeg",
+      "github_username": null
+    }
+  },
+  "github_activity_logs": [
+    {
+      "at": "2026-07-24T17:51:02.804621+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "c41f26e23be916b74aa80085fde4ed785dcc9361",
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "modified_file": "content/lessons/simple-rag-fastapi-qdrant-example/simple-rag-fastapi-qdrant-example.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-24T17:51:04.882149+00:00",
+      "repository_webhook_id": 74231
+    },
+    {
+      "at": "2026-07-24T17:50:59.936281+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "c41f26e23be916b74aa80085fde4ed785dcc9361",
+      "modified_file": "content/lessons/simple-rag-fastapi-qdrant-example/simple-rag-fastapi-qdrant-example.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "repository_webhook_id": 74230
+    },
+    {
+      "at": "2026-07-15T18:44:23.709699+00:00",
+      "kind": "academy",
+      "action": "pull",
+      "detail": "AcademyAssetActionView PUT",
+      "status": "ok",
+      "http_status": 200,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset/simple-rag-fastapi-qdrant-example-es/action/pull",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    },
+    {
+      "at": "2026-07-15T18:44:23.694231+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "Successfully Synched",
+      "pull_status": "ok",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-07-03T19:16:08.956062+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "2317e9a98dea11c8e76336f251831042ee2c417e",
+      "pull_detail": "System does not know what github credentials to use to retrieve asset info for: simple-rag-fastapi-qdrant-example-es",
+      "pull_status": "error",
+      "modified_file": "content/lessons/simple-rag-fastapi-qdrant-example/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-03T19:16:09.249982+00:00",
+      "repository_webhook_id": 73479
+    },
+    {
+      "at": "2026-07-03T19:16:08.931641+00:00",
+      "kind": "inbound_webhook",
+      "status": "webhook_received",
+      "commit_sha": "2317e9a98dea11c8e76336f251831042ee2c417e",
+      "pull_detail": "System does not know what github credentials to use to retrieve asset info for: simple-rag-fastapi-qdrant-example-es",
+      "pull_status": "error",
+      "modified_file": "content/lessons/simple-rag-fastapi-qdrant-example/README.es.md",
+      "kind_help_text": "GitHub called our webhook (usually after a push to the repo). We may enqueue syncing files into this asset.",
+      "pull_finished_at": "2026-07-03T19:16:11.314143+00:00",
+      "repository_webhook_id": 73480
+    },
+    {
+      "at": "2026-07-03T19:12:32.251643+00:00",
+      "kind": "pull_outcome",
+      "source": "pull_task",
+      "commit_sha": null,
+      "pull_detail": "System does not know what github credentials to use to retrieve asset info for: simple-rag-fastapi-qdrant-example-es",
+      "pull_status": "error",
+      "kind_help_text": "Outcome of syncing content from GitHub into this asset, or an update linked to a prior inbound webhook.",
+      "repository_webhook_id": null
+    },
+    {
+      "at": "2026-07-03T19:12:30.803820+00:00",
+      "kind": "academy",
+      "action": "pull_queued",
+      "detail": "POST create academy asset: initial pull",
+      "status": "ok",
+      "http_status": 201,
+      "request_url": "https://breathecode.herokuapp.com/v1/registry/academy/asset",
+      "kind_help_text": "Something was triggered from the academy API or admin UI (pull, push, create_repo, queueing tasks, etc.). ``status``: ok|error for a completed API outcome, or ``triggered`` when only the request is logged (default if omitted). ``http_status`` is the HTTP status code of our API response for that request (when known). Outcome of sync to/from GitHub is in ``pull_outcome`` / ``outbound_push``. Optional ``error``, ``detail``, ``request_url``."
+    }
+  ],
+  "test_status": null,
+  "last_test_at": null,
+  "sync_status": "OK",
+  "last_synch_at": "2026-07-24T17:51:04.646103Z",
+  "delivery_instructions": null,
+  "delivery_formats": "url",
+  "delivery_regex_url": null,
+  "template_url": null,
+  "is_in_subdirectory": true,
+  "dependencies": null,
+  "academy": {
+    "id": 47,
+    "name": "4Geeks.com"
+  },
+  "superseded_by": null,
+  "aliases": [
+    "simple-rag-fastapi-qdrant-example-es"
+  ]
+}
