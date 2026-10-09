@@ -134,8 +134,14 @@ async def scrape_tutorial(context, output_dir: Path, tutorial_name: str, url: st
 
 
 def slug_from_url(url: str) -> str:
-    path_parts = [part for part in urlsplit(url).path.split("/") if part]
-    slug = path_parts[-1] if path_parts else "tutorial"
+    parsed_url = urlsplit(url)
+    path_parts = [part for part in parsed_url.path.split("/") if part]
+    if path_parts:
+        slug = path_parts[-1]
+    else:
+        hostname = parsed_url.hostname or ""
+        suffix = ".learn-pack.com"
+        slug = hostname[:-len(suffix)] if hostname.endswith(suffix) else "tutorial"
     slug = slug.replace("-", "_").strip("_")
     return slug or "tutorial"
 
