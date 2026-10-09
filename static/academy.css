@@ -269,6 +269,106 @@ main {
   margin: 16px 0;
 }
 
+.floating-note {
+  position: fixed;
+  z-index: 20;
+  right: 20px;
+  bottom: 20px;
+  width: min(390px, calc(100vw - 40px));
+  max-height: min(68vh, 620px);
+  overflow: auto;
+  padding: 16px 18px 14px;
+  border: 1px solid #99c5bb;
+  border-radius: 14px;
+  background: #f0fdfa;
+  color: #173b39;
+  box-shadow: 0 12px 36px rgba(15, 58, 53, 0.24);
+  line-height: 1.45;
+}
+
+.floating-note[hidden],
+.floating-note-reopen[hidden] {
+  display: none;
+}
+
+.floating-note-content {
+  padding-right: 18px;
+  font-size: 13px;
+}
+
+.floating-note-content h2 {
+  margin: 0 22px 10px 0 !important;
+  color: #115e59;
+  font-size: 1.12rem !important;
+}
+
+.floating-note-content p {
+  margin: 8px 0 !important;
+  color: #173b39 !important;
+}
+
+.floating-note-content ul {
+  margin: 8px 0 10px 18px !important;
+  padding: 0;
+}
+
+.floating-note-content li {
+  margin: 8px 0 !important;
+}
+
+.floating-note-close {
+  position: sticky;
+  float: right;
+  top: 0;
+  margin: -5px -8px 0 4px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #b7d8d0;
+  border-radius: 50%;
+  background: #fff;
+  color: #115e59;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.floating-note-close:hover,
+.floating-note-reopen:hover {
+  background: #ccfbf1;
+}
+
+.floating-note-reopen {
+  position: fixed;
+  z-index: 20;
+  right: 20px;
+  bottom: 20px;
+  max-width: calc(100vw - 40px);
+  padding: 10px 14px;
+  border: 1px solid #0f766e;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(15, 58, 53, 0.22);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .floating-note {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+    max-height: 62vh;
+  }
+
+  .floating-note-reopen {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
 .empty {
   color: var(--ink-soft);
   font-style: italic;

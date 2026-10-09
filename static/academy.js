@@ -84,7 +84,37 @@ function markdownToHtml(markdown) {
     }
   }
 
-  for (const line of lines) {
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
+    if (line.trim() === ":::floating-note") {
+      closeLists();
+      const noteLines = [];
+      let closingIndex = lineIndex + 1;
+      while (closingIndex < lines.length) {
+        const noteLine = lines[closingIndex];
+        if (noteLine.trim() === ":::") {
+          break;
+        }
+        noteLines.push(noteLine);
+        closingIndex += 1;
+      }
+
+      if (closingIndex < lines.length) {
+        html.push(
+          `<aside class="floating-note" aria-label="Puentes con clases anteriores">
+            <button class="floating-note-close" type="button" aria-label="Cerrar nota" title="Cerrar">×</button>
+            <div class="floating-note-content">${markdownToHtml(noteLines.join("\n"))}</div>
+          </aside>
+          <button class="floating-note-reopen" type="button" aria-expanded="false">Ver conexiones con clases anteriores</button>`
+        );
+        lineIndex = closingIndex;
+        continue;
+      }
+
+      html.push(`<p>${parseInlineMarkdown(line)}</p>`);
+      continue;
+    }
+
     if (line.startsWith("```")) {
       closeLists();
       if (!inCode) {
@@ -253,6 +283,7 @@ async function loadContent() {
   if (payload.extension === "md") {
     contentEl.classList.add("markdown");
     contentEl.innerHTML = markdownToHtml(payload.content);
+    bindFloatingNote();
   } else {
     contentEl.classList.add("raw");
     contentEl.textContent = payload.content;
@@ -260,6 +291,26 @@ async function loadContent() {
 
   updateURL();
   highlightActive();
+}
+
+function bindFloatingNote() {
+  const note = contentEl.querySelector(".floating-note");
+  const closeButton = contentEl.querySelector(".floating-note-close");
+  const reopenButton = contentEl.querySelector(".floating-note-reopen");
+  if (!note || !closeButton || !reopenButton) return;
+
+  closeButton.addEventListener("click", () => {
+    note.hidden = true;
+    reopenButton.hidden = false;
+    reopenButton.setAttribute("aria-expanded", "false");
+    reopenButton.focus();
+  });
+
+  reopenButton.addEventListener("click", () => {
+    note.hidden = false;
+    reopenButton.hidden = true;
+    closeButton.focus();
+  });
 }
 
 function highlightActive() {

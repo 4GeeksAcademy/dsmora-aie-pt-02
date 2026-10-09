@@ -20,6 +20,18 @@ Al finalizar, el estudiante podrá:
 - Los JSON no incluyen comandos de terminal para instalar o lanzar el ejemplo, ni prompts de OpenClaw. No añadirlos como pasos de clase.
 - Plan de contingencia: si no se puede mostrar código, recorrer el flujo en voz alta con el ejemplo de consultar el clima en Madrid y pedir al grupo que identifique modelo, estado, herramienta, ruta y condición de parada.
 
+:::floating-note
+## Puentes con clases anteriores
+
+Ten estas conexiones a mano mientras avanzas por la clase 62:
+
+- **Clase 17 — Introducción a OpenClaw:** ya vimos un agente que puede realizar tareas de varios pasos. El **Gateway** recibe y enruta mensajes, y participa en la ejecución de herramientas. Conecta esa arquitectura con la idea de hoy: el modelo propone una acción, pero el sistema que lo rodea gestiona el flujo.
+- **Clase 18 — Tareas simples + Telegram/Composio MCP:** las **skills** describen procedimientos para tareas repetibles; MCP/Composio permite conectar acciones con servicios externos. Relaciónalo con las herramientas de clase 62: funciones con entradas y salidas definidas que el agente solicita y el sistema ejecuta.
+- **Clase 23 — Arquitectura avanzada y skills de OpenClaw:** el workspace y archivos como `TOOLS.md` aportan contexto sobre las capacidades del agente; las skills organizan instrucciones reutilizables. En clase 62 daremos el siguiente paso y veremos el ciclo de ejecución: detectar la solicitud estructurada, llamar la herramienta, devolver el resultado al modelo y decidir si continúa o termina.
+
+**Nota para explicar:** una skill de OpenClaw no es exactamente lo mismo que una función/herramienta tipada del ejemplo de clase 62. La conexión es conceptual: ambas ayudan a que el agente realice tareas; hoy nos centraremos en cómo el sistema ejecuta y enruta las llamadas a herramientas.
+:::
+
 ## Agenda de 70 minutos
 
 | Tiempo | Bloque |
